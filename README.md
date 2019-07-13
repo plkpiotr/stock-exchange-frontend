@@ -3,3 +3,11 @@ Frontend:
 
 To do:
 - Add `.env` file
+
+```css
+body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+```
