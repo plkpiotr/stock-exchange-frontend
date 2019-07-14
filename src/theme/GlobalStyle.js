@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
   }
   
   body {
-    background-color: darkslategrey;
+    background-color: hsl(245, 5%, 95%);
     margin: 0;
   }
 `;
