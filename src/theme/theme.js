@@ -1,4 +1,4 @@
-const colors = {
+const theme = {
   purpleDark: 'hsl(245, 35%, 15%)',
   purpleMedium: 'hsl(245, 35%, 25%)',
   purpleLight: 'hsl(245, 35%, 35%)',
@@ -10,4 +10,4 @@ const colors = {
   white: 'hsl(0, 0%, 100%)',
 };
 
-export default colors;
+export default theme;
