@@ -9,8 +9,9 @@ const Root = () => (
     <GlobalStyle />
     <ThemeProvider theme={theme}>
       <>
-        <Button>Big Button</Button>
-        <Button secondary>Small Button</Button>
+        <Button blue>Big Button</Button>
+        <Button pink>Pink Button</Button>
+        <Button violet>Violet Button</Button>
       </>
     </ThemeProvider>
   </div>

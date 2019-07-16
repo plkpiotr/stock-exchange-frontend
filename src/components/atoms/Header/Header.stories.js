@@ -3,4 +3,6 @@ import { storiesOf } from '@storybook/react';
 import Header from './Header';
 
 storiesOf('Header', module)
-  .add('Header', () => <Header>Example text</Header>);
+  .add('Blue Header', () => <Header blue>Example text</Header>)
+  .add('Pink Header', () => <Header pink>Example text</Header>)
+  .add('Violet Header', () => <Header violet>Example text</Header>);
