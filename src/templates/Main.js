@@ -1,18 +1,20 @@
 import React from 'react';
-import Button from 'components/atoms/Button/Button';
+import PropTypes from 'prop-types';
 import GlobalStyle from 'theme/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
 import theme from 'theme/theme';
 
-const Root = () => (
-  <div>
+const Main = ({ children }) => (
+  <>
     <GlobalStyle />
     <ThemeProvider theme={theme}>
-      <>
-        <Button>Stock exchange</Button>
-      </>
+      { children }
     </ThemeProvider>
-  </div>
+  </>
 );
 
-export default Root;
+Main.propTypes = {
+  children: PropTypes.element.isRequired,
+};
+
+export default Main;
