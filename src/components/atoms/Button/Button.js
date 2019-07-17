@@ -1,15 +1,16 @@
 import styled from 'styled-components';
 
 const Button = styled.button`
-  padding: 10px 40px;
+  padding: 8px 36px;
   border-radius: 50px;
   border: none;
   color: white;
   text-transform: uppercase;
   font-weight: ${({ theme }) => (theme.bold)};
-  margin: 15px;
+  margin-top: 15px;
+  margin-bottom: 30px;
   transition: .3s ease;
-  background-color: ${({ color }) => (color)};
+  background-color: ${({ theme }) => (theme.primary)};
 
   
   &:focus {
@@ -19,7 +20,7 @@ const Button = styled.button`
   &:hover {
     cursor: pointer; 
     transition: .3s ease;
-    background-color: ${({ hover }) => (hover)};
+    background-color: ${({ theme }) => (theme.secondary)};
   }
 `;
 

@@ -1,8 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Header from './Header';
+import theme from '../../../theme/theme';
 
 storiesOf('Header', module)
-  .add('Blue', () => <Header blue>Example text</Header>)
-  .add('Pink', () => <Header pink>Example text</Header>)
-  .add('Violet', () => <Header violet>Example text</Header>);
+  .add('Header', () => <Header color={theme.primary}>Header</Header>);

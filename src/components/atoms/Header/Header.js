@@ -1,25 +1,9 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 const Header = styled.h1`
   font-weight: ${({ theme }) => (theme.bold)};
-
-  ${({ blue }) => (
-    blue && css`
-      color: ${({ theme }) => (theme.blue)};
-    `
-  )}
-
-  ${({ pink }) => (
-    pink && css`
-      color: ${({ theme }) => (theme.pink)};
-    `
-  )}
-  
-  ${({ violet }) => (
-    violet && css`
-      color: ${({ theme }) => (theme.violet)};
-    `
-  )}
+  color: ${({ theme }) => (theme.primary)};
+  cursor: default;
 `;
 
 export default Header;

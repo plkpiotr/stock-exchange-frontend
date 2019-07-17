@@ -10,7 +10,7 @@ const Icon = styled.button`
   background: white url(${({ icon }) => (icon)}) no-repeat 50% 25%;
   background-size: 40%;
   transition: .1s ease;
-  border: 0 solid ${({ color }) => (color)};
+  border: 0 solid ${({ theme }) => (theme.primary)};
 
   &:focus {
     outline: none;
@@ -20,14 +20,14 @@ const Icon = styled.button`
     width: 135px;
     transition: .1s ease;
     cursor: pointer;
-    border-right: 5px solid ${({ color }) => (color)};
+    border-right: 5px solid ${({ theme }) => (theme.primary)};
   }
   
   ${({ active }) => (
     active && css`
       width: 135px;
       outline: none;
-      border-right: 5px solid ${({ color }) => (color)};                             
+      border-right: 5px solid ${({ theme }) => (theme.primary)};                             
     `
   )}
 `;

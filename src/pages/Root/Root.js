@@ -9,9 +9,7 @@ const Root = () => (
     <GlobalStyle />
     <ThemeProvider theme={theme}>
       <>
-        <Button color={theme.blue} hover={theme.blueLight}>Violet Button</Button>
-        <Button color={theme.pink} hover={theme.pinkLight}>Blue Button</Button>
-        <Button color={theme.violet} hover={theme.violetLight}>Pink Button</Button>
+        <Button>Stock exchange</Button>
       </>
     </ThemeProvider>
   </div>

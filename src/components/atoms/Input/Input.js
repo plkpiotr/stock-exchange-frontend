@@ -3,17 +3,19 @@ import magnifier from 'icons/magnifier.svg';
 
 const Input = styled.input`
   width: 200px;
-  border: 0 solid deeppink;
+  border: 0 solid ${({ theme }) => (theme.primary)};
+  transition: .1s ease;
 
   &:focus {
+    width: 205px;
     outline: none;
-    border-right: 5px solid ${({ color }) => (color)};
-
+    border-right: 5px solid ${({ theme }) => (theme.primary)};
   }
   
   &:hover {
     transition: .1s ease;
-    border-right: 5px solid ${({ color }) => (color)};
+    width: 205px;
+    border-right: 5px solid ${({ theme }) => (theme.primary)};
   }
   
   ${({ icon }) => (
