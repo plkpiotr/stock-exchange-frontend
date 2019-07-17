@@ -3,4 +3,5 @@ import { storiesOf } from '@storybook/react';
 import Card from './Card';
 
 storiesOf('Card', module)
-  .add('Card', () => <Card />);
+  .add('Article', () => <Card type="article" />)
+  .add('Note', () => <Card type="note" />);

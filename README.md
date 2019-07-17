@@ -3,3 +3,4 @@ Frontend:
 
 To do:
 - Add default right border for icons
+- Add `<p>` (place to created and modified date) for articles, notes and transactions
