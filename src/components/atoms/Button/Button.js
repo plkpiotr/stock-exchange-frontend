@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 const Button = styled.button`
   padding: 10px 40px;
@@ -8,7 +8,9 @@ const Button = styled.button`
   text-transform: uppercase;
   font-weight: ${({ theme }) => (theme.bold)};
   margin: 15px;
-  transition: .3s ease-in-out;
+  transition: .3s ease;
+  background-color: ${({ color }) => (color)};
+
   
   &:focus {
     outline: none;
@@ -16,38 +18,9 @@ const Button = styled.button`
   
   &:hover {
     cursor: pointer; 
-    transition: .3s ease-in-out;
+    transition: .3s ease;
+    background-color: ${({ hover }) => (hover)};
   }
-  
-  ${({ blue }) => (
-    blue && css`
-      background-color: ${({ theme }) => (theme.blue)};
-        
-        &:hover {
-          background-color: ${({ theme }) => (theme.blueLight)};
-        }                                 
-    `
-  )}
-  
-  ${({ pink }) => (
-    pink && css`
-      background-color: ${({ theme }) => (theme.pink)};
-        
-        &:hover {
-          background-color: ${({ theme }) => (theme.pinkLight)};
-        }
-    `
-  )}
-  
-  ${({ violet }) => (
-    violet && css`
-      background-color: ${({ theme }) => (theme.violet)};
-                                         
-      &:hover {
-        background-color: ${({ theme }) => (theme.violetLight)};
-      }
-    `
-  )}
 `;
 
 export default Button;

@@ -2,10 +2,18 @@ import styled, { css } from 'styled-components';
 import magnifier from 'icons/magnifier.svg';
 
 const Input = styled.input`
-  border: none;
-  
+  width: 200px;
+  border: 0 solid deeppink;
+
   &:focus {
     outline: none;
+    border-right: 5px solid ${({ color }) => (color)};
+
+  }
+  
+  &:hover {
+    transition: .1s ease;
+    border-right: 5px solid ${({ color }) => (color)};
   }
   
   ${({ icon }) => (
@@ -14,8 +22,7 @@ const Input = styled.input`
       background-image: url(${magnifier});
       background-size: 12px;
       background-repeat: no-repeat;
-      background-position: 6px 50%;
-      }                          
+      background-position: 5px 50%;                     
     `
   )}
 `;
