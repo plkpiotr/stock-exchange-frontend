@@ -25,22 +25,22 @@ const Wrapper = styled.ul`
 const Sidebar = () => (
   <Wrapper>
     <li>
-      <Icon as={NavLink} to="/dashboard" icon={dashboard} activeClass="active">Dashboard</Icon>
+      <Icon as={NavLink} to="/dashboard" icon={dashboard} activeclass="active">Dashboard</Icon>
     </li>
     <li>
-      <Icon as={NavLink} to="/quotes" icon={quotes} activeClass="active">Quotes</Icon>
+      <Icon as={NavLink} to="/quotes" icon={quotes} activeclass="active">Quotes</Icon>
     </li>
     <li>
-      <Icon as={NavLink} to="/indicators" icon={indicators} activeClass="active">Indicators</Icon>
+      <Icon as={NavLink} to="/indicators" icon={indicators} activeclass="active">Indicators</Icon>
     </li>
     <li>
-      <Icon as={NavLink} to="/transactions" icon={transactions} activeClass="active">Transactions</Icon>
+      <Icon as={NavLink} to="/transactions" icon={transactions} activeclass="active">Transactions</Icon>
     </li>
     <li>
-      <Icon as={NavLink} to="/articles" icon={articles} activeClass="active">Articles</Icon>
+      <Icon as={NavLink} to="/articles" icon={articles} activeclass="active">Articles</Icon>
     </li>
     <li>
-      <Icon as={NavLink} to="/notes" icon={notes} activeClass="active">Notes</Icon>
+      <Icon as={NavLink} to="/notes" icon={notes} activeclass="active">Notes</Icon>
     </li>
     <li>
       <Icon as={NavLink} to="/logout" icon={logout}>Log out</Icon>
