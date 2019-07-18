@@ -1,7 +1,10 @@
 import React from 'react';
+import User from 'templates/User';
 
 const Quotes = () => (
-  <h1>Quotes - template</h1>
+  <User>
+    <h1>Quotes - template</h1>
+  </User>
 );
 
 export default Quotes;

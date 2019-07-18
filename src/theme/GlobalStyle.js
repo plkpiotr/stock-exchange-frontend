@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
   
   body {
     background-color: hsl(245, 5%, 95%);
+    padding-left: 125px;
     margin: 0;
   }
 `;

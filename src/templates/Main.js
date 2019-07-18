@@ -8,7 +8,7 @@ const Main = ({ children }) => (
   <>
     <GlobalStyle />
     <ThemeProvider theme={theme}>
-      { children }
+      {children}
     </ThemeProvider>
   </>
 );

@@ -1,8 +1,8 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 const Icon = styled.a`
   padding-top: 65px;
-  margin: 0 0 30px;
+  margin: 0 0 10px;
   font-weight: ${({ theme }) => (theme.bold)};
   color: ${({ theme }) => (theme.gray)};
   height: 90px;
@@ -13,14 +13,10 @@ const Icon = styled.a`
   display: block;
   width: 120px;
   text-decoration: none;
-  font-size: 13px;
+  font-size: 16px;
   text-align: center;
   
   //border-right: 5px solid white;
-
-  &:focus {
-    outline: none;
-  }
   
   &:hover {
     width: 125px;
@@ -29,13 +25,11 @@ const Icon = styled.a`
     border-right: 5px solid ${({ theme }) => (theme.primary)};
   }
   
-  ${({ active }) => (
-    active && css`
-      width: 125px;
-      outline: none;
-      border-right: 5px solid ${({ theme }) => (theme.primary)};                             
-    `
-  )}
+  &.active {
+    width: 125px;
+    outline: none;
+    border-right: 5px solid ${({ theme }) => (theme.primary)};    
+  }
 `;
 
 export default Icon;

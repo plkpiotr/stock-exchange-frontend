@@ -10,7 +10,7 @@ import articles from 'icons/articles.svg';
 import notes from 'icons/notes.svg';
 import logout from 'icons/logout.svg';
 
-const List = styled.ul`
+const Wrapper = styled.ul`
   list-style-type: none;
   background-color: white;
   margin: 0;
@@ -18,31 +18,29 @@ const List = styled.ul`
 `;
 
 const Sidebar = () => (
-  <div>
-    <div>
-      <List>
-        <li>
-          <Icon as={NavLink} to="/dashboard" icon={dashboard}>Dashboard</Icon>
-        </li>
-        <li>
-          <Icon as={NavLink} to="/quotes" icon={quotes}>Quotes</Icon>
-        </li>
-        <li>
-          <Icon as={NavLink} to="/indicators" icon={indicators}>Indicators</Icon>
-        </li>
-        <li>
-          <Icon as={NavLink} to="/transactions" icon={transactions}>Transactions</Icon>
-        </li>
-        <li>
-          <Icon as={NavLink} to="/articles" icon={articles}>Articles</Icon>
-        </li>
-        <li>
-          <Icon as={NavLink} to="/notes" icon={notes}>Notes</Icon>
-        </li>
-      </List>
-    </div>
-    <Icon as={NavLink} to="/logout" icon={logout}>Log out</Icon>
-  </div>
+  <Wrapper>
+    <li>
+      <Icon as={NavLink} to="/dashboard" icon={dashboard} activeClass="active">Dashboard</Icon>
+    </li>
+    <li>
+      <Icon as={NavLink} to="/quotes" icon={quotes} activeClass="active">Quotes</Icon>
+    </li>
+    <li>
+      <Icon as={NavLink} to="/indicators" icon={indicators} activeClass="active">Indicators</Icon>
+    </li>
+    <li>
+      <Icon as={NavLink} to="/transactions" icon={transactions} activeClass="active">Transactions</Icon>
+    </li>
+    <li>
+      <Icon as={NavLink} to="/articles" icon={articles} activeClass="active">Articles</Icon>
+    </li>
+    <li>
+      <Icon as={NavLink} to="/notes" icon={notes} activeClass="active">Notes</Icon>
+    </li>
+    <li>
+      <Icon as={NavLink} to="/logout" icon={logout}>Log out</Icon>
+    </li>
+  </Wrapper>
 );
 
 export default Sidebar;

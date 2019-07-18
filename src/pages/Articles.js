@@ -1,7 +1,10 @@
 import React from 'react';
+import User from 'templates/User';
 
 const Articles = () => (
-  <h1>Articles - template</h1>
+  <User>
+    <h1>Articles - template</h1>
+  </User>
 );
 
 export default Articles;

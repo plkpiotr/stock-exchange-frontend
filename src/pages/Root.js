@@ -10,8 +10,8 @@ import Notes from './Notes';
 import Logout from './Logout';
 
 const Root = () => (
-  <Main>
-    <BrowserRouter>
+  <BrowserRouter>
+    <Main>
       <Switch>
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/quotes" component={Quotes} />
@@ -21,8 +21,8 @@ const Root = () => (
         <Route path="/notes" component={Notes} />
         <Route path="/logout" component={Logout} />
       </Switch>
-    </BrowserRouter>
-  </Main>
+    </Main>
+  </BrowserRouter>
 );
 
 export default Root;

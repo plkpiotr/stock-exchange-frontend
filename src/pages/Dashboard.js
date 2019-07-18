@@ -1,7 +1,10 @@
 import React from 'react';
+import User from 'templates/User';
 
 const Dashboard = () => (
-  <h1>Dashboard - template</h1>
+  <User>
+    <h1>Dashboard - template</h1>
+  </User>
 );
 
 export default Dashboard;
