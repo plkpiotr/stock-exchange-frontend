@@ -11,10 +11,15 @@ import notes from 'icons/notes.svg';
 import logout from 'icons/logout.svg';
 
 const Wrapper = styled.ul`
-  list-style-type: none;
   background-color: white;
+  position: fixed;
+  height: 100%;
+  list-style-type: none;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 const Sidebar = () => (

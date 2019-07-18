@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 const Icon = styled.a`
-  padding-top: 65px;
+  padding-top: 55px;
   margin: 0 0 10px;
   font-weight: ${({ theme }) => (theme.bold)};
   color: ${({ theme }) => (theme.gray)};
-  height: 90px;
+  height: 80px;
   background: white url(${({ icon }) => (icon)}) no-repeat 50% 25%;
   background-size: 40%;
   transition: .3s ease;
@@ -15,8 +15,6 @@ const Icon = styled.a`
   text-decoration: none;
   font-size: 16px;
   text-align: center;
-  
-  //border-right: 5px solid white;
   
   &:hover {
     width: 125px;

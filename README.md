@@ -9,7 +9,5 @@ To do:
 - Maybe... Should I change path `/dashboard` on `/`?
 - Maybe... Should I remove `display: block;` selector from `Icon.js`?
 - Maybe... Should I rename `User.js` on `LoginUser.js`?
-- Maybe... Should I move `pages` and `templates` to `components`?
 - Add possibility of `log out` (also on backend repository)
-- Set vertical align for `Sidebar` component
 - Maybe.. Should I use `media-query`? But with styled-components?
