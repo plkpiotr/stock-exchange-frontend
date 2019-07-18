@@ -1,5 +1,5 @@
 import React from 'react';
-import User from 'templates/User';
+import User from 'components/templates/User/User';
 
 const Quotes = () => (
   <User>

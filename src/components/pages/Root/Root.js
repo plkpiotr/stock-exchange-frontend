@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Main from 'templates/Main';
-import Dashboard from './Dashboard';
-import Quotes from './Quotes';
-import Indicators from './Indicators';
-import Transactions from './Transactions';
-import Articles from './Articles';
-import Notes from './Notes';
-import Logout from './Logout';
+import Main from 'components/templates/Main/Main';
+import Dashboard from '../Dashboard/Dashboard';
+import Quotes from '../Quotes/Quotes';
+import Indicators from '../Indicators/Indicators';
+import Transactions from '../Transactions/Transactions';
+import Articles from '../Articles/Articles';
+import Notes from '../Notes/Notes';
+import Logout from '../Logout/Logout';
 
 const Root = () => (
   <BrowserRouter>
