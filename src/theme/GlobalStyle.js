@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Titillium+Web:400,700&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Titillium+Web:400,600&display=swap');
   
   *, *::before, *::after {
     font-family: 'Titillium Web', sans-serif;
@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
   }
   
   body {
-    background-color: hsl(245, 5%, 95%);
+    background-color: hsl(35, 100%, 95%);
     margin: 0;
   }
 `;

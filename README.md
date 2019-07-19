@@ -3,7 +3,9 @@ Frontend:
 - `npm run storybook` to run storybook on localhost:9009
 
 To do:
-- Rethink `min-height` of card 
+- Rethink `min-height` of card
+- Decrease number of letters in cards
+- Add animations for components in pages
 
 In the future:
 - Change nomenclature to `Styled`

@@ -9,13 +9,14 @@ const Wrapper = styled.div`
   max-width: 364px;
   max-height: 340px;
   margin : 2vh 2vw 3vh 0;
-  padding: 5px 40px;
+  padding: 5px 30px;
   background-color: white;
-  box-shadow: 2px 6px 6px 3px ${({ theme }) => (theme.gray)};
+  // box-shadow: 2px 6px 6px 3px ${({ theme }) => (theme.gray)};
 `;
 
 const Date = styled.div`
   color: ${({ theme }) => (theme.gray)};
+  font-weight: ${({ theme }) => (theme.gray)};
   float: right;
   display: flex;
   padding-top: 5px;
