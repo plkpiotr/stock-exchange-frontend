@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Icon = styled.a`
   padding-top: 55px;
-  margin: 0 0 10px;
+  margin: 5px 0;
   font-weight: ${({ theme }) => (theme.bold)};
   color: ${({ theme }) => (theme.gray)};
   height: 80px;

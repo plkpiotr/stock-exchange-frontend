@@ -1,15 +1,15 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Main from 'components/templates/Main/Main';
-import Dashboard from '../Dashboard/Dashboard';
-import Quotes from '../Quotes/Quotes';
-import Indicators from '../Indicators/Indicators';
-import Transactions from '../Transactions/Transactions';
-import Articles from '../Articles/Articles';
-import Notes from '../Notes/Notes';
-import Logout from '../Logout/Logout';
+import Dashboard from './components/pages/Dashboard/Dashboard';
+import Quotes from './components/pages/Quotes/Quotes';
+import Indicators from './components/pages/Indicators/Indicators';
+import Transactions from './components/pages/Transactions/Transactions';
+import Articles from './components/pages/Articles/Articles';
+import Notes from './components/pages/Notes/Notes';
+import Logout from './components/pages/Logout/Logout';
 
-const Root = () => (
+const App = () => (
   <BrowserRouter>
     <Main>
       <Switch>
@@ -25,4 +25,4 @@ const Root = () => (
   </BrowserRouter>
 );
 
-export default Root;
+export default App;
