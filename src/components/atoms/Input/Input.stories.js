@@ -4,4 +4,4 @@ import Input from './Input';
 
 storiesOf('Atoms', module)
   .add('Input (plain)', () => <Input />)
-  .add('Input (search)', () => <Input icon />);
+  .add('Input (search)', () => <Input search />);

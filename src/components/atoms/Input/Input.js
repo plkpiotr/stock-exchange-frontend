@@ -2,9 +2,10 @@ import styled, { css } from 'styled-components';
 import magnifier from 'icons/magnifier.svg';
 
 const Input = styled.input`
-  width: 200px;
-  border: 0 solid ${({ theme }) => (theme.primary)};
-  transition: .1s ease;
+  width: 205px;
+  border: 0 solid white;
+  transition: .3s ease;
+  font-size: 16px;
 
   &:focus {
     width: 205px;
@@ -13,18 +14,19 @@ const Input = styled.input`
   }
   
   &:hover {
-    transition: .1s ease;
+    transition: .3s ease;
     width: 205px;
     border-right: 5px solid ${({ theme }) => (theme.primary)};
   }
   
-  ${({ icon }) => (
-    icon && css`
-      padding-left: 24px;
+  ${({ search }) => (
+    search && css`
+      padding-left: 32px;
+      padding-right: 12px;
       background-image: url(${magnifier});
       background-size: 12px;
       background-repeat: no-repeat;
-      background-position: 5px 50%;                     
+      background-position: 10px 50%;
     `
   )}
 `;

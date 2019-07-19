@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   margin-left: 125px;
+  padding: 0 0 1vh 3vw;
 `;
 
 const Quotes = () => (

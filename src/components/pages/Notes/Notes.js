@@ -3,14 +3,15 @@ import User from 'components/templates/User/User';
 import styled from 'styled-components';
 import Header from 'components/atoms/Header/Header';
 import Paragraph from 'components/atoms/Paragraph/Paragraph';
+import Input from 'components/atoms/Input/Input';
 import Card from 'components/molecules/Card/Card';
 
 const Wrapper = styled.div`
   margin-left: 125px;
-  padding: 1vh 4vw;
+  padding: 0 0 1vh 3vw;
 `;
 
-const Grid = styled.div`
+const Board = styled.div`
   display: flex;
   flex-wrap: wrap;
 `;
@@ -18,14 +19,16 @@ const Grid = styled.div`
 const Notes = () => (
   <User>
     <Wrapper>
-      <Header>Your notes</Header>
-      <Paragraph>It this place will be number of notes</Paragraph>
-      <Grid>
+      <Header>Your notes [5]</Header>
+      <Paragraph>Find by title:</Paragraph>
+      <Input search />
+      <Board>
         <Card type="note" />
         <Card type="note" />
         <Card type="note" />
         <Card type="note" />
-      </Grid>
+        <Card type="note" />
+      </Board>
     </Wrapper>
   </User>
 );
