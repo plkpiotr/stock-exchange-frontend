@@ -15,7 +15,7 @@ const Article = () => (
     <Wrapper>
       <Header>Your articles</Header>
       <Paragraph>One of them</Paragraph>
-      <Details type="article" />
+      <Details type="articles" />
     </Wrapper>
   </User>
 );

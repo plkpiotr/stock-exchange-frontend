@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 import Title from 'components/atoms/Title/Title';
 import Description from 'components/atoms/Description/Description';
@@ -23,20 +24,39 @@ const Date = styled.div`
 
 const linkIcon = '\u25b6';
 
-const Card = ({
-  type, title, description, link, created,
-}) => (
-  <Wrapper>
-    <Title>{title}</Title>
-    <Description>{description}</Description>
-    <Button>See details</Button>
-    { type === 'article' ? <Button href={link}>{linkIcon}</Button> : null }
-    <Date>{created}</Date>
-  </Wrapper>
-);
+class Card extends Component {
+  state = {
+    redirect: false,
+  };
+
+  handleClickOnCard = () => this.setState({ redirect: true });
+
+  render() {
+    const {
+      id, type, title, description, link, created,
+    } = this.props;
+
+    const { redirect } = this.state;
+
+    if (redirect) {
+      return <Redirect push to={`/${type}/${id}`} />;
+    }
+
+    return (
+      <Wrapper onClick={this.handleClickOnCard}>
+        <Title>{title}</Title>
+        <Description>{description}</Description>
+        <Button>See details</Button>
+        {type === 'articles' ? <Button href={link}>{linkIcon}</Button> : null}
+        <Date>{created}</Date>
+      </Wrapper>
+    );
+  }
+}
 
 Card.propTypes = {
-  type: PropTypes.oneOf(['article', 'note']).isRequired,
+  id: PropTypes.string.isRequired,
+  type: PropTypes.oneOf(['articles', 'notes']).isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,

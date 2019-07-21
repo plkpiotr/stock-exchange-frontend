@@ -12,14 +12,14 @@ const Details = ({
     <Description>{description}</Description>
     <Button>Edit</Button>
     <Button>Remove</Button>
-    { type === 'article' ? <Button href={link}>Link</Button> : null }
+    {type === 'articles' ? <Button href={link}>Link</Button> : null}
     <p>{created}</p>
     <p>{modified}</p>
   </>
 );
 
 Details.propTypes = {
-  type: PropTypes.oneOf(['article', 'note']).isRequired,
+  type: PropTypes.oneOf(['articles', 'notes']).isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,

@@ -23,11 +23,11 @@ const Notes = () => (
       <Paragraph>Find by title:</Paragraph>
       <Input search />
       <Board>
-        <Card type="note" />
-        <Card type="note" />
-        <Card type="note" />
-        <Card type="note" />
-        <Card type="note" />
+        <Card type="notes" id="1" />
+        <Card type="notes" id="2" />
+        <Card type="notes" id="3" />
+        <Card type="notes" id="4" />
+        <Card type="notes" id="5" />
       </Board>
     </Wrapper>
   </User>

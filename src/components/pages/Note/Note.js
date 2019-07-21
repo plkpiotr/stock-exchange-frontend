@@ -15,7 +15,7 @@ const Note = () => (
     <Wrapper>
       <Header>Your notes</Header>
       <Paragraph>One of them</Paragraph>
-      <Details type="note" />
+      <Details type="notes" />
     </Wrapper>
   </User>
 );

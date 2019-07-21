@@ -23,10 +23,10 @@ const Articles = () => (
       <Paragraph>Find by title:</Paragraph>
       <Input search />
       <Board>
-        <Card type="article" />
-        <Card type="article" />
-        <Card type="article" />
-        <Card type="article" />
+        <Card type="articles" id="1" />
+        <Card type="articles" id="2" />
+        <Card type="articles" id="3" />
+        <Card type="articles" id="4" />
       </Board>
     </Wrapper>
   </User>
