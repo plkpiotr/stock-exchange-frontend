@@ -1,7 +1,7 @@
 const theme = {
   primary: 'hsl(35, 100%, 60%)',
   secondary: 'hsl(35, 100%, 70%)',
-  gray: 'hsl(35, 0%, 60%)',
+  gray: 'hsl(0, 0%, 40%)',
   normal: 400,
   bold: 600,
 };

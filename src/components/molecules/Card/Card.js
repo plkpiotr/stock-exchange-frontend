@@ -43,10 +43,10 @@ class Card extends Component {
     }
 
     return (
-      <Wrapper onClick={this.handleClickOnCard}>
+      <Wrapper>
         <Title>{title}</Title>
         <Description>{description}</Description>
-        <Button>See details</Button>
+        <Button onClick={this.handleClickOnCard}>See details</Button>
         {type === 'articles' ? <Button href={link}>{linkIcon}</Button> : null}
         <Date>{created}</Date>
       </Wrapper>
