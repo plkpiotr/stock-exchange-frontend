@@ -1,6 +1,6 @@
 import React from 'react';
-import User from 'components/templates/User/User';
 import styled from 'styled-components';
+import User from 'components/templates/User/User';
 import Header from 'components/atoms/Header/Header';
 import Paragraph from 'components/atoms/Paragraph/Paragraph';
 import Input from 'components/atoms/Input/Input';

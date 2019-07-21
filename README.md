@@ -3,9 +3,11 @@ Frontend:
 - `npm run storybook` to run storybook on localhost:9009
 
 To do:
+- Decrease number of letters in cards (limitation)
 - Rethink `min-height` of card
-- Decrease number of letters in cards
-- Add animations for components in pages
+- Add `key-frames` animations for components in pages
+- Stylize `Details.js` after adding `axios`
+- Add default props in `Card.stories.js` and `Details.stories.js`
 
 In the future:
 - Change nomenclature to `Styled`

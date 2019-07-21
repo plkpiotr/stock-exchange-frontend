@@ -11,7 +11,6 @@ const Wrapper = styled.div`
   margin : 2vh 2vw 3vh 0;
   padding: 5px 30px;
   background-color: white;
-  // box-shadow: 2px 6px 6px 3px ${({ theme }) => (theme.gray)};
 `;
 
 const Date = styled.div`
@@ -22,23 +21,26 @@ const Date = styled.div`
   padding-top: 5px;
 `;
 
-const link = '\u25b6';
+const linkIcon = '\u25b6';
 
-const Card = ({ type }) => (
+const Card = ({
+  type, title, description, link, created,
+}) => (
   <Wrapper>
-    <Title>News service and weather</Title>
-    <Description>
-      All material is for informational purposes only and no material (including, without
-      limitation, stock quotes or company information).
-    </Description>
+    <Title>{title}</Title>
+    <Description>{description}</Description>
     <Button>See details</Button>
-    { type === 'article' ? <Button>{link}</Button> : null }
-    <Date>07/19/2019</Date>
+    { type === 'article' ? <Button href={link}>{linkIcon}</Button> : null }
+    <Date>{created}</Date>
   </Wrapper>
 );
 
 Card.propTypes = {
   type: PropTypes.oneOf(['article', 'note']).isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
+  created: PropTypes.string.isRequired,
 };
 
 export default Card;
