@@ -7,6 +7,8 @@ import Header from 'components/atoms/Header/Header';
 import Paragraph from 'components/atoms/Paragraph/Paragraph';
 import Input from 'components/atoms/Input/Input';
 import Card from 'components/molecules/Card/Card';
+import Icon from 'components/atoms/Icon/Icon';
+import note from 'icons/notes.svg';
 
 const Wrapper = styled.div`
   margin-left: 125px;
@@ -22,7 +24,9 @@ const Notes = ({ notes }) => (
   <Online>
     <Wrapper>
       <Header>
-        Your notes [{notes.length}]
+        Your notes [
+        {notes.length}
+        ]
       </Header>
       <Paragraph>Find by title:</Paragraph>
       <Input search />
@@ -39,6 +43,7 @@ const Notes = ({ notes }) => (
           />
         ))}
       </Board>
+      <Icon add icon={note}>New note</Icon>
     </Wrapper>
   </Online>
 );

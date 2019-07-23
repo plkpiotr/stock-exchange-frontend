@@ -15,6 +15,7 @@ const Wrapper = styled.ul`
   position: fixed;
   height: 100%;
   list-style-type: none;
+  width: 125px;
   margin: 0;
   padding: 0;
   display: flex;
