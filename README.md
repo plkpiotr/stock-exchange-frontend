@@ -3,6 +3,7 @@ Frontend:
 - `npm run storybook` to run storybook on localhost:9009
 
 To do:
+- In `Notes.js` and `Articles.js`: `eslint-disable-next-line react/prop-types` (x2)
 - Stylize `Details.js`
 - Add `id` to Details
 - There is no `link` attribute in Details.js and Card.js

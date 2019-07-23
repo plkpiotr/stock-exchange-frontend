@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 import User from 'components/templates/User/User';
 import Header from 'components/atoms/Header/Header';
@@ -16,21 +17,31 @@ const Board = styled.div`
   flex-wrap: wrap;
 `;
 
-const Notes = () => (
+const Notes = ({ notes }) => (
   <User>
     <Wrapper>
-      <Header>Your notes [5]</Header>
+      <Header>
+        Your notes [{notes.length}]
+      </Header>
       <Paragraph>Find by title:</Paragraph>
       <Input search />
       <Board>
-        <Card type="notes" id="1" />
-        <Card type="notes" id="2" />
-        <Card type="notes" id="3" />
-        <Card type="notes" id="4" />
-        <Card type="notes" id="5" />
+        {notes.map(({
+          id, title, description, created,
+        }) => (
+          <Card
+            type="notes"
+            id={id}
+            title={title}
+            description={description}
+            created={created}
+          />
+        ))}
       </Board>
     </Wrapper>
   </User>
 );
 
-export default Notes;
+const mapStateToProps = ({ notes }) => ({ notes });
+
+export default connect(mapStateToProps)(Notes);

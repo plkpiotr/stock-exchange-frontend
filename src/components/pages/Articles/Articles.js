@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 import User from 'components/templates/User/User';
 import Header from 'components/atoms/Header/Header';
@@ -16,20 +17,32 @@ const Board = styled.div`
   flex-wrap: wrap;
 `;
 
-const Articles = () => (
+const Articles = ({ articles }) => (
   <User>
     <Wrapper>
-      <Header>Your articles [4]</Header>
+      <Header>
+        Your articles [{articles.length}]
+      </Header>
       <Paragraph>Find by title:</Paragraph>
       <Input search />
       <Board>
-        <Card type="articles" id="1" />
-        <Card type="articles" id="2" />
-        <Card type="articles" id="3" />
-        <Card type="articles" id="4" />
+        {articles.map(({
+          id, title, description, created, link,
+        }) => (
+          <Card
+            type="articles"
+            id={id}
+            title={title}
+            description={description}
+            created={created}
+            link={link}
+          />
+        ))}
       </Board>
     </Wrapper>
   </User>
 );
 
-export default Articles;
+const mapStateToProps = ({ articles }) => ({ articles });
+
+export default connect(mapStateToProps)(Articles);

@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   max-width: 364px;
   max-height: 340px;
   margin : 2vh 2vw 3vh 0;
-  padding: 5px 30px;
+  padding: 5px 30px 30px;
   background-color: white;
 `;
 
@@ -19,7 +19,6 @@ const Date = styled.div`
   font-weight: ${({ theme }) => (theme.gray)};
   float: right;
   display: flex;
-  padding-top: 5px;
 `;
 
 const linkIcon = '\u25b6';
@@ -59,8 +58,12 @@ Card.propTypes = {
   type: PropTypes.oneOf(['articles', 'notes']).isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired,
+  link: PropTypes.string,
   created: PropTypes.string.isRequired,
+};
+
+Card.defaultProps = {
+  link: null,
 };
 
 export default Card;
