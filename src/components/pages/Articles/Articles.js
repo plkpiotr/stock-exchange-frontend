@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import User from 'components/templates/User/User';
@@ -42,6 +43,20 @@ const Articles = ({ articles }) => (
     </Wrapper>
   </User>
 );
+
+Articles.propTypes = {
+  articles: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    created: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
+  })),
+};
+
+Articles.defaultProps = {
+  articles: [],
+};
 
 const mapStateToProps = ({ articles }) => ({ articles });
 

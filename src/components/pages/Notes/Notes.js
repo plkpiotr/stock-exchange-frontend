@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import User from 'components/templates/User/User';
@@ -41,6 +42,19 @@ const Notes = ({ notes }) => (
     </Wrapper>
   </User>
 );
+
+Notes.propTypes = {
+  notes: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    created: PropTypes.string.isRequired,
+  })),
+};
+
+Notes.defaultProps = {
+  notes: [],
+};
 
 const mapStateToProps = ({ notes }) => ({ notes });
 
