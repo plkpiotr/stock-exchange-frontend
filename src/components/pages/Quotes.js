@@ -1,5 +1,5 @@
 import React from 'react';
-import User from 'components/templates/User/User';
+import Online from 'components/templates/Online';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -7,12 +7,12 @@ const Wrapper = styled.div`
   padding: 0 0 1vh 3vw;
 `;
 
-const Transactions = () => (
-  <User>
+const Quotes = () => (
+  <Online>
     <Wrapper>
-      <h1>Transactions - template</h1>
+      <h1>Quotes - template</h1>
     </Wrapper>
-  </User>
+  </Online>
 );
 
-export default Transactions;
+export default Quotes;

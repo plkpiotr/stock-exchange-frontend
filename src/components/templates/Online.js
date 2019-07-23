@@ -7,15 +7,15 @@ const Wrapper = styled.div`
   display: flex;
 `;
 
-const User = ({ children }) => (
+const Online = ({ children }) => (
   <Wrapper>
     <Sidebar />
     {children}
   </Wrapper>
 );
 
-User.propTypes = {
+Online.propTypes = {
   children: PropTypes.element.isRequired,
 };
 
-export default User;
+export default Online;

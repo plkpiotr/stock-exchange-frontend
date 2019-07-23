@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import User from 'components/templates/User/User';
+import Online from 'components/templates/Online';
 import Header from 'components/atoms/Header/Header';
 import Paragraph from 'components/atoms/Paragraph/Paragraph';
 import Input from 'components/atoms/Input/Input';
@@ -19,7 +19,7 @@ const Board = styled.div`
 `;
 
 const Notes = ({ notes }) => (
-  <User>
+  <Online>
     <Wrapper>
       <Header>
         Your notes [{notes.length}]
@@ -40,7 +40,7 @@ const Notes = ({ notes }) => (
         ))}
       </Board>
     </Wrapper>
-  </User>
+  </Online>
 );
 
 Notes.propTypes = {

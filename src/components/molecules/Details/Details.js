@@ -22,9 +22,13 @@ Details.propTypes = {
   type: PropTypes.oneOf(['articles', 'notes']).isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired,
+  link: PropTypes.string,
   created: PropTypes.string.isRequired,
   modified: PropTypes.string.isRequired,
+};
+
+Details.defaultProps = {
+  link: null,
 };
 
 export default Details;
