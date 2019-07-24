@@ -7,11 +7,11 @@ import Description from 'components/atoms/Description/Description';
 import Button from 'components/atoms/Button/Button';
 
 const Wrapper = styled.div`
-  max-width: 364px;
+  width: 364px;
   max-height: 340px;
   margin : 2vh 2vw 3vh 0;
   padding: 5px 30px 30px;
-  background-color: white;
+  background-color: ${({ theme }) => (theme.tertiary)};
 `;
 
 const Date = styled.div`

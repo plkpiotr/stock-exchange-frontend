@@ -11,7 +11,7 @@ import notes from 'icons/notes.svg';
 import logout from 'icons/logout.svg';
 
 const Wrapper = styled.ul`
-  background-color: white;
+  background-color: ${({ theme }) => (theme.tertiary)};
   position: fixed;
   height: 100%;
   list-style-type: none;

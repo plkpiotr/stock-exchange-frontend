@@ -6,7 +6,7 @@ const Icon = styled.a`
   font-weight: ${({ theme }) => (theme.bold)};
   color: ${({ theme }) => (theme.gray)};
   height: 80px;
-  background: white url(${({ icon }) => (icon)}) no-repeat 50% 25%;
+  background: ${({ theme }) => (theme.tertiary)} url(${({ icon }) => (icon)}) no-repeat 50% 25%;
   background-size: 40%;
   transition: .3s ease;
   border: 0 solid white;

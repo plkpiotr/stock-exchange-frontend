@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import Card from './Card';
 
 storiesOf('Molecules', module)
-  .add('Card (Article)', () => (
+  .add('Card (articles)', () => (
     <Card
       type="articles"
       title="News service and weather"
@@ -14,7 +14,7 @@ storiesOf('Molecules', module)
       link="https://github.com/plkpiotr/stock-exchange-frontend"
     />
   ))
-  .add('Card (Note)', () => (
+  .add('Card (notes)', () => (
     <Card
       type="notes"
       title="The non-profit exchange"

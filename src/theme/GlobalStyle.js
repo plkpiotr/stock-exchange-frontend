@@ -11,7 +11,6 @@ const GlobalStyle = createGlobalStyle`
   }
   
   body {
-    background-color: hsl(35, 100%, 95%);
     margin: 0;
   }
 `;

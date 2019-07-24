@@ -16,6 +16,14 @@ const initialState = {
       created: '09/09/2019',
       modified: '10/10/2019',
     },
+    {
+      id: 'c',
+      title: 'The third article',
+      description: 'The third description',
+      link: 'https://github.com/plkpiotr/stock-exchange-frontend',
+      created: '09/09/2019',
+      modified: '11/11/2019',
+    },
   ],
   notes: [
     {
@@ -28,8 +36,6 @@ const initialState = {
   ],
 };
 
-const reducer = (state = initialState, action) => {
-  return state;
-};
+const reducer = (state = initialState, action) => state;
 
 export default reducer;

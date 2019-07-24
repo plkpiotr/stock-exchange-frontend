@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import Details from './Details';
 
 storiesOf('Molecules', module)
-  .add('Details (Article)', () => (
+  .add('Details (articles)', () => (
     <Details
       type="articles"
       title="No backers would risk"
@@ -13,7 +13,7 @@ storiesOf('Molecules', module)
       modified="08/08/2019"
     />
   ))
-  .add('Details (Note)', () => (
+  .add('Details (notes)', () => (
     <Details
       type="notes"
       title="Please forward the stock"
