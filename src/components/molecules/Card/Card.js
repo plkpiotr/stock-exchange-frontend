@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 import Title from 'components/atoms/Title/Title';
 import Description from 'components/atoms/Description/Description';
-import Button from 'components/atoms/Button/Button';
+import Link from 'components/atoms/Link/Link';
 
 const Wrapper = styled.div`
   width: 364px;
@@ -28,7 +28,7 @@ class Card extends Component {
     redirect: false,
   };
 
-  handleButtonDetails = () => this.setState({ redirect: true });
+  toggleButtonDetails = () => this.setState({ redirect: true });
 
   render() {
     const {
@@ -45,8 +45,8 @@ class Card extends Component {
       <Wrapper>
         <Title>{title}</Title>
         <Description>{description}</Description>
-        <Button onClick={this.handleButtonDetails}>See details</Button>
-        {type === 'articles' ? <Button href={link}>{linkIcon}</Button> : null}
+        <Link onClick={this.toggleButtonDetails}>See details</Link>
+        {type === 'articles' ? <Link href={link}>{linkIcon}</Link> : null}
         <Date>{created}</Date>
       </Wrapper>
     );

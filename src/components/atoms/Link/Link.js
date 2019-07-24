@@ -1,16 +1,19 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-const Button = styled.button`
-  width: 120px;
+const Link = styled.a`
   padding: 6px 13px;
   font-size: 14px;
   border: none;
   color: white;
+  text-align: center;
   text-transform: uppercase;
+  text-decoration: none;
   font-weight: ${({ theme }) => (theme.bold)};
+  margin-top: 15px;
+  margin-bottom: 40px;
+  margin-right: 25px;
   transition: .3s ease;
   background-color: ${({ theme }) => (theme.primary)};
-  margin-top: 10px;
   
   &:focus {
     outline: none;
@@ -21,15 +24,6 @@ const Button = styled.button`
     transition: .3s ease;
     background-color: ${({ theme }) => (theme.secondary)};
   }
-  
-  ${({ add }) => (
-    add && css`
-      position: fixed;
-      top: 20px;
-      right: 60px;
-      z-index: 2;                            
-    `
-  )}
 `;
 
-export default Button;
+export default Link;

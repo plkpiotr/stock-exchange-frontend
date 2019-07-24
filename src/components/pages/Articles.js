@@ -24,7 +24,7 @@ class Articles extends Component {
     isPanelVisible: false,
   };
 
-  handleButtonPanel = () => this.setState(prevState => ({
+  toggleButtonPanel = () => this.setState(prevState => ({
     isPanelVisible: !prevState.isPanelVisible,
   }));
 
@@ -54,10 +54,10 @@ class Articles extends Component {
               />
             ))}
           </Board>
-          <Button add onClick={this.handleButtonPanel}>
+          <Button add onClick={this.toggleButtonPanel}>
             {isPanelVisible ? 'Close' : 'New article'}
           </Button>
-          <Panel type="articles" isVisible={isPanelVisible} />
+          <Panel type="articles" isVisible={isPanelVisible} handleClose={this.toggleButtonPanel} />
         </Wrapper>
       </Online>
     );

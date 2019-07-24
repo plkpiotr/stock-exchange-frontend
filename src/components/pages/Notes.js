@@ -24,7 +24,7 @@ class Notes extends Component {
     isPanelVisible: false,
   };
 
-  handleButtonPanel = () => this.setState(prevState => ({
+  toggleButtonPanel = () => this.setState(prevState => ({
     isPanelVisible: !prevState.isPanelVisible,
   }));
 
@@ -53,7 +53,7 @@ class Notes extends Component {
               />
             ))}
           </Board>
-          <Button add onClick={this.handleButtonPanel}>
+          <Button add onClick={this.toggleButtonPanel}>
             {isPanelVisible ? 'Close' : 'New note'}
           </Button>
           <Panel type="notes" isVisible={isPanelVisible} />

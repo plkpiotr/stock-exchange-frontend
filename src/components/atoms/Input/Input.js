@@ -7,7 +7,7 @@ const Input = styled.input`
   transition: .3s ease;
   font-size: 16px;
   padding-left: 5px;
-  margin: 20px 0;
+  margin: 15px 0;
 
   &:focus {
     width: 300px;
