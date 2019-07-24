@@ -56,7 +56,7 @@ class Notes extends Component {
           <Button add onClick={this.toggleButtonPanel}>
             {isPanelVisible ? 'Close' : 'New note'}
           </Button>
-          <Panel type="notes" isVisible={isPanelVisible} />
+          <Panel type="notes" isVisible={isPanelVisible} handleClose={this.toggleButtonPanel} />
         </Wrapper>
       </Online>
     );

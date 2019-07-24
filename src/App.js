@@ -2,7 +2,6 @@ import {
   BrowserRouter,
   Switch,
   Route,
-  Redirect,
 } from 'react-router-dom';
 import React from 'react';
 import { Provider } from 'react-redux';
@@ -18,15 +17,16 @@ import Article from 'components/pages/Article';
 import Notes from 'components/pages/Notes';
 import Note from 'components/pages/Note';
 import Logout from 'components/pages/Logout';
+import Login from 'components/pages/Login';
+import Register from 'components/pages/Register';
 
 const App = () => (
   <Provider store={store}>
     <BrowserRouter>
       <Main>
         <Switch>
-          <Route exact path={routes.home} render={() => <Redirect to={routes.articles} />} />
-          <Route exact path={routes.login} render={() => <Redirect to={routes.articles} />} />
-          <Route exact path={routes.register} render={() => <Redirect to={routes.articles} />} />
+          <Route exact path={routes.login} component={Login} />
+          <Route exact path={routes.register} component={Register} />
           <Route exact path={routes.dashboard} component={Dashboard} />
           <Route exact path={routes.quotes} component={Quotes} />
           <Route exact path={routes.indicators} component={Indicators} />

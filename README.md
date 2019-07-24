@@ -14,7 +14,6 @@ To do:
 In the future:
 - Add `permissions` to dashboard if necessary (id)
 - Add service when user try to visit `logout` without `login`
-- Remove `Redirect` from `App.js`
 - Add `key-frames` animations for components in pages
 - Add validation in Formik
 - Add validation of up-to-date transactions

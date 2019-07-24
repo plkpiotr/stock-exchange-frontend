@@ -48,7 +48,7 @@ const Panel = ({ type, isVisible, handleClose }) => (
         link: '',
       }}
       onSubmit={(values) => {
-        console.log(`Formik test: ${values.title}`);
+        console.log(`Formik test: ${values.link}`);
         handleClose();
       }}
     >

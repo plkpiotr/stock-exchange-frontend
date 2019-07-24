@@ -64,7 +64,6 @@ class Articles extends Component {
   }
 }
 
-
 Articles.propTypes = {
   articles: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
