@@ -48,7 +48,7 @@ const Panel = ({ type, isVisible, handleClose }) => (
         link: '',
       }}
       onSubmit={(values) => {
-        console.log(`Formik test: ${values.link}`);
+        console.log(`Panel test: ${values.link}`);
         handleClose();
       }}
     >
@@ -57,17 +57,17 @@ const Panel = ({ type, isVisible, handleClose }) => (
       }) => (
         <StyledForm>
           <Input
-            placeholder="Title"
-            type="text"
             name="title"
+            type="text"
+            placeholder="Title"
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.title}
           />
           <Description
-            placeholder="Description"
-            as="textarea"
             name="description"
+            as="textarea"
+            placeholder="Description"
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.description}
@@ -75,9 +75,9 @@ const Panel = ({ type, isVisible, handleClose }) => (
           {type === 'articles'
           && (
             <Input
-              placeholder="Link"
-              type="text"
               name="link"
+              type="text"
+              placeholder="Link"
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.link}

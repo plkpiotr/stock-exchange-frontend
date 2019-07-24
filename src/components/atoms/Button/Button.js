@@ -22,8 +22,8 @@ const Button = styled.button`
     background-color: ${({ theme }) => (theme.secondary)};
   }
   
-  ${({ add }) => (
-    add && css`
+  ${({ fixed }) => (
+    fixed && css`
       position: fixed;
       top: 20px;
       right: 60px;

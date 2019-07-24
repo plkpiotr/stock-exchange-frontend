@@ -3,6 +3,9 @@ Frontend:
 - `npm run storybook` to run storybook on localhost:9009
 
 To do:
+- Check out `login: PropTypes.func.isRequired`
+- Think about names of actions
+- Think about names of constants
 - Add `created field` to `Formik`
 - Stylize `Details.js`
 - Remove `Paragraph`? If not used...

@@ -53,7 +53,7 @@ class Notes extends Component {
               />
             ))}
           </Board>
-          <Button add onClick={this.toggleButtonPanel}>
+          <Button fixed onClick={this.toggleButtonPanel}>
             {isPanelVisible ? 'Close' : 'New note'}
           </Button>
           <Panel type="notes" isVisible={isPanelVisible} handleClose={this.toggleButtonPanel} />

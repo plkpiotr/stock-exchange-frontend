@@ -54,7 +54,7 @@ class Articles extends Component {
               />
             ))}
           </Board>
-          <Button add onClick={this.toggleButtonPanel}>
+          <Button fixed onClick={this.toggleButtonPanel}>
             {isPanelVisible ? 'Close' : 'New article'}
           </Button>
           <Panel type="articles" isVisible={isPanelVisible} handleClose={this.toggleButtonPanel} />

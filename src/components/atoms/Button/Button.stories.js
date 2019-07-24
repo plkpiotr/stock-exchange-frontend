@@ -4,4 +4,4 @@ import Button from './Button';
 
 storiesOf('Atoms', module)
   .add('Button', () => <Button>Button</Button>)
-  .add('Button (add)', () => <Button add>Button</Button>);
+  .add('Button (fixed)', () => <Button fixed>Button</Button>);
