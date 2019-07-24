@@ -28,7 +28,7 @@ class Card extends Component {
     redirect: false,
   };
 
-  handleClickOnCard = () => this.setState({ redirect: true });
+  handleButtonDetails = () => this.setState({ redirect: true });
 
   render() {
     const {
@@ -45,7 +45,7 @@ class Card extends Component {
       <Wrapper>
         <Title>{title}</Title>
         <Description>{description}</Description>
-        <Button onClick={this.handleClickOnCard}>See details</Button>
+        <Button onClick={this.handleButtonDetails}>See details</Button>
         {type === 'articles' ? <Button href={link}>{linkIcon}</Button> : null}
         <Date>{created}</Date>
       </Wrapper>

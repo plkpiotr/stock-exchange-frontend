@@ -8,22 +8,24 @@ import Title from 'components/atoms/Title/Title';
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 1vh 35px;
+  padding: 80px 60px 20px;
   position: fixed;
   top: 0;
   right: 0;
   height: 100vh;
   width: 420px;
-  background-color: ${({ theme }) => (theme.tertiary)};  
+  background-color: ${({ theme }) => (theme.tertiary)};
+  transform: translateX(${({ isVisible }) => (isVisible ? '0' : '100%')});
+  transition: .3s ease;
 `;
 
 const Description = styled(Input)`
   resize: none;
-  height: 70vh;
+  height: 100vh;
 `;
 
-const Panel = ({ type }) => (
-  <Wrapper>
+const Panel = ({ type, isVisible }) => (
+  <Wrapper isVisible={isVisible}>
     <Title>
       Add new
       {' '}
@@ -31,13 +33,14 @@ const Panel = ({ type }) => (
     </Title>
     <Input placeholder="Title" />
     <Description as="textarea" placeholder="Description" />
-    <Input placeholder="Link" />
-    <Button>Confirm</Button>
+    {type === 'articles' && <Input placeholder="Link" />}
+    <Button>Add</Button>
   </Wrapper>
 );
 
 Panel.propTypes = {
   type: PropTypes.oneOf(['articles', 'notes']).isRequired,
+  isVisible: PropTypes.bool.isRequired,
 };
 
 export default Panel;

@@ -2,22 +2,22 @@ import styled, { css } from 'styled-components';
 import magnifier from 'icons/magnifier.svg';
 
 const Input = styled.input`
-  width: 350px;
+  width: 300px;
   border: 0 solid white;
   transition: .3s ease;
   font-size: 16px;
   padding-left: 5px;
-  margin: 15px 0;
+  margin: 20px 0;
 
   &:focus {
-    width: 350px;
+    width: 300px;
     outline: none;
     border-right: 5px solid ${({ theme }) => (theme.primary)};
   }
   
   &:hover {
     transition: .3s ease;
-    width: 350px;
+    width: 300px;
     border-right: 5px solid ${({ theme }) => (theme.primary)};
   }
   

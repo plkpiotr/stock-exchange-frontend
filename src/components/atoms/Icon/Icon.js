@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 const Icon = styled.a`
   padding-top: 55px;
@@ -28,19 +28,6 @@ const Icon = styled.a`
     outline: none;
     border-right: 5px solid ${({ theme }) => (theme.primary)};    
   }
-  
-  ${({ add }) => (
-    add && css`
-      position: fixed;
-      top: 26px;
-      right: 56px;
-      
-      &:hover {
-        border-right: 0;
-        border-left: 5px solid ${({ theme }) => (theme.primary)};
-      }
-    `
-  )};
 `;
 
 export default Icon;
