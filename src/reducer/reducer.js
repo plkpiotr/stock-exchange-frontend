@@ -15,7 +15,7 @@ const reducer = (state = initialState, action) => {
     case LOGOUT:
       return {
         isAuthenticated: false,
-        user: null,
+        user: {},
       };
     default:
       return state;

@@ -9,7 +9,7 @@ import indicators from 'icons/indicators.svg';
 import transactions from 'icons/transactions.svg';
 import articles from 'icons/articles.svg';
 import notes from 'icons/notes.svg';
-import comp from 'icons/logout.svg';
+import exit from 'icons/exit.svg';
 import { connect } from 'react-redux';
 import { logoutAction } from 'actions/actions';
 import routes from 'routes/routes';
@@ -48,7 +48,7 @@ const Sidebar = ({ logout }) => (
       <Icon as={NavLink} to={routes.notes} icon={notes} activeclass="active">Notes</Icon>
     </li>
     <li>
-      <Icon as={NavLink} to={routes.notes} icon={comp} onClick={logout}>Log out</Icon>
+      <Icon icon={exit} onClick={logout}>Log out</Icon>
     </li>
   </Wrapper>
 );
