@@ -1,3 +1,5 @@
+import { LOGIN_SUCCESS } from '../actions/actions';
+
 const initialState = {
   articles: [
     {
@@ -36,6 +38,16 @@ const initialState = {
   ],
 };
 
-const reducer = (state = initialState, action) => state;
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case LOGIN_SUCCESS:
+      return {
+        ...state,
+        token: action.result.data.token,
+      };
+    default:
+      return state;
+  }
+};
 
 export default reducer;

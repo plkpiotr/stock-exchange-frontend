@@ -3,6 +3,7 @@ Frontend:
 - `npm run storybook` to run storybook on localhost:9009
 
 To do:
+- Create `Form.js` controller
 - Check out `login: PropTypes.func.isRequired`
 - Think about names of actions
 - Think about names of constants
