@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Redirect } from 'react-router-dom';
 import Input from 'components/atoms/Input/Input';
 import Button from 'components/atoms/Button/Button';
 import { connect } from 'react-redux';
-import loginAction from 'actions/actions';
+import { Redirect } from 'react-router-dom';
 import routes from 'routes/routes';
+import { loginAction } from 'actions/actions';
 import {
   Formik,
   Form,
@@ -22,7 +22,7 @@ const StyledForm = styled(Form)`
   height: 100%;
 `;
 
-const Login = ({ token, login }) => (
+const Login = ({ isAuthenticated, login }) => (
   <Formik
     initialValues={{
       email: '',
@@ -35,12 +35,11 @@ const Login = ({ token, login }) => (
     {({
       values, handleChange, handleBlur,
     }) => {
-      if (token) {
+      if (isAuthenticated) {
         return <Redirect push to={routes.dashboard} />;
       }
       return (
         <StyledForm>
-          <p>{token}</p>
           <Input
             name="email"
             type="email"
@@ -66,15 +65,11 @@ const Login = ({ token, login }) => (
 
 Login.propTypes = {
   login: PropTypes.func.isRequired,
-  token: PropTypes.string,
+  isAuthenticated: PropTypes.bool.isRequired,
 };
 
-Login.defaultProps = {
-  token: null,
-};
-
-const mapStateToProps = ({ token = null }) => ({
-  token,
+const mapStateToProps = ({ isAuthenticated }) => ({
+  isAuthenticated,
 });
 
 const mapDispatchToProps = dispatch => ({
