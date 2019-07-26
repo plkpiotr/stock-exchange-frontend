@@ -7,6 +7,8 @@ export const AUTHORIZATION_REQUEST = 'AUTHORIZATION_REQUEST';
 export const AUTHORIZATION_SUCCESS = 'AUTHORIZATION_SUCCESS';
 export const AUTHORIZATION_FAILURE = 'AUTHORIZATION_FAILURE';
 
+export const LOGOUT = 'LOGOUT';
+
 export const loginAction = (email, password) => (dispatch) => {
   dispatch({ type: AUTHORIZATION_REQUEST });
   return axios.post(`${url}/users/login`, {
@@ -24,7 +26,17 @@ export const loginAction = (email, password) => (dispatch) => {
       });
     })
     .catch((error) => {
-      dispatch({ type: AUTHORIZATION_FAILURE });
+      dispatch({
+        type: AUTHORIZATION_FAILURE,
+      });
       console.log(error);
     });
+};
+
+export const logoutAction = () => (dispatch) => {
+  localStorage.removeItem('token');
+  setAuthorization(false);
+  dispatch({
+    type: LOGOUT,
+  });
 };

@@ -1,4 +1,4 @@
-import { AUTHORIZATION_SUCCESS } from 'actions/actions';
+import { AUTHORIZATION_SUCCESS, LOGOUT } from 'actions/actions';
 
 const initialState = {
   isAuthenticated: false,
@@ -10,7 +10,12 @@ const reducer = (state = initialState, action) => {
     case AUTHORIZATION_SUCCESS:
       return {
         isAuthenticated: true,
-        decoded: action.decoded,
+        user: action.user,
+      };
+    case LOGOUT:
+      return {
+        isAuthenticated: false,
+        user: null,
       };
     default:
       return state;

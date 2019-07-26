@@ -16,7 +16,6 @@ import Articles from 'components/pages/Articles';
 import Article from 'components/pages/Article';
 import Notes from 'components/pages/Notes';
 import Note from 'components/pages/Note';
-import Logout from 'components/pages/Logout';
 import Login from 'components/pages/Login';
 import Register from 'components/pages/Register';
 
@@ -35,7 +34,6 @@ const App = () => (
           <Route exact path={routes.article} component={Article} />
           <Route exact path={routes.notes} component={Notes} />
           <Route exact path={routes.note} component={Note} />
-          <Route exact path={routes.logout} component={Logout} />
         </Switch>
       </Main>
     </BrowserRouter>
