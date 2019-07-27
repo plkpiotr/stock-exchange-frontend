@@ -23,3 +23,4 @@ In the future:
 - Add `key-frames` animations for components in pages
 - Add validation in Formik
 - Add validation of up-to-date transactions
+- Think about `i18next`

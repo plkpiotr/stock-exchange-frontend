@@ -18,6 +18,7 @@ import Notes from 'components/pages/Notes';
 import Note from 'components/pages/Note';
 import Login from 'components/pages/Login';
 import Register from 'components/pages/Register';
+import Authenticator from 'utils/Authenticator';
 
 const App = () => (
   <Provider store={store}>
@@ -26,14 +27,14 @@ const App = () => (
         <Switch>
           <Route exact path={routes.login} component={Login} />
           <Route exact path={routes.register} component={Register} />
-          <Route exact path={routes.dashboard} component={Dashboard} />
-          <Route exact path={routes.quotes} component={Quotes} />
-          <Route exact path={routes.indicators} component={Indicators} />
-          <Route exact path={routes.transactions} component={Transactions} />
-          <Route exact path={routes.articles} component={Articles} />
-          <Route exact path={routes.article} component={Article} />
-          <Route exact path={routes.notes} component={Notes} />
-          <Route exact path={routes.note} component={Note} />
+          <Route exact path={routes.dashboard} component={Authenticator(Dashboard)} />
+          <Route exact path={routes.quotes} component={Authenticator(Quotes)} />
+          <Route exact path={routes.indicators} component={Authenticator(Indicators)} />
+          <Route exact path={routes.transactions} component={Authenticator(Transactions)} />
+          <Route exact path={routes.articles} component={Authenticator(Articles)} />
+          <Route exact path={routes.article} component={Authenticator(Article)} />
+          <Route exact path={routes.notes} component={Authenticator(Notes)} />
+          <Route exact path={routes.note} component={Authenticator(Note)} />
         </Switch>
       </Main>
     </BrowserRouter>
