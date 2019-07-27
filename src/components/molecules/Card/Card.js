@@ -32,13 +32,13 @@ class Card extends Component {
 
   render() {
     const {
-      id, type, title, description, link, created,
+      _id, type, title, description, link, created,
     } = this.props;
 
     const { redirect } = this.state;
 
     if (redirect) {
-      return <Redirect push to={`/${type}/${id}`} />;
+      return <Redirect push to={`/${type}/${_id}`} />;
     }
 
     return (
@@ -54,15 +54,16 @@ class Card extends Component {
 }
 
 Card.propTypes = {
-  id: PropTypes.string.isRequired,
+  _id: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['articles', 'notes']).isRequired,
   title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  description: PropTypes.string,
   link: PropTypes.string,
   created: PropTypes.string.isRequired,
 };
 
 Card.defaultProps = {
+  description: null,
   link: null,
 };
 

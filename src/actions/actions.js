@@ -9,8 +9,14 @@ export const AUTHORIZATION_FAILURE = 'AUTHORIZATION_FAILURE';
 
 export const LOGOUT = 'LOGOUT';
 
+export const FETCH_REQUEST = 'FETCH_REQUEST';
+export const FETCH_SUCCESS = 'FETCH_SUCCESS';
+export const FETCH_FAILURE = 'FETCH_FAILURE';
+
 export const loginAction = (email, password) => (dispatch) => {
-  dispatch({ type: AUTHORIZATION_REQUEST });
+  dispatch({
+    type: AUTHORIZATION_REQUEST,
+  });
   return axios.post(`${url}/users/login`, {
     email,
     password,
@@ -39,4 +45,24 @@ export const logoutAction = () => (dispatch) => {
   dispatch({
     type: LOGOUT,
   });
+};
+
+export const fetchNotesAction = () => (dispatch) => {
+  dispatch({ type: FETCH_REQUEST });
+  return axios.get(`${url}/notes/user/5d38e8214eee7337cc8aa030`)
+    .then(({ data }) => {
+      dispatch({
+        type: FETCH_SUCCESS,
+        payload: {
+          data,
+        },
+      });
+      console.log(data);
+    })
+    .catch((error) => {
+      console.log(error);
+      dispatch({
+        type: FETCH_FAILURE,
+      });
+    });
 };

@@ -8,6 +8,7 @@ import Input from 'components/atoms/Input/Input';
 import Card from 'components/molecules/Card/Card';
 import Button from 'components/atoms/Button/Button';
 import Panel from 'components/organisms/Panel/Panel';
+import { fetchNotesAction } from 'actions/actions';
 
 const Wrapper = styled.div`
   margin-left: 125px;
@@ -23,6 +24,11 @@ class Notes extends Component {
   state = {
     isPanelVisible: false,
   };
+
+  componentDidMount() {
+    const { fetchNotes } = this.props;
+    fetchNotes();
+  }
 
   toggleButtonPanel = () => this.setState(prevState => ({
     isPanelVisible: !prevState.isPanelVisible,
@@ -42,14 +48,15 @@ class Notes extends Component {
           <Input search placeholder="Find by title..." />
           <Board>
             {notes.map(({
-              id, title, description, created,
+              _id, title, description, created,
             }) => (
               <Card
                 type="notes"
-                id={id}
+                _id={_id}
                 title={title}
                 description={description}
                 created={created}
+                key={_id}
               />
             ))}
           </Board>
@@ -65,9 +72,9 @@ class Notes extends Component {
 
 Notes.propTypes = {
   notes: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    _id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
+    description: PropTypes.string,
     created: PropTypes.string.isRequired,
   })),
 };
@@ -76,6 +83,13 @@ Notes.defaultProps = {
   notes: [],
 };
 
-const mapStateToProps = ({ notes }) => ({ notes });
+const mapStateToProps = (state) => {
+  const { notes } = state;
+  return { notes };
+};
 
-export default connect(mapStateToProps)(Notes);
+const mapDispatchToProps = dispatch => ({
+  fetchNotes: () => dispatch(fetchNotesAction()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Notes);

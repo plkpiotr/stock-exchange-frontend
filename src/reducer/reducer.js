@@ -1,4 +1,4 @@
-import { AUTHORIZATION_SUCCESS, LOGOUT } from 'actions/actions';
+import { AUTHORIZATION_SUCCESS, LOGOUT, FETCH_SUCCESS } from 'actions/actions';
 
 const initialState = {
   isAuthenticated: false,
@@ -16,6 +16,11 @@ const reducer = (state = initialState, action) => {
       return {
         isAuthenticated: false,
         user: {},
+      };
+    case FETCH_SUCCESS:
+      return {
+        ...state,
+        notes: [...action.payload.data],
       };
     default:
       return state;

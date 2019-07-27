@@ -13,6 +13,8 @@ To do:
 - Decrease number of letters in cards (limitation)
 - Rethink `min-height` of card
 - Add `404` view when user visit route different than described in routes
+- Delete all `console.log()`
+- Change `result` to payload
 
 In the future:
 - Think about names of actions
