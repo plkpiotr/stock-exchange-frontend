@@ -47,8 +47,7 @@ const Panel = ({ type, isVisible, handleClose }) => (
         description: '',
         link: '',
       }}
-      onSubmit={(values) => {
-        console.log(`Panel test: ${values.link}`);
+      onSubmit={() => {
         handleClose();
       }}
     >

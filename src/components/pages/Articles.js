@@ -8,6 +8,7 @@ import Input from 'components/atoms/Input/Input';
 import Card from 'components/molecules/Card/Card';
 import Button from 'components/atoms/Button/Button';
 import Panel from 'components/organisms/Panel/Panel';
+import { getItemsAction } from 'actions/actions';
 
 const Wrapper = styled.div`
   margin-left: 125px;
@@ -24,6 +25,11 @@ class Articles extends Component {
     isPanelVisible: false,
   };
 
+  componentDidMount() {
+    const { fetchArticles } = this.props;
+    fetchArticles();
+  }
+
   toggleButtonPanel = () => this.setState(prevState => ({
     isPanelVisible: !prevState.isPanelVisible,
   }));
@@ -35,22 +41,21 @@ class Articles extends Component {
       <Online>
         <Wrapper>
           <Header>
-            Your articles [
-            {articles.length}
-            ]
+            Your articles
           </Header>
           <Input search placeholder="Find by title..." />
           <Board>
             {articles.map(({
-              id, title, description, created, link,
+              _id, title, description, created, link,
             }) => (
               <Card
                 type="articles"
-                id={id}
+                _id={_id}
                 title={title}
                 description={description}
                 created={created}
                 link={link}
+                key={_id}
               />
             ))}
           </Board>
@@ -65,8 +70,9 @@ class Articles extends Component {
 }
 
 Articles.propTypes = {
+  fetchArticles: PropTypes.func.isRequired,
   articles: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    _id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     created: PropTypes.string.isRequired,
@@ -80,4 +86,8 @@ Articles.defaultProps = {
 
 const mapStateToProps = ({ articles }) => ({ articles });
 
-export default connect(mapStateToProps)(Articles);
+const mapDispatchToProps = dispatch => ({
+  fetchArticles: () => dispatch(getItemsAction('articles')),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Articles);

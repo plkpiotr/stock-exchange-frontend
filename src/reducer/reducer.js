@@ -20,7 +20,7 @@ const reducer = (state = initialState, action) => {
     case FETCH_SUCCESS:
       return {
         ...state,
-        notes: [...action.payload.data],
+        [action.itemType]: [...action.data],
       };
     default:
       return state;

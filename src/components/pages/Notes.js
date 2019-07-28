@@ -8,7 +8,7 @@ import Input from 'components/atoms/Input/Input';
 import Card from 'components/molecules/Card/Card';
 import Button from 'components/atoms/Button/Button';
 import Panel from 'components/organisms/Panel/Panel';
-import { fetchNotesAction } from 'actions/actions';
+import { getItemsAction } from 'actions/actions';
 
 const Wrapper = styled.div`
   margin-left: 125px;
@@ -41,9 +41,7 @@ class Notes extends Component {
       <Online>
         <Wrapper>
           <Header>
-            Your notes [
-            {notes.length}
-            ]
+            Your notes
           </Header>
           <Input search placeholder="Find by title..." />
           <Board>
@@ -71,10 +69,11 @@ class Notes extends Component {
 }
 
 Notes.propTypes = {
+  fetchNotes: PropTypes.func.isRequired,
   notes: PropTypes.arrayOf(PropTypes.shape({
     _id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    description: PropTypes.string,
+    description: PropTypes.string.isRequired,
     created: PropTypes.string.isRequired,
   })),
 };
@@ -83,13 +82,10 @@ Notes.defaultProps = {
   notes: [],
 };
 
-const mapStateToProps = (state) => {
-  const { notes } = state;
-  return { notes };
-};
+const mapStateToProps = ({ notes }) => ({ notes });
 
 const mapDispatchToProps = dispatch => ({
-  fetchNotes: () => dispatch(fetchNotesAction()),
+  fetchNotes: () => dispatch(getItemsAction('notes')),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Notes);

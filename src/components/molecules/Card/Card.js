@@ -57,13 +57,12 @@ Card.propTypes = {
   _id: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['articles', 'notes']).isRequired,
   title: PropTypes.string.isRequired,
-  description: PropTypes.string,
+  description: PropTypes.string.isRequired,
   link: PropTypes.string,
   created: PropTypes.string.isRequired,
 };
 
 Card.defaultProps = {
-  description: null,
   link: null,
 };
 
