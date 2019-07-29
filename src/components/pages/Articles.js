@@ -20,6 +20,10 @@ const Board = styled.div`
   flex-wrap: wrap;
 `;
 
+const Loading = styled.div`
+  color: ${({ theme }) => (theme.primary)};
+`;
+
 class Articles extends Component {
   state = {
     isPanelVisible: false,
@@ -35,7 +39,7 @@ class Articles extends Component {
   }));
 
   render() {
-    const { articles } = this.props;
+    const { articles, isLoading } = this.props;
     const { isPanelVisible } = this.state;
     return (
       <Online>
@@ -45,6 +49,7 @@ class Articles extends Component {
           </Header>
           <Input search placeholder="Find by title..." />
           <Board>
+            {isLoading && <Loading>Loading</Loading>}
             {articles.map(({
               _id, title, description, created, link,
             }) => (
@@ -71,6 +76,7 @@ class Articles extends Component {
 
 Articles.propTypes = {
   fetchArticles: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
   articles: PropTypes.arrayOf(PropTypes.shape({
     _id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
@@ -84,7 +90,7 @@ Articles.defaultProps = {
   articles: [],
 };
 
-const mapStateToProps = ({ articles }) => ({ articles });
+const mapStateToProps = ({ articles, isLoading }) => ({ articles, isLoading });
 
 const mapDispatchToProps = dispatch => ({
   fetchArticles: () => dispatch(getItemsAction('articles')),
