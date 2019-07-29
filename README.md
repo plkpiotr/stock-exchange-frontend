@@ -3,13 +3,13 @@ Frontend:
 - `npm run storybook` to run storybook on localhost:9009
 
 To do:
+- Set minimum number of letters in Card
+- Stylize `Loading bar` and create component form it
 - Create `Form.js` controller
 - Add `created field` to `Formik`
 - Stylize `Details.js`
 - Remove `Paragraph`? If not used...
 - Add possibility to `remove` note and article
-- Decrease number of letters in cards (limitation)
-- Rethink `min-height` of card
 - Add `404` view when user visit route different than described in routes
 
 In the future:

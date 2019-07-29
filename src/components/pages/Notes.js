@@ -46,6 +46,8 @@ class Notes extends Component {
         <Wrapper>
           <Header>
             Your notes
+            {' '}
+            {!isLoading && `[${notes.length}]`}
           </Header>
           <Input search placeholder="Find by title..." />
           <Board>

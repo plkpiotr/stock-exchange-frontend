@@ -5,10 +5,11 @@ import styled from 'styled-components';
 import Title from 'components/atoms/Title/Title';
 import Description from 'components/atoms/Description/Description';
 import Link from 'components/atoms/Link/Link';
+import moment from 'moment';
 
 const Wrapper = styled.div`
   width: 364px;
-  max-height: 340px;
+  min-height: 218px;
   margin : 2vh 2vw 3vh 0;
   padding: 5px 30px 30px;
   background-color: ${({ theme }) => (theme.tertiary)};
@@ -22,6 +23,15 @@ const Date = styled.div`
 `;
 
 const linkIcon = '\u25b6';
+
+const shortenString = (string, maxLength) => {
+  if (string.length > maxLength) {
+    const shortened = string.substring(0, maxLength);
+    const lastSpace = shortened.lastIndexOf(' ');
+    return `${shortened.substring(0, lastSpace)}...`;
+  }
+  return string;
+};
 
 class Card extends Component {
   state = {
@@ -43,11 +53,11 @@ class Card extends Component {
 
     return (
       <Wrapper>
-        <Title>{title}</Title>
-        <Description>{description}</Description>
+        <Title>{shortenString(title, 25)}</Title>
+        <Description>{shortenString(description, 110)}</Description>
         <Link onClick={this.toggleButtonDetails}>See details</Link>
         {type === 'articles' ? <Link href={link}>{linkIcon}</Link> : null}
-        <Date>{created}</Date>
+        <Date>{moment(created).format('L')}</Date>
       </Wrapper>
     );
   }

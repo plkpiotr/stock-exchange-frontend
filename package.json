@@ -8,6 +8,7 @@
     "express-favicon": "^2.0.1",
     "formik": "^1.5.8",
     "jsonwebtoken": "^8.5.1",
+    "moment": "^2.24.0",
     "path": "^0.12.7",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

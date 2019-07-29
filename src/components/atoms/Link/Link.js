@@ -9,7 +9,6 @@ const Link = styled.a`
   text-transform: uppercase;
   text-decoration: none;
   font-weight: ${({ theme }) => (theme.bold)};
-  margin-top: 15px;
   margin-bottom: 40px;
   margin-right: 25px;
   transition: .3s ease;

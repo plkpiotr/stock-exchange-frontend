@@ -46,6 +46,8 @@ class Articles extends Component {
         <Wrapper>
           <Header>
             Your articles
+            {' '}
+            {!isLoading && `[${articles.length}]`}
           </Header>
           <Input search placeholder="Find by title..." />
           <Board>
