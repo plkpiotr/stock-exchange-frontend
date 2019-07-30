@@ -10,12 +10,12 @@ const Wrapper = styled.div`
   padding: 0 0 1vh 3vw;
 `;
 
-const Note = () => (
+const Note = props => (
   <Online>
     <Wrapper>
       <Header>Your notes</Header>
       <Paragraph>One of them</Paragraph>
-      <Details type="notes" />
+      <Details type="notes" {...props} />
     </Wrapper>
   </Online>
 );
