@@ -49,7 +49,7 @@ class Articles extends Component {
             {' '}
             {!isLoading && `[${articles.length}]`}
           </Header>
-          <Input search placeholder="Find by title..." />
+          <Input search placeholder="Find by title…" />
           <Board>
             {isLoading && <Loading>Loading</Loading>}
             {articles.map(({

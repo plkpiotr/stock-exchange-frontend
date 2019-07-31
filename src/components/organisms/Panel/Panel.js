@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 import Input from 'components/atoms/Input/Input';
 import Button from 'components/atoms/Button/Button';
 import Title from 'components/atoms/Title/Title';
+import { addAction } from 'actions/actions';
 import {
   Formik,
   Form,
@@ -34,7 +36,9 @@ const StyledForm = styled(Form)`
   flex-direction: column;
 `;
 
-const Panel = ({ itemType, isVisible, handleClose }) => (
+const Panel = ({
+  itemType, isVisible, addItem, handleClose,
+}) => (
   <Wrapper isVisible={isVisible}>
     <Title>
       Add new
@@ -47,7 +51,8 @@ const Panel = ({ itemType, isVisible, handleClose }) => (
         description: '',
         link: '',
       }}
-      onSubmit={() => {
+      onSubmit={(values) => {
+        addItem(itemType, values);
         handleClose();
       }}
     >
@@ -92,7 +97,12 @@ const Panel = ({ itemType, isVisible, handleClose }) => (
 Panel.propTypes = {
   itemType: PropTypes.oneOf(['articles', 'notes']).isRequired,
   isVisible: PropTypes.bool.isRequired,
+  addItem: PropTypes.func.isRequired,
   handleClose: PropTypes.func.isRequired,
 };
 
-export default Panel;
+const mapDispatchToProps = dispatch => ({
+  addItem: (itemType, itemContent) => dispatch(addAction(itemType, itemContent)),
+});
+
+export default connect(null, mapDispatchToProps)(Panel);

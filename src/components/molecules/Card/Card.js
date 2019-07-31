@@ -11,7 +11,7 @@ import { removeAction } from 'actions/actions';
 
 const Wrapper = styled.div`
   width: 364px;
-  min-height: 218px;
+  min-height: 168px;
   margin : 2vh 2vw 3vh 0;
   padding: 5px 30px 30px;
   background-color: ${({ theme }) => (theme.tertiary)};
@@ -27,14 +27,7 @@ const Date = styled.div`
 const linkIcon = '\u25b6';
 const deleteIcon = '\u2716';
 
-const shortenString = (string, maxLength) => {
-  if (string.length > maxLength) {
-    const shortened = string.substring(0, maxLength);
-    const lastSpace = shortened.lastIndexOf(' ');
-    return `${shortened.substring(0, lastSpace)}...`;
-  }
-  return string;
-};
+const shortenLine = (str, max) => (str.length > max ? str.substring(0, max).concat('…') : str);
 
 class Card extends Component {
   state = {
@@ -56,12 +49,15 @@ class Card extends Component {
 
     return (
       <Wrapper>
-        <Title>{shortenString(title, 25)}</Title>
-        <Description>{shortenString(description, 110)}</Description>
+        <Title>{shortenLine(title, 27)}</Title>
+        <Description>{shortenLine(description.split('\n')[0], 40)}</Description>
         <Link onClick={this.toggleButtonDetails}>See details</Link>
         <Link light onClick={() => removeItem(itemType, _id)}>{deleteIcon}</Link>
         {itemType === 'articles' ? <Link light href={link}>{linkIcon}</Link> : null}
-        <Date>{moment(created).format('L')}</Date>
+        <Date>
+          {moment(created)
+            .format('L')}
+        </Date>
       </Wrapper>
     );
   }

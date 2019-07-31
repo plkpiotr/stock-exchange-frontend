@@ -1,8 +1,9 @@
 import {
+  ADD_SUCCESS,
   AUTHORIZATION_SUCCESS,
-  LOGOUT,
-  FETCH_SUCCESS,
   FETCH_REQUEST,
+  FETCH_SUCCESS,
+  LOGOUT,
 } from 'actions/actions';
 import { REMOVE_SUCCESS } from '../actions/actions';
 
@@ -35,6 +36,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         [action.itemType]: [...action.data],
         isLoading: false,
+      };
+    case ADD_SUCCESS:
+      return {
+        ...state,
+        [action.itemType]: [...state[action.itemType], action.data],
       };
     case REMOVE_SUCCESS:
       return {

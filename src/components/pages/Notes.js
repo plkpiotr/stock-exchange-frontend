@@ -49,7 +49,7 @@ class Notes extends Component {
             {' '}
             {!isLoading && `[${notes.length}]`}
           </Header>
-          <Input search placeholder="Find by title..." />
+          <Input search placeholder="Find by title…" />
           <Board>
             {isLoading && <Loading>Loading</Loading>}
             {notes.map(({
