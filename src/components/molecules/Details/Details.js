@@ -12,7 +12,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div` {
   background-color: ${({ theme }) => (theme.tertiary)};
-  padding: 1vh 3vw 5vh;
+  padding: 1vh 2vw 5vh;
   margin-top: 3vh;
   max-width: 1200px;
 }
@@ -45,7 +45,9 @@ class Details extends Component {
       axios
         .get(`${url}/${this.props.type}/${id}`)
         .then(({ data }) => {
-          this.setState({ activeItem: data });
+          this.setState({
+            activeItem: data,
+          });
         })
         .catch(err => console.log(err));
     }
@@ -58,11 +60,11 @@ class Details extends Component {
         <Title>{activeItem.title}</Title>
         <Description>{activeItem.description}</Description>
         <Some>
-          <Description secondary>{`\u271b ${moment(activeItem.created)
+          <Description secondary>{`Created: ${moment(activeItem.created)
             .format('lll')}`}</Description>
           {' '}
           {activeItem.modified &&
-          <Description secondary>{`\u270e ${moment(activeItem.modified)
+          <Description secondary>{`Modified: ${moment(activeItem.modified)
             .format('lll')}`}</Description>}
         </Some>
         {this.props.type === 'articles' ? <Link href={activeItem.link}>Link</Link> : null}

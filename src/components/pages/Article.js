@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 const Article = props => (
   <Online>
     <Wrapper>
-      <Header>Your articles</Header>
+      <Header>Your article</Header>
       <Details type="articles" {...props} />
     </Wrapper>
   </Online>

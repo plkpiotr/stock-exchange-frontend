@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const Link = styled.a`
   padding: 6px 13px;
@@ -13,6 +13,12 @@ const Link = styled.a`
   margin-right: 10px;
   transition: .3s ease;
   background-color: ${({ theme }) => (theme.primary)};
+  
+  ${({ light }) => (
+    light && css`
+      font-weight: ${({ theme }) => (theme.normal)};                      
+    `
+  )}
   
   &:focus {
     outline: none;

@@ -4,6 +4,7 @@ import {
   FETCH_SUCCESS,
   FETCH_REQUEST,
 } from 'actions/actions';
+import { REMOVE_SUCCESS } from '../actions/actions';
 
 const initialState = {
   isAuthenticated: false,
@@ -34,6 +35,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         [action.itemType]: [...action.data],
         isLoading: false,
+      };
+    case REMOVE_SUCCESS:
+      return {
+        ...state,
+        [action.itemType]: [...state[action.itemType].filter(item => item._id !== action.id)],
       };
     default:
       return state;

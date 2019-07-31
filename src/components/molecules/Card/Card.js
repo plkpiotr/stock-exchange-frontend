@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 import Title from 'components/atoms/Title/Title';
 import Description from 'components/atoms/Description/Description';
 import Link from 'components/atoms/Link/Link';
 import moment from 'moment';
+import { removeAction } from 'actions/actions';
 
 const Wrapper = styled.div`
   width: 364px;
@@ -43,7 +45,7 @@ class Card extends Component {
 
   render() {
     const {
-      _id, type, title, description, link, created,
+      _id, type, title, description, link, created, removeItem,
     } = this.props;
 
     const { redirect } = this.state;
@@ -57,8 +59,8 @@ class Card extends Component {
         <Title>{shortenString(title, 25)}</Title>
         <Description>{shortenString(description, 110)}</Description>
         <Link onClick={this.toggleButtonDetails}>See details</Link>
-        <Link>{deleteIcon}</Link>
-        {type === 'articles' ? <Link href={link}>{linkIcon}</Link> : null}
+        <Link light onClick={() => removeItem(type, _id)}>{deleteIcon}</Link>
+        {type === 'articles' ? <Link light href={link}>{linkIcon}</Link> : null}
         <Date>{moment(created).format('L')}</Date>
       </Wrapper>
     );
@@ -72,10 +74,15 @@ Card.propTypes = {
   description: PropTypes.string.isRequired,
   link: PropTypes.string,
   created: PropTypes.string.isRequired,
+  removeItem: PropTypes.func.isRequired,
 };
 
 Card.defaultProps = {
   link: null,
 };
 
-export default Card;
+const mapDispatchToProps = dispatch => ({
+  removeItem: (itemType, id) => dispatch(removeAction(itemType, id)),
+});
+
+export default connect(null, mapDispatchToProps)(Card);

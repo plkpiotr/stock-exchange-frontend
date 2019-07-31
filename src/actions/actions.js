@@ -11,6 +11,10 @@ export const FETCH_REQUEST = 'FETCH_REQUEST';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
 export const FETCH_FAILURE = 'FETCH_FAILURE';
 
+export const REMOVE_REQUEST = 'REMOVE_REQUEST';
+export const REMOVE_SUCCESS = 'REMOVE_SUCCESS';
+export const REMOVE_FAILURE = 'REMOVE_FAILURE';
+
 export const LOGOUT = 'LOGOUT';
 
 export const loginAction = (email, password) => (dispatch) => {
@@ -38,7 +42,15 @@ export const loginAction = (email, password) => (dispatch) => {
     });
 };
 
-export const getItemsAction = itemType => (dispatch) => {
+export const logoutAction = () => (dispatch) => {
+  localStorage.removeItem('token');
+  setAuthorization(false);
+  dispatch({
+    type: LOGOUT,
+  });
+};
+
+export const fetchAction = itemType => (dispatch) => {
   dispatch({ type: FETCH_REQUEST });
   return axios.get(`${url}/${itemType}/`)
     .then(({ data }) => {
@@ -56,10 +68,22 @@ export const getItemsAction = itemType => (dispatch) => {
     });
 };
 
-export const logoutAction = () => (dispatch) => {
-  localStorage.removeItem('token');
-  setAuthorization(false);
+export const removeAction = (itemType, id) => (dispatch) => {
   dispatch({
-    type: LOGOUT,
+    type: REMOVE_REQUEST,
   });
+  axios.delete(`${url}/${itemType}/${id}`)
+    .then(() => {
+      dispatch({
+        type: REMOVE_SUCCESS,
+        itemType,
+        id,
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+      dispatch({
+        type: REMOVE_FAILURE,
+      });
+    });
 };
