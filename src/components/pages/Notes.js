@@ -56,7 +56,7 @@ class Notes extends Component {
               _id, title, description, created,
             }) => (
               <Card
-                type="notes"
+                itemType="notes"
                 _id={_id}
                 title={title}
                 description={description}
@@ -68,7 +68,7 @@ class Notes extends Component {
           <Button fixed onClick={this.toggleButtonPanel}>
             {isPanelVisible ? 'Close' : 'New note'}
           </Button>
-          <Panel type="notes" isVisible={isPanelVisible} handleClose={this.toggleButtonPanel} />
+          <Panel itemType="notes" isVisible={isPanelVisible} handleClose={this.toggleButtonPanel} />
         </Wrapper>
       </Online>
     );

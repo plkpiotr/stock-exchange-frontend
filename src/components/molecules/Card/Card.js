@@ -45,13 +45,13 @@ class Card extends Component {
 
   render() {
     const {
-      _id, type, title, description, link, created, removeItem,
+      _id, itemType, title, description, link, created, removeItem,
     } = this.props;
 
     const { redirect } = this.state;
 
     if (redirect) {
-      return <Redirect push to={`/${type}/${_id}`} />;
+      return <Redirect push to={`/${itemType}/${_id}`} />;
     }
 
     return (
@@ -59,8 +59,8 @@ class Card extends Component {
         <Title>{shortenString(title, 25)}</Title>
         <Description>{shortenString(description, 110)}</Description>
         <Link onClick={this.toggleButtonDetails}>See details</Link>
-        <Link light onClick={() => removeItem(type, _id)}>{deleteIcon}</Link>
-        {type === 'articles' ? <Link light href={link}>{linkIcon}</Link> : null}
+        <Link light onClick={() => removeItem(itemType, _id)}>{deleteIcon}</Link>
+        {itemType === 'articles' ? <Link light href={link}>{linkIcon}</Link> : null}
         <Date>{moment(created).format('L')}</Date>
       </Wrapper>
     );
@@ -69,7 +69,7 @@ class Card extends Component {
 
 Card.propTypes = {
   _id: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['articles', 'notes']).isRequired,
+  itemType: PropTypes.oneOf(['articles', 'notes']).isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   link: PropTypes.string,

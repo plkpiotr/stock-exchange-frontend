@@ -34,12 +34,12 @@ const StyledForm = styled(Form)`
   flex-direction: column;
 `;
 
-const Panel = ({ type, isVisible, handleClose }) => (
+const Panel = ({ itemType, isVisible, handleClose }) => (
   <Wrapper isVisible={isVisible}>
     <Title>
       Add new
       {' '}
-      {type.slice(0, -1)}
+      {itemType.slice(0, -1)}
     </Title>
     <Formik
       initialValues={{
@@ -71,7 +71,7 @@ const Panel = ({ type, isVisible, handleClose }) => (
             onBlur={handleBlur}
             value={values.description}
           />
-          {type === 'articles'
+          {itemType === 'articles'
           && (
             <Input
               name="link"
@@ -90,7 +90,7 @@ const Panel = ({ type, isVisible, handleClose }) => (
 );
 
 Panel.propTypes = {
-  type: PropTypes.oneOf(['articles', 'notes']).isRequired,
+  itemType: PropTypes.oneOf(['articles', 'notes']).isRequired,
   isVisible: PropTypes.bool.isRequired,
   handleClose: PropTypes.func.isRequired,
 };

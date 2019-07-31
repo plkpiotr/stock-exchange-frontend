@@ -56,7 +56,7 @@ class Articles extends Component {
               _id, title, description, created, link,
             }) => (
               <Card
-                type="articles"
+                itemType="articles"
                 _id={_id}
                 title={title}
                 description={description}
@@ -69,7 +69,7 @@ class Articles extends Component {
           <Button fixed onClick={this.toggleButtonPanel}>
             {isPanelVisible ? 'Close' : 'New article'}
           </Button>
-          <Panel type="articles" isVisible={isPanelVisible} handleClose={this.toggleButtonPanel} />
+          <Panel itemType="articles" isVisible={isPanelVisible} handleClose={this.toggleButtonPanel} />
         </Wrapper>
       </Online>
     );
