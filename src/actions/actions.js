@@ -11,6 +11,10 @@ export const FETCH_REQUEST = 'FETCH_REQUEST';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
 export const FETCH_FAILURE = 'FETCH_FAILURE';
 
+export const ADD_REQUEST = 'ADD_REQUEST';
+export const ADD_SUCCESS = 'ADD_SUCCESS';
+export const ADD_FAILURE = 'ADD_FAILURE';
+
 export const REMOVE_REQUEST = 'REMOVE_REQUEST';
 export const REMOVE_SUCCESS = 'REMOVE_SUCCESS';
 export const REMOVE_FAILURE = 'REMOVE_FAILURE';
@@ -51,8 +55,10 @@ export const logoutAction = () => (dispatch) => {
 };
 
 export const fetchAction = itemType => (dispatch) => {
-  dispatch({ type: FETCH_REQUEST });
-  return axios.get(`${url}/${itemType}/`)
+  dispatch({
+    type: FETCH_REQUEST,
+  });
+  return axios.get(`${url}/${itemType}`)
     .then(({ data }) => {
       dispatch({
         type: FETCH_SUCCESS,
@@ -64,6 +70,29 @@ export const fetchAction = itemType => (dispatch) => {
       console.log(error);
       dispatch({
         type: FETCH_FAILURE,
+      });
+    });
+};
+
+export const addAction = (itemType, itemContent) => (dispatch) => {
+  dispatch({
+    type: ADD_REQUEST,
+  });
+  return axios.post(`${url}/${itemType}`, {
+    type: itemType,
+    ...itemContent,
+  })
+    .then(({ data }) => {
+      dispatch({
+        type: ADD_SUCCESS,
+        itemType,
+        data,
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+      dispatch({
+        type: ADD_FAILURE,
       });
     });
 };
