@@ -23,6 +23,7 @@ const Date = styled.div`
 `;
 
 const linkIcon = '\u25b6';
+const deleteIcon = '\u2716';
 
 const shortenString = (string, maxLength) => {
   if (string.length > maxLength) {
@@ -56,6 +57,7 @@ class Card extends Component {
         <Title>{shortenString(title, 25)}</Title>
         <Description>{shortenString(description, 110)}</Description>
         <Link onClick={this.toggleButtonDetails}>See details</Link>
+        <Link>{deleteIcon}</Link>
         {type === 'articles' ? <Link href={link}>{linkIcon}</Link> : null}
         <Date>{moment(created).format('L')}</Date>
       </Wrapper>

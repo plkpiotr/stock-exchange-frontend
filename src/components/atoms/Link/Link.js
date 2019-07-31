@@ -10,7 +10,7 @@ const Link = styled.a`
   text-decoration: none;
   font-weight: ${({ theme }) => (theme.bold)};
   margin-bottom: 40px;
-  margin-right: 25px;
+  margin-right: 10px;
   transition: .3s ease;
   background-color: ${({ theme }) => (theme.primary)};
   

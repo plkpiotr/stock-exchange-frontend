@@ -3,7 +3,7 @@ Frontend:
 - `npm run storybook` to run storybook on localhost:9009
 
 To do:
-- Stylize `Details.js`
+- Check out next lines in `Description` and `MongoDB`
 - Stylize `Loading bar` and create component form it
 - Create `Form.js` controller
 - Add `created field` to `Formik`
@@ -18,3 +18,4 @@ In the future:
 - Add validation in Formik
 - Add validation of up-to-date transactions
 - Check out short duration of token
+- Clean `Details.js`

@@ -3,11 +3,26 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Title from 'components/atoms/Title/Title';
 import Description from 'components/atoms/Description/Description';
-import Paragraph from 'components/atoms/Paragraph/Paragraph';
 import Button from 'components/atoms/Button/Button';
 import Link from 'components/atoms/Link/Link';
 import axios from 'axios';
 import url from 'routes/url';
+import moment from 'moment';
+import styled from 'styled-components';
+
+const Wrapper = styled.div` {
+  background-color: ${({ theme }) => (theme.tertiary)};
+  padding: 1vh 3vw 5vh;
+  margin-top: 3vh;
+  max-width: 1200px;
+}
+`;
+
+const Some = styled.div` {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+`;
 
 class Details extends Component {
   state = {
@@ -31,7 +46,6 @@ class Details extends Component {
         .get(`${url}/${this.props.type}/${id}`)
         .then(({ data }) => {
           this.setState({ activeItem: data });
-          console.log(data);
         })
         .catch(err => console.log(err));
     }
@@ -40,15 +54,20 @@ class Details extends Component {
   render() {
     const { activeItem } = this.state;
     return (
-      <>
-        <Paragraph>{activeItem.created}</Paragraph>
-        <Paragraph>{activeItem.modified}</Paragraph>
+      <Wrapper>
         <Title>{activeItem.title}</Title>
         <Description>{activeItem.description}</Description>
+        <Some>
+          <Description secondary>{`\u271b ${moment(activeItem.created)
+            .format('lll')}`}</Description>
+          {' '}
+          {activeItem.modified &&
+          <Description secondary>{`\u270e ${moment(activeItem.modified)
+            .format('lll')}`}</Description>}
+        </Some>
+        {this.props.type === 'articles' ? <Link href={activeItem.link}>Link</Link> : null}
         <Button fixed>Edit</Button>
-        <Button>Remove</Button>
-        {activeItem.type === 'articles' ? <Link href={activeItem.link}>Link</Link> : null}
-      </>
+      </Wrapper>
     );
   }
 }
