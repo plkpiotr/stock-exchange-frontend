@@ -77,7 +77,7 @@ class Notes extends Component {
 
 Notes.propTypes = {
   fetchNotes: PropTypes.func.isRequired,
-  isLoading: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool,
   notes: PropTypes.arrayOf(PropTypes.shape({
     _id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
@@ -88,6 +88,7 @@ Notes.propTypes = {
 
 Notes.defaultProps = {
   notes: [],
+  isLoading: true,
 };
 
 const mapStateToProps = ({ notes, isLoading }) => ({ notes, isLoading });

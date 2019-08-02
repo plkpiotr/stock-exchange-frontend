@@ -78,7 +78,7 @@ class Articles extends Component {
 
 Articles.propTypes = {
   fetchArticles: PropTypes.func.isRequired,
-  isLoading: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool,
   articles: PropTypes.arrayOf(PropTypes.shape({
     _id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
@@ -90,6 +90,7 @@ Articles.propTypes = {
 
 Articles.defaultProps = {
   articles: [],
+  isLoading: true,
 };
 
 const mapStateToProps = ({ articles, isLoading }) => ({ articles, isLoading });

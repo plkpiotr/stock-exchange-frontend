@@ -12,13 +12,12 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div` {
   background-color: ${({ theme }) => (theme.tertiary)};
-  padding: 1vh 2vw 5vh;
+  padding: 4vh 3vw;
   margin-top: 3vh;
   max-width: 1200px;
-}
 `;
 
-const Some = styled.div` {
+const Footer = styled.div` {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
@@ -59,14 +58,14 @@ class Details extends Component {
       <Wrapper>
         <Title>{activeItem.title}</Title>
         <Description>{activeItem.description}</Description>
-        <Some>
+        <Footer>
           <Description secondary>{`Created: ${moment(activeItem.created)
             .format('lll')}`}</Description>
           {' '}
           {activeItem.modified &&
           <Description secondary>{`Modified: ${moment(activeItem.modified)
             .format('lll')}`}</Description>}
-        </Some>
+        </Footer>
         {this.props.type === 'articles' ? <Link href={activeItem.link}>Link</Link> : null}
         <Button fixed>Edit</Button>
       </Wrapper>

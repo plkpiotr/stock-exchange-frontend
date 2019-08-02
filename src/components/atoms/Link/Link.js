@@ -9,7 +9,6 @@ const Link = styled.a`
   text-transform: uppercase;
   text-decoration: none;
   font-weight: ${({ theme }) => (theme.bold)};
-  margin-bottom: 40px;
   margin-right: 10px;
   transition: .3s ease;
   background-color: ${({ theme }) => (theme.primary)};
@@ -17,6 +16,14 @@ const Link = styled.a`
   ${({ light }) => (
     light && css`
       font-weight: ${({ theme }) => (theme.normal)};                      
+    `
+  )}
+  
+  ${({ center }) => (
+    center && css`
+      margin-left: 28px;
+      margin-right: 28px;
+      width: 120px;
     `
   )}
   

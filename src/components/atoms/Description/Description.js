@@ -10,6 +10,11 @@ const Description = styled.p`
     secondary && css`
       color: ${({ theme }) => (theme.primary)};
       margin-top: -10px;
+      
+      a {
+        color: ${({ theme }) => (theme.secondary)};
+        text-decoration: none;
+      }
     `
   )}
 `;

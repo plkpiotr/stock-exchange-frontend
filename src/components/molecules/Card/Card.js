@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   width: 364px;
   min-height: 168px;
   margin : 2vh 2vw 3vh 0;
-  padding: 5px 30px 30px;
+  padding: 25px;
   background-color: ${({ theme }) => (theme.tertiary)};
 `;
 
