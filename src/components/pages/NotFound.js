@@ -11,7 +11,7 @@ const Section = styled.div`
   margin-top: 55px;
 `;
 
-const Error = () => (
+const NotFound = () => (
   <Offline>
     <Section>
       <Description>This is not the page you are looking for</Description>
@@ -19,4 +19,4 @@ const Error = () => (
   </Offline>
 );
 
-export default Error;
+export default NotFound;

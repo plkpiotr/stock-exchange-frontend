@@ -3,12 +3,13 @@ Frontend:
 
 To do:
 - Add possibility to `edit` note
-- Remove fields after submit in `Register.js` and (optional) add/edit item
 - Add `toasts` after: correct registration, adding/edit/remove item
-- Add `404` view when user visit route different than described in routes
 
 In the future:
-- Think about names of constants
+- Think about constant names and locations
 - Add validation in Formik
 - Add validation of up-to-date transactions
-- Think about item numbers
+
+Issues:
+- Error handling (500)
+- Reset form

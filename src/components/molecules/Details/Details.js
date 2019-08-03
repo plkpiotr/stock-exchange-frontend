@@ -14,7 +14,9 @@ const Wrapper = styled.div` {
   background-color: ${({ theme }) => (theme.tertiary)};
   padding: 4vh 3vw;
   margin-top: 3vh;
+  margin-right: 55px;
   max-width: 1200px;
+  overflow-wrap: break-word;
 `;
 
 const Footer = styled.div` {
@@ -41,14 +43,16 @@ class Details extends Component {
       this.setState({ activeItem });
     } else {
       const { id } = this.props.match.params;
-      axios
+      return axios
         .get(`${url}/${this.props.type}/${id}`)
         .then(({ data }) => {
           this.setState({
             activeItem: data,
           });
         })
-        .catch(err => console.log(err));
+        .catch(error => {
+          console.log(error);
+        });
     }
   }
 

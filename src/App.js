@@ -18,7 +18,7 @@ import Notes from 'components/pages/Notes';
 import Note from 'components/pages/Note';
 import Login from 'components/pages/Login';
 import Register from 'components/pages/Register';
-import Error from 'components/pages/Error';
+import NotFound from 'components/pages/NotFound';
 import Authenticator from 'utils/Authenticator';
 
 const App = () => (
@@ -36,7 +36,7 @@ const App = () => (
           <Route exact path={routes.article} component={Authenticator(Article)} />
           <Route exact path={routes.notes} component={Authenticator(Notes)} />
           <Route exact path={routes.note} component={Authenticator(Note)} />
-          <Route path="*" component={Error} />
+          <Route path="*" component={NotFound} />
         </Switch>
       </Main>
     </BrowserRouter>
