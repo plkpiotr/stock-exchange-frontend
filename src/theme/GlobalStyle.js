@@ -5,14 +5,18 @@ const GlobalStyle = createGlobalStyle`
   
   body {
     margin: 0;
-    overflow-y: hidden;
   }
-  
+
   *, *::before, *::after {
     font-family: 'Titillium Web', sans-serif;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+  
+  ::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 0;
   }
 `;
 
