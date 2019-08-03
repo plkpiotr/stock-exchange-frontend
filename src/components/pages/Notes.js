@@ -9,19 +9,17 @@ import Card from 'components/molecules/Card/Card';
 import Button from 'components/atoms/Button/Button';
 import Panel from 'components/organisms/Panel/Panel';
 import { fetchAction } from 'actions/actions';
+import Animation from 'utils/Animation';
 
 const Wrapper = styled.div`
   margin-left: 125px;
   padding: 0 0 1vh 3vw;
+  animation: ${Animation} .3s ease;
 `;
 
 const Board = styled.div`
   display: flex;
   flex-wrap: wrap;
-`;
-
-const Loading = styled.div`
-  color: ${({ theme }) => (theme.primary)};
 `;
 
 class Notes extends Component {
@@ -51,7 +49,6 @@ class Notes extends Component {
           </Header>
           <Input search placeholder="Find by title…" />
           <Board>
-            {isLoading && <Loading>Loading</Loading>}
             {notes.map(({
               _id, title, description, created,
             }) => (

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Header from 'components/atoms/Header/Header';
 import dollar from 'icons/dollar.svg';
+import Animation from 'utils/Animation';
 
 const Wrapper = styled.div`
   background-color: white;
@@ -12,6 +13,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  animation: ${Animation} .3s ease;
 `;
 
 const Logo = styled.img`
@@ -36,7 +38,7 @@ const Offline = ({ children }) => (
   <Wrapper>
     <Frame>
       <Logo src={dollar} alt="dollar" />
-      <Header>Stock Exchange App</Header>
+      <Header>Stock Exchange</Header>
       {children}
     </Frame>
   </Wrapper>
