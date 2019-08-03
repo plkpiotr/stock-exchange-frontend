@@ -82,7 +82,7 @@ const Register = ({ isAuthenticated, register }) => (
               </a>
             </Description>
             <Footer>
-              <Link center href={routes.login}>Signing in</Link>
+              <Link center href={routes.login}>Sign in</Link>
               <Link center href="https://github.com/plkpiotr/stock-exchange-frontend">
                 Source code
               </Link>
@@ -104,7 +104,7 @@ const mapStateToProps = ({ isAuthenticated }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  add: (itemType, itemContent) => dispatch(registerAction(itemType, itemContent)),
+  register: (email, password) => dispatch(registerAction(email, password)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Register);

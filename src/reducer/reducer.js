@@ -10,7 +10,6 @@ import {
 const initialState = {
   isAuthenticated: false,
   user: {},
-  isLoading: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -19,7 +18,6 @@ const reducer = (state = initialState, action) => {
       return {
         isAuthenticated: true,
         user: action.user,
-        isLoading: false,
       };
     case LOGOUT:
       return {

@@ -82,7 +82,7 @@ const Login = ({ isAuthenticated, login }) => (
               </a>
             </Description>
             <Footer>
-              <Link center href={routes.register}>Registration</Link>
+              <Link center href={routes.register}>Register</Link>
               <Link center href="https://github.com/plkpiotr/stock-exchange-frontend">
                 Source code
               </Link>

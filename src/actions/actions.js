@@ -25,10 +25,6 @@ export const REMOVE_FAILURE = 'REMOVE_FAILURE';
 
 export const LOGOUT = 'LOGOUT';
 
-export const registerAction = (email, password) => (dispatch) => {
-  console.log(dispatch, email, password);
-};
-
 export const loginAction = (email, password) => (dispatch) => {
   dispatch({
     type: AUTHORIZE_REQUEST,
@@ -37,8 +33,8 @@ export const loginAction = (email, password) => (dispatch) => {
     email,
     password,
   })
-    .then((result) => {
-      const { token } = result.data;
+    .then(({ data }) => {
+      const { token } = data;
       localStorage.setItem('token', token);
       setAuthorization(token);
       dispatch({
@@ -101,6 +97,27 @@ export const addAction = (itemType, itemContent) => (dispatch) => {
       console.log(error);
       dispatch({
         type: ADD_FAILURE,
+      });
+    });
+};
+
+export const registerAction = (email, password) => (dispatch) => {
+  dispatch({
+    type: REGISTER_REQUEST,
+  });
+  return axios.post(`${url}/users/register`, {
+    email,
+    password,
+  })
+    .then(() => {
+      dispatch({
+        type: REGISTER_SUCCESS,
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+      dispatch({
+        type: REGISTER_FAILURE,
       });
     });
 };

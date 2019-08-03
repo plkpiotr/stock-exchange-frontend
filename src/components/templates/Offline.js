@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 `;
 
 const Logo = styled.img`
-  width: 90px;
+  width: 80px;
   margin-bottom: 20px;
   height: auto;
 `;

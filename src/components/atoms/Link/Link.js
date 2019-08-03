@@ -21,8 +21,8 @@ const Link = styled.a`
   
   ${({ center }) => (
     center && css`
-      margin-left: 21px;
-      margin-right: 21px;
+      margin-left: 15px;
+      margin-right: 15px;
       display: inline-block;
       width: 120px;
     `
