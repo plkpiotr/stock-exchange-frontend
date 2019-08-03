@@ -61,7 +61,7 @@ const Login = ({ isAuthenticated, login }) => (
               onBlur={handleBlur}
               value={values.password}
             />
-            <Button type="submit">Log in</Button>
+            <Button type="submit">Sign in</Button>
             <Description secondary>
               Icons made by
               {' '}

@@ -11,7 +11,7 @@ const Button = styled.button`
   transition: .3s ease;
   background-color: ${({ theme }) => (theme.primary)};
   margin-top: 10px;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
   
   &:focus {
     outline: none;

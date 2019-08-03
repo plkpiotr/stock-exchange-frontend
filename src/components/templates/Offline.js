@@ -16,7 +16,7 @@ const Wrapper = styled.div`
 
 const Logo = styled.img`
   width: 90px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   height: auto;
 `;
 

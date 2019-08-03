@@ -55,8 +55,7 @@ class Card extends Component {
         <Link light onClick={() => removeItem(itemType, _id)}>{deleteIcon}</Link>
         {itemType === 'articles' ? <Link light href={link}>{linkIcon}</Link> : null}
         <Date>
-          {moment(created)
-            .format('L')}
+          {moment(created).format('L')}
         </Date>
       </Wrapper>
     );

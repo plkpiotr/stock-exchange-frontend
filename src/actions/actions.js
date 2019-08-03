@@ -3,9 +3,13 @@ import { setAuthorization } from 'utils/token';
 import url from 'routes/url';
 import jwt from 'jsonwebtoken';
 
-export const AUTHORIZATION_REQUEST = 'AUTHORIZATION_REQUEST';
-export const AUTHORIZATION_SUCCESS = 'AUTHORIZATION_SUCCESS';
-export const AUTHORIZATION_FAILURE = 'AUTHORIZATION_FAILURE';
+export const REGISTER_REQUEST = 'REGISTER_REQUEST';
+export const REGISTER_SUCCESS = 'REGISTER_REQUEST';
+export const REGISTER_FAILURE = 'REGISTER_REQUEST';
+
+export const AUTHORIZE_REQUEST = 'AUTHORIZE_REQUEST';
+export const AUTHORIZE_SUCCESS = 'AUTHORIZE_SUCCESS';
+export const AUTHORIZE_FAILURE = 'AUTHORIZE_FAILURE';
 
 export const FETCH_REQUEST = 'FETCH_REQUEST';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
@@ -21,9 +25,13 @@ export const REMOVE_FAILURE = 'REMOVE_FAILURE';
 
 export const LOGOUT = 'LOGOUT';
 
+export const registerAction = (email, password) => (dispatch) => {
+  console.log(dispatch, email, password);
+};
+
 export const loginAction = (email, password) => (dispatch) => {
   dispatch({
-    type: AUTHORIZATION_REQUEST,
+    type: AUTHORIZE_REQUEST,
   });
   return axios.post(`${url}/users/login`, {
     email,
@@ -34,14 +42,14 @@ export const loginAction = (email, password) => (dispatch) => {
       localStorage.setItem('token', token);
       setAuthorization(token);
       dispatch({
-        type: AUTHORIZATION_SUCCESS,
+        type: AUTHORIZE_SUCCESS,
         user: jwt.decode(token),
       });
     })
     .catch((error) => {
       console.log(error);
       dispatch({
-        type: AUTHORIZATION_FAILURE,
+        type: AUTHORIZE_FAILURE,
       });
     });
 };

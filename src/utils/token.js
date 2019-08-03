@@ -1,6 +1,6 @@
 import axios from 'axios';
 import jwt from 'jsonwebtoken';
-import { AUTHORIZATION_SUCCESS } from 'actions/actions';
+import { AUTHORIZE_SUCCESS } from 'actions/actions';
 import store from 'store/store';
 
 export const setAuthorization = (token) => {
@@ -15,7 +15,7 @@ export const checkAuthorization = () => {
   if (localStorage.token) {
     setAuthorization(localStorage.token);
     store.dispatch({
-      type: AUTHORIZATION_SUCCESS,
+      type: AUTHORIZE_SUCCESS,
       user: jwt.decode(localStorage.token),
     });
   }

@@ -1,11 +1,11 @@
 import {
   ADD_SUCCESS,
-  AUTHORIZATION_SUCCESS,
+  AUTHORIZE_SUCCESS,
   FETCH_REQUEST,
   FETCH_SUCCESS,
+  REMOVE_SUCCESS,
   LOGOUT,
 } from 'actions/actions';
-import { REMOVE_SUCCESS } from '../actions/actions';
 
 const initialState = {
   isAuthenticated: false,
@@ -15,7 +15,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case AUTHORIZATION_SUCCESS:
+    case AUTHORIZE_SUCCESS:
       return {
         isAuthenticated: true,
         user: action.user,

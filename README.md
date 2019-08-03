@@ -1,6 +1,5 @@
 Frontend:
 - `react-scripts start` to run frontend on localhost:3000
-- `npm run storybook` to run storybook on localhost:9009
 
 To do:
 - Stylize `Loading bar` and create component form it
