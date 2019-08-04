@@ -3,8 +3,9 @@ import {
   AUTHORIZE_SUCCESS,
   FETCH_REQUEST,
   FETCH_SUCCESS,
-  REMOVE_SUCCESS,
+  DELETE_SUCCESS,
   LOGOUT,
+  EDIT_SUCCESS,
 } from 'actions/actions';
 
 const initialState = {
@@ -40,7 +41,13 @@ const reducer = (state = initialState, action) => {
         ...state,
         [action.itemType]: [...state[action.itemType], action.data],
       };
-    case REMOVE_SUCCESS:
+    case EDIT_SUCCESS: {
+      const tempState = { ...state };
+      const indexElementToUpdate = tempState[action.itemType].findIndex(i => i._id === action.id);
+      tempState[action.itemType][indexElementToUpdate] = action.data;
+      return tempState;
+    }
+    case DELETE_SUCCESS:
       return {
         ...state,
         [action.itemType]: [...state[action.itemType].filter(item => item._id !== action.id)],

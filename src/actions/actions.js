@@ -19,9 +19,13 @@ export const ADD_REQUEST = 'ADD_REQUEST';
 export const ADD_SUCCESS = 'ADD_SUCCESS';
 export const ADD_FAILURE = 'ADD_FAILURE';
 
-export const REMOVE_REQUEST = 'REMOVE_REQUEST';
-export const REMOVE_SUCCESS = 'REMOVE_SUCCESS';
-export const REMOVE_FAILURE = 'REMOVE_FAILURE';
+export const DELETE_REQUEST = 'DELETE_REQUEST';
+export const DELETE_SUCCESS = 'DELETE_SUCCESS';
+export const DELETE_FAILURE = 'DELETE_FAILURE';
+
+export const EDIT_REQUEST = 'EDIT_REQUEST';
+export const EDIT_SUCCESS = 'EDIT_SUCCESS';
+export const EDIT_FAILURE = 'EDIT_FAILURE';
 
 export const LOGOUT = 'LOGOUT';
 
@@ -51,7 +55,9 @@ export const loginAction = (email, password) => (dispatch) => {
 };
 
 export const logoutAction = () => (dispatch) => {
-  localStorage.removeItem('token');
+  if (localStorage.getItem('token') !== null) {
+    localStorage.removeItem('token');
+  }
   setAuthorization(false);
   dispatch({
     type: LOGOUT,
@@ -83,10 +89,10 @@ export const addAction = (itemType, itemContent) => (dispatch) => {
     type: ADD_REQUEST,
   });
   return axios.post(`${url}/${itemType}`, {
-    type: itemType,
     ...itemContent,
   })
     .then(({ data }) => {
+      console.log(data);
       dispatch({
         type: ADD_SUCCESS,
         itemType,
@@ -122,14 +128,14 @@ export const registerAction = (email, password) => (dispatch) => {
     });
 };
 
-export const removeAction = (itemType, id) => (dispatch) => {
+export const deleteAction = (itemType, id) => (dispatch) => {
   dispatch({
-    type: REMOVE_REQUEST,
+    type: DELETE_REQUEST,
   });
   axios.delete(`${url}/${itemType}/${id}`)
     .then(() => {
       dispatch({
-        type: REMOVE_SUCCESS,
+        type: DELETE_SUCCESS,
         itemType,
         id,
       });
@@ -137,7 +143,32 @@ export const removeAction = (itemType, id) => (dispatch) => {
     .catch((error) => {
       console.log(error);
       dispatch({
-        type: REMOVE_FAILURE,
+        type: DELETE_FAILURE,
+      });
+    });
+};
+
+export const editAction = (itemType, itemContent, id) => (dispatch) => {
+  dispatch({
+    type: EDIT_REQUEST,
+  });
+  return axios.put(`${url}/${itemType}/${id}`, {
+    itemType,
+    ...itemContent,
+  })
+    .then(({ data }) => {
+      console.log(data);
+      dispatch({
+        type: EDIT_SUCCESS,
+        itemType,
+        data,
+        id,
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+      dispatch({
+        type: EDIT_FAILURE,
       });
     });
 };

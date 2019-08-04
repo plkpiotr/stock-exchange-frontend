@@ -7,7 +7,7 @@ import Header from 'components/atoms/Header/Header';
 import Input from 'components/atoms/Input/Input';
 import Card from 'components/molecules/Card/Card';
 import Button from 'components/atoms/Button/Button';
-import Panel from 'components/organisms/Panel/Panel';
+import NewItemPanel from 'components/organisms/NewItemPanel/NewItemPanel';
 import { fetchAction } from 'actions/actions';
 import Animation from 'utils/Animation';
 
@@ -66,7 +66,7 @@ class Articles extends Component {
           <Button fixed onClick={this.toggleButtonPanel}>
             {isPanelVisible ? 'Close' : 'New article'}
           </Button>
-          <Panel itemType="articles" isVisible={isPanelVisible} handleClose={this.toggleButtonPanel} />
+          <NewItemPanel itemType="articles" isVisible={isPanelVisible} handleClose={this.toggleButtonPanel} />
         </Wrapper>
       </Online>
     );

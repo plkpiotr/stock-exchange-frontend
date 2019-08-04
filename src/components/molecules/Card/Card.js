@@ -7,7 +7,7 @@ import Title from 'components/atoms/Title/Title';
 import Description from 'components/atoms/Description/Description';
 import Link from 'components/atoms/Link/Link';
 import moment from 'moment';
-import { removeAction } from 'actions/actions';
+import { deleteAction } from 'actions/actions';
 
 const Wrapper = styled.div`
   width: 364px;
@@ -38,7 +38,7 @@ class Card extends Component {
 
   render() {
     const {
-      _id, itemType, title, description, link, created, removeItem,
+      _id, itemType, title, description, link, created, deleteItem,
     } = this.props;
 
     const { redirect } = this.state;
@@ -52,7 +52,7 @@ class Card extends Component {
         <Title>{shortenLine(title, 27)}</Title>
         <Description>{shortenLine(description.split('\n')[0], 40)}</Description>
         <Link onClick={this.toggleButtonDetails}>See details</Link>
-        <Link light onClick={() => removeItem(itemType, _id)}>{deleteIcon}</Link>
+        <Link light onClick={() => deleteItem(itemType, _id)}>{deleteIcon}</Link>
         {itemType === 'articles' ? <Link light href={link}>{linkIcon}</Link> : null}
         <Date>
           {moment(created).format('L')}
@@ -69,7 +69,7 @@ Card.propTypes = {
   description: PropTypes.string.isRequired,
   link: PropTypes.string,
   created: PropTypes.string.isRequired,
-  removeItem: PropTypes.func.isRequired,
+  deleteItem: PropTypes.func.isRequired,
 };
 
 Card.defaultProps = {
@@ -77,7 +77,7 @@ Card.defaultProps = {
 };
 
 const mapDispatchToProps = dispatch => ({
-  removeItem: (itemType, id) => dispatch(removeAction(itemType, id)),
+  deleteItem: (itemType, id) => dispatch(deleteAction(itemType, id)),
 });
 
 export default connect(null, mapDispatchToProps)(Card);

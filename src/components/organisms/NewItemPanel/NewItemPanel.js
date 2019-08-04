@@ -25,7 +25,7 @@ const Wrapper = styled.div`
   transition: .3s ease;
 `;
 
-const Description = styled(Input)`
+const TextArea = styled(Input)`
   resize: none;
   height: 40vh;
   min-height: 250px;
@@ -36,7 +36,7 @@ const StyledForm = styled(Form)`
   flex-direction: column;
 `;
 
-const Panel = ({
+const NewItemPanel = ({
   itemType, isVisible, addItem, handleClose,
 }) => (
   <Wrapper isVisible={isVisible}>
@@ -68,7 +68,7 @@ const Panel = ({
             onBlur={handleBlur}
             value={values.title}
           />
-          <Description
+          <TextArea
             name="description"
             as="textarea"
             placeholder="Description"
@@ -94,7 +94,7 @@ const Panel = ({
   </Wrapper>
 );
 
-Panel.propTypes = {
+NewItemPanel.propTypes = {
   itemType: PropTypes.oneOf(['articles', 'notes']).isRequired,
   isVisible: PropTypes.bool.isRequired,
   addItem: PropTypes.func.isRequired,
@@ -105,4 +105,4 @@ const mapDispatchToProps = dispatch => ({
   addItem: (itemType, itemContent) => dispatch(addAction(itemType, itemContent)),
 });
 
-export default connect(null, mapDispatchToProps)(Panel);
+export default connect(null, mapDispatchToProps)(NewItemPanel);
