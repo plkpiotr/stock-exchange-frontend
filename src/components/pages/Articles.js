@@ -8,7 +8,7 @@ import Input from 'components/atoms/Input/Input';
 import Card from 'components/molecules/Card/Card';
 import Button from 'components/atoms/Button/Button';
 import NewItemPanel from 'components/organisms/NewItemPanel/NewItemPanel';
-import { fetchAction } from 'actions/actions';
+import { fetchItemsAction } from 'actions/actions';
 import Animation from 'utils/Animation';
 
 const Wrapper = styled.div`
@@ -93,7 +93,7 @@ Articles.defaultProps = {
 const mapStateToProps = ({ articles, isLoading }) => ({ articles, isLoading });
 
 const mapDispatchToProps = dispatch => ({
-  fetchArticles: () => dispatch(fetchAction('articles')),
+  fetchArticles: () => dispatch(fetchItemsAction('articles')),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Articles);

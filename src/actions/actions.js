@@ -11,9 +11,13 @@ export const AUTHORIZE_REQUEST = 'AUTHORIZE_REQUEST';
 export const AUTHORIZE_SUCCESS = 'AUTHORIZE_SUCCESS';
 export const AUTHORIZE_FAILURE = 'AUTHORIZE_FAILURE';
 
-export const FETCH_REQUEST = 'FETCH_REQUEST';
-export const FETCH_SUCCESS = 'FETCH_SUCCESS';
-export const FETCH_FAILURE = 'FETCH_FAILURE';
+export const FETCH_ITEMS_REQUEST = 'FETCH_ITEMS_REQUEST';
+export const FETCH_ITEMS_SUCCESS = 'FETCH_ITEMS_SUCCESS';
+export const FETCH_ITEMS_FAILURE = 'FETCH_ITEMS_FAILURE';
+
+export const FETCH_ITEM_REQUEST = 'FETCH_ITEM_REQUEST';
+export const FETCH_ITEM_SUCCESS = 'FETCH_ITEM_SUCCESS';
+export const FETCH_ITEM_FAILURE = 'FETCH_ITEM_FAILURE';
 
 export const ADD_REQUEST = 'ADD_REQUEST';
 export const ADD_SUCCESS = 'ADD_SUCCESS';
@@ -64,14 +68,14 @@ export const logoutAction = () => (dispatch) => {
   });
 };
 
-export const fetchAction = itemType => (dispatch) => {
+export const fetchItemsAction = itemType => (dispatch) => {
   dispatch({
-    type: FETCH_REQUEST,
+    type: FETCH_ITEMS_REQUEST,
   });
   return axios.get(`${url}/${itemType}`)
     .then(({ data }) => {
       dispatch({
-        type: FETCH_SUCCESS,
+        type: FETCH_ITEMS_SUCCESS,
         itemType,
         data,
       });
@@ -79,7 +83,26 @@ export const fetchAction = itemType => (dispatch) => {
     .catch((error) => {
       console.log(error);
       dispatch({
-        type: FETCH_FAILURE,
+        type: FETCH_ITEMS_FAILURE,
+      });
+    });
+};
+
+export const fetchItemAction = () => (dispatch) => {
+  dispatch({
+    type: FETCH_ITEM_REQUEST,
+  });
+  return axios.get(`${url}/notes/5d4724cd62087b0e141f75a4`)
+    .then(({ data }) => {
+      dispatch({
+        type: FETCH_ITEM_SUCCESS,
+        data,
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+      dispatch({
+        type: FETCH_ITEM_FAILURE,
       });
     });
 };

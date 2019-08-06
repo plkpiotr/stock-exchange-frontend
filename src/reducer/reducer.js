@@ -1,8 +1,10 @@
 import {
   ADD_SUCCESS,
   AUTHORIZE_SUCCESS,
-  FETCH_REQUEST,
-  FETCH_SUCCESS,
+  FETCH_ITEMS_REQUEST,
+  FETCH_ITEMS_SUCCESS,
+  FETCH_ITEM_REQUEST,
+  FETCH_ITEM_SUCCESS,
   DELETE_SUCCESS,
   LOGOUT,
   EDIT_SUCCESS,
@@ -25,15 +27,26 @@ const reducer = (state = initialState, action) => {
         isAuthenticated: false,
         user: {},
       };
-    case FETCH_REQUEST:
+    case FETCH_ITEMS_REQUEST:
       return {
         ...state,
         isLoading: true,
       };
-    case FETCH_SUCCESS:
+    case FETCH_ITEMS_SUCCESS:
       return {
         ...state,
         [action.itemType]: [...action.data],
+        isLoading: false,
+      };
+    case FETCH_ITEM_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case FETCH_ITEM_SUCCESS:
+      return {
+        ...state,
+        item: action.data,
         isLoading: false,
       };
     case ADD_SUCCESS:
@@ -41,17 +54,17 @@ const reducer = (state = initialState, action) => {
         ...state,
         [action.itemType]: [...state[action.itemType], action.data],
       };
+    case DELETE_SUCCESS:
+      return {
+        ...state,
+        [action.itemType]: [...state[action.itemType].filter(item => item._id !== action.id)],
+      };
     case EDIT_SUCCESS: {
       const tempState = { ...state };
       const indexElementToUpdate = tempState[action.itemType].findIndex(i => i._id === action.id);
       tempState[action.itemType][indexElementToUpdate] = action.data;
       return tempState;
     }
-    case DELETE_SUCCESS:
-      return {
-        ...state,
-        [action.itemType]: [...state[action.itemType].filter(item => item._id !== action.id)],
-      };
     default:
       return state;
   }
