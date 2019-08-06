@@ -3,7 +3,9 @@ Frontend:
 
 To do:
 - Create Logo component
-- Rename NewItemPanel and divide into two components
+- Create Loading component
+- Divide actions into files
+- Delete animations
 - Add possibility to `edit` note
 - Add `toasts` after: correct registration, adding/edit/remove item
 
@@ -11,9 +13,7 @@ In the future:
 - Think about `constant` names and locations
 - Add validation in `Formik`
 - Add validation of `up-to-date transactions`
-- Delete all `console.log()` in the project
 - Create components for repeating components, for example `Logo`,
-- Loading instead of Animation (animation for loading)
 
 Issues:
 - Error handling (500)

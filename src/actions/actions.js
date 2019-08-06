@@ -88,11 +88,11 @@ export const fetchItemsAction = itemType => (dispatch) => {
     });
 };
 
-export const fetchItemAction = () => (dispatch) => {
+export const fetchItemAction = (itemType, id) => (dispatch) => {
   dispatch({
     type: FETCH_ITEM_REQUEST,
   });
-  return axios.get(`${url}/notes/5d4724cd62087b0e141f75a4`)
+  return axios.get(`${url}/${itemType}/${id}`)
     .then(({ data }) => {
       dispatch({
         type: FETCH_ITEM_SUCCESS,
