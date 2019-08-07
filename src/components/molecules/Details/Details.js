@@ -9,6 +9,7 @@ import moment from 'moment';
 import EditItemPanel from 'components/organisms/EditItemPanel/EditItemPanel';
 import styled from 'styled-components';
 import { fetchItemAction } from 'actions/actions';
+import Loader from 'components/atoms/Loader/Loader';
 
 const Wrapper = styled.div` {
   background-color: ${({ theme }) => (theme.tertiary)};
@@ -38,9 +39,7 @@ class Details extends Component {
     const { isPanelVisible } = this.state;
     if (isLoading) {
       return (
-        <div>
-          Loading
-        </div>
+        <Loader />
       );
     }
     return (

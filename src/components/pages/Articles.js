@@ -9,12 +9,11 @@ import Card from 'components/molecules/Card/Card';
 import Button from 'components/atoms/Button/Button';
 import NewItemPanel from 'components/organisms/NewItemPanel/NewItemPanel';
 import { fetchItemsAction } from 'actions/actions';
-import Animation from 'utils/Animation';
+import Loader from 'components/atoms/Loader/Loader';
 
 const Wrapper = styled.div`
   margin-left: 125px;
   padding: 0 0 1vh 3vw;
-  animation: ${Animation} .3s ease;
 `;
 
 const Board = styled.div`
@@ -39,13 +38,18 @@ class Articles extends Component {
   render() {
     const { articles, isLoading } = this.props;
     const { isPanelVisible } = this.state;
+    if (isLoading) {
+      return (
+        <Online>
+          <Loader />
+        </Online>
+      );
+    }
     return (
       <Online>
         <Wrapper>
           <Header>
             Your articles
-            {' '}
-            {!isLoading && `[${articles.length}]`}
           </Header>
           <Input search placeholder="Find by title…" />
           <Board>
