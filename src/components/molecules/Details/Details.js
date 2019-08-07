@@ -77,12 +77,11 @@ Details.propTypes = {
   isLoading: PropTypes.bool,
   type: PropTypes.oneOf(['articles', 'notes']).isRequired,
   item: PropTypes.shape({
-    description: PropTypes.string,
-    _id: PropTypes.string,
     title: PropTypes.string,
+    description: PropTypes.string,
+    link: PropTypes.string,
     created: PropTypes.string,
     modified: PropTypes.string,
-    link: PropTypes.string,
   }),
 };
 

@@ -59,12 +59,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         [action.itemType]: [...state[action.itemType].filter(item => item._id !== action.id)],
       };
-    case EDIT_SUCCESS: {
-      const tempState = { ...state };
-      const indexElementToUpdate = tempState[action.itemType].findIndex(i => i._id === action.id);
-      tempState[action.itemType][indexElementToUpdate] = action.data;
-      return tempState;
-    }
+    case EDIT_SUCCESS:
+      return {
+        ...state,
+        item: action.data,
+      };
     default:
       return state;
   }

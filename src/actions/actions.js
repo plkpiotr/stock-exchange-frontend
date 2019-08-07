@@ -180,12 +180,10 @@ export const editAction = (itemType, itemContent, id) => (dispatch) => {
     ...itemContent,
   })
     .then(({ data }) => {
-      console.log(data);
       dispatch({
         type: EDIT_SUCCESS,
         itemType,
         data,
-        id,
       });
     })
     .catch((error) => {
