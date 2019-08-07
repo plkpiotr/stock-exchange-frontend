@@ -1,5 +1,6 @@
 import axios from 'axios';
 import url from 'routes/url';
+import { toast } from 'react-toastify';
 
 export const ADD_ITEM_REQUEST = 'ADD_ITEM_REQUEST';
 export const ADD_ITEM_SUCCESS = 'ADD_ITEM_SUCCESS';
@@ -13,7 +14,7 @@ export const addItemAction = (itemType, itemContent) => (dispatch) => {
     ...itemContent,
   })
     .then(({ data }) => {
-      console.log(data);
+      toast('Item has been added successfully');
       dispatch({
         type: ADD_ITEM_SUCCESS,
         itemType,
@@ -21,7 +22,7 @@ export const addItemAction = (itemType, itemContent) => (dispatch) => {
       });
     })
     .catch((error) => {
-      console.log(error);
+      toast(`An error occurred trying to add the item\n${error}`);
       dispatch({
         type: ADD_ITEM_FAILURE,
       });

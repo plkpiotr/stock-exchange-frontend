@@ -36,7 +36,7 @@ const StyledForm = styled(Form)`
   flex-direction: column;
 `;
 
-const NewItemPanel = ({
+const AddItemPanel = ({
   itemType, isVisible, addItem, handleClose,
 }) => (
   <Wrapper isVisible={isVisible}>
@@ -94,7 +94,7 @@ const NewItemPanel = ({
   </Wrapper>
 );
 
-NewItemPanel.propTypes = {
+AddItemPanel.propTypes = {
   itemType: PropTypes.oneOf(['articles', 'notes']).isRequired,
   isVisible: PropTypes.bool.isRequired,
   addItem: PropTypes.func.isRequired,
@@ -105,4 +105,4 @@ const mapDispatchToProps = dispatch => ({
   addItem: (itemType, itemContent) => dispatch(addItemAction(itemType, itemContent)),
 });
 
-export default connect(null, mapDispatchToProps)(NewItemPanel);
+export default connect(null, mapDispatchToProps)(AddItemPanel);

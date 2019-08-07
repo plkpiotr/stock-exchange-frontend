@@ -1,5 +1,6 @@
 import axios from 'axios';
 import url from 'routes/url';
+import { toast } from 'react-toastify';
 
 export const REGISTER_REQUEST = 'REGISTER_REQUEST';
 export const REGISTER_SUCCESS = 'REGISTER_REQUEST';
@@ -14,12 +15,13 @@ export const registerAction = (email, password) => (dispatch) => {
     password,
   })
     .then(() => {
+      toast('You have been join the Stock Exchange Community');
       dispatch({
         type: REGISTER_SUCCESS,
       });
     })
     .catch((error) => {
-      console.log(error);
+      toast(`An error occurred trying to register\n${error}`);
       dispatch({
         type: REGISTER_FAILURE,
       });

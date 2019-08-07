@@ -1,5 +1,6 @@
 import axios from 'axios';
 import url from 'routes/url';
+import { toast } from 'react-toastify';
 
 export const DELETE_ITEM_REQUEST = 'DELETE_ITEM_REQUEST';
 export const DELETE_ITEM_SUCCESS = 'DELETE_ITEM_SUCCESS';
@@ -11,6 +12,7 @@ export const deleteItemAction = (itemType, id) => (dispatch) => {
   });
   axios.delete(`${url}/${itemType}/${id}`)
     .then(() => {
+      toast('Item has been removed successfully');
       dispatch({
         type: DELETE_ITEM_SUCCESS,
         itemType,
@@ -18,7 +20,7 @@ export const deleteItemAction = (itemType, id) => (dispatch) => {
       });
     })
     .catch((error) => {
-      console.log(error);
+      toast(`An error occurred trying to delete the item\n${error}`);
       dispatch({
         type: DELETE_ITEM_FAILURE,
       });

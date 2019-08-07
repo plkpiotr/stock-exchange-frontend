@@ -1,0 +1,18 @@
+.Toastify__toast-container {
+    margin: 0;
+    width: auto;
+    max-width: 400px;
+    text-align: right;
+    white-space: pre-wrap;
+}
+
+.Toastify__toast--default {
+    background: hsl(35, 100%, 96%);
+    border-right: 5px solid hsl(35, 100%, 60%);
+    color: black;
+    box-shadow: none;
+}
+
+.Toastify__close-button--default {
+    display: none;
+}

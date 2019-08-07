@@ -2,6 +2,7 @@ import axios from 'axios';
 import jwt from 'jsonwebtoken';
 import { setAuthorization } from 'utils/token';
 import url from 'routes/url';
+import { toast } from 'react-toastify';
 
 export const AUTHORIZE_REQUEST = 'AUTHORIZE_REQUEST';
 export const AUTHORIZE_SUCCESS = 'AUTHORIZE_SUCCESS';
@@ -23,9 +24,10 @@ export const authorizeAction = (email, password) => (dispatch) => {
         type: AUTHORIZE_SUCCESS,
         user: jwt.decode(token),
       });
+      toast('Welcome to Stock Exchange Application');
     })
     .catch((error) => {
-      console.log(error);
+      toast(`An error occurred trying to sign in\n${error}`);
       dispatch({
         type: AUTHORIZE_FAILURE,
       });

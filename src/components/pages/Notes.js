@@ -7,7 +7,7 @@ import Header from 'components/atoms/Header/Header';
 import Input from 'components/atoms/Input/Input';
 import Card from 'components/molecules/Card/Card';
 import Button from 'components/atoms/Button/Button';
-import NewItemPanel from 'components/organisms/NewItemPanel/NewItemPanel';
+import AddItemPanel from 'components/organisms/AddItemPanel/AddItemPanel';
 import { fetchItemsAction } from 'actions/fetchItems';
 import Loader from 'components/atoms/Loader/Loader';
 
@@ -69,7 +69,7 @@ class Notes extends Component {
           <Button fixed onClick={this.toggleButtonPanel}>
             {isPanelVisible ? 'Close' : 'New note'}
           </Button>
-          <NewItemPanel itemType="notes" isVisible={isPanelVisible} handleClose={this.toggleButtonPanel} />
+          <AddItemPanel itemType="notes" isVisible={isPanelVisible} handleClose={this.toggleButtonPanel} />
         </Wrapper>
       </Online>
     );

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import url from 'routes/url';
+import { toast } from 'react-toastify';
 
 export const EDIT_ITEM_REQUEST = 'EDIT_ITEM_REQUEST';
 export const EDIT_ITEM_SUCCESS = 'EDIT_ITEM_SUCCESS';
@@ -14,6 +15,7 @@ export const editItemAction = (itemType, itemContent, id) => (dispatch) => {
     ...itemContent,
   })
     .then(({ data }) => {
+      toast('Item has been edited successfully');
       dispatch({
         type: EDIT_ITEM_SUCCESS,
         itemType,
@@ -21,7 +23,7 @@ export const editItemAction = (itemType, itemContent, id) => (dispatch) => {
       });
     })
     .catch((error) => {
-      console.log(error);
+      toast(`An error occurred trying to edit the item\n${error}`);
       dispatch({
         type: EDIT_ITEM_FAILURE,
       });
