@@ -9,7 +9,7 @@ import {
   Formik,
   Form,
 } from 'formik';
-import { editAction } from 'actions/actions';
+import { editItemAction } from 'actions/editItem';
 
 const Wrapper = styled.div`
   display: flex;
@@ -108,7 +108,7 @@ EditItemPanel.propTypes = {
 };
 
 const mapDispatchToProps = dispatch => ({
-  editItem: (itemType, itemContent, id) => dispatch(editAction(itemType, itemContent, id)),
+  editItem: (itemType, itemContent, id) => dispatch(editItemAction(itemType, itemContent, id)),
 });
 
 export default connect(null, mapDispatchToProps)(EditItemPanel);

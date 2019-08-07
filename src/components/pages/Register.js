@@ -6,7 +6,7 @@ import Button from 'components/atoms/Button/Button';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import routes from 'routes/routes';
-import { registerAction } from 'actions/actions';
+import { registerAction } from 'actions/register';
 import Link from 'components/atoms/Link/Link';
 import Description from 'components/atoms/Description/Description';
 import Offline from 'components/templates/Offline';

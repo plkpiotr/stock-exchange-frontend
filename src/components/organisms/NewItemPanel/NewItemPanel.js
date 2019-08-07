@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Input from 'components/atoms/Input/Input';
 import Button from 'components/atoms/Button/Button';
 import Title from 'components/atoms/Title/Title';
-import { addAction } from 'actions/actions';
+import { addItemAction } from 'actions/addItem';
 import {
   Formik,
   Form,
@@ -102,7 +102,7 @@ NewItemPanel.propTypes = {
 };
 
 const mapDispatchToProps = dispatch => ({
-  addItem: (itemType, itemContent) => dispatch(addAction(itemType, itemContent)),
+  addItem: (itemType, itemContent) => dispatch(addItemAction(itemType, itemContent)),
 });
 
 export default connect(null, mapDispatchToProps)(NewItemPanel);

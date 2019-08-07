@@ -8,12 +8,12 @@ import Link from 'components/atoms/Link/Link';
 import moment from 'moment';
 import EditItemPanel from 'components/organisms/EditItemPanel/EditItemPanel';
 import styled from 'styled-components';
-import { fetchItemAction } from 'actions/actions';
+import { fetchItemAction } from 'actions/fetchItem';
 import Loader from 'components/atoms/Loader/Loader';
 
 const Wrapper = styled.div` {
   background-color: ${({ theme }) => (theme.tertiary)};
-  padding: 4vh 3vw;
+  padding: 4vh 2vw;
   margin-top: 3vh;
   margin-right: 55px;
   max-width: 1200px;

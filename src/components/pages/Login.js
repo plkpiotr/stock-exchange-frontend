@@ -6,7 +6,7 @@ import Button from 'components/atoms/Button/Button';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import routes from 'routes/routes';
-import { loginAction } from 'actions/actions';
+import { authorizeAction } from 'actions/authorize';
 import Link from 'components/atoms/Link/Link';
 import Description from 'components/atoms/Description/Description';
 import Offline from 'components/templates/Offline';
@@ -104,7 +104,7 @@ const mapStateToProps = ({ isAuthenticated }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  login: (email, password) => dispatch(loginAction(email, password)),
+  login: (email, password) => dispatch(authorizeAction(email, password)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

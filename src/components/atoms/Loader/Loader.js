@@ -15,12 +15,15 @@ const Rotate = keyframes`
 `;
 
 const Logo = styled.img`
-  width: 50px;
+@media only screen and (max-height: 950px) {
+display: none;
+  }
+    width: 50px;
   height: 50px;
   animation: ${Rotate} 1s both infinite;
   position: fixed;
-  bottom: 30px;
-  right: 45px;
+  top: 38px;
+  left: 32px;
   z-index: 2;
 `;
 

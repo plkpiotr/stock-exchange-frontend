@@ -1,6 +1,6 @@
 import axios from 'axios';
 import jwt from 'jsonwebtoken';
-import { AUTHORIZE_SUCCESS } from 'actions/actions';
+import { AUTHORIZE_SUCCESS } from 'actions/authorize';
 import store from 'store/store';
 
 export const setAuthorization = (token) => {

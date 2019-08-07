@@ -1,14 +1,10 @@
-import {
-  ADD_SUCCESS,
-  AUTHORIZE_SUCCESS,
-  FETCH_ITEMS_REQUEST,
-  FETCH_ITEMS_SUCCESS,
-  FETCH_ITEM_REQUEST,
-  FETCH_ITEM_SUCCESS,
-  DELETE_SUCCESS,
-  LOGOUT,
-  EDIT_SUCCESS,
-} from 'actions/actions';
+import { ADD_ITEM_SUCCESS } from 'actions/addItem';
+import { AUTHORIZE_SUCCESS } from 'actions/authorize';
+import { EDIT_ITEM_SUCCESS } from 'actions/editItem';
+import { DELETE_ITEM_SUCCESS } from 'actions/deleteItem';
+import { FETCH_ITEMS_REQUEST, FETCH_ITEMS_SUCCESS } from 'actions/fetchItems';
+import { FETCH_ITEM_REQUEST, FETCH_ITEM_SUCCESS } from 'actions/fetchItem';
+import { LOGOUT } from 'actions/logout';
 
 const initialState = {
   isAuthenticated: false,
@@ -49,17 +45,17 @@ const reducer = (state = initialState, action) => {
         item: action.data,
         isLoading: false,
       };
-    case ADD_SUCCESS:
+    case ADD_ITEM_SUCCESS:
       return {
         ...state,
         [action.itemType]: [...state[action.itemType], action.data],
       };
-    case DELETE_SUCCESS:
+    case DELETE_ITEM_SUCCESS:
       return {
         ...state,
         [action.itemType]: [...state[action.itemType].filter(item => item._id !== action.id)],
       };
-    case EDIT_SUCCESS:
+    case EDIT_ITEM_SUCCESS:
       return {
         ...state,
         item: action.data,

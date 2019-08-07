@@ -7,7 +7,7 @@ import Title from 'components/atoms/Title/Title';
 import Description from 'components/atoms/Description/Description';
 import Link from 'components/atoms/Link/Link';
 import moment from 'moment';
-import { deleteAction } from 'actions/actions';
+import { deleteItemAction } from 'actions/deleteItem';
 
 const Wrapper = styled.div`
   width: 364px;
@@ -77,7 +77,7 @@ Card.defaultProps = {
 };
 
 const mapDispatchToProps = dispatch => ({
-  deleteItem: (itemType, id) => dispatch(deleteAction(itemType, id)),
+  deleteItem: (itemType, id) => dispatch(deleteItemAction(itemType, id)),
 });
 
 export default connect(null, mapDispatchToProps)(Card);

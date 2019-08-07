@@ -11,7 +11,7 @@ import articles from 'icons/articles.svg';
 import notes from 'icons/notes.svg';
 import exit from 'icons/exit.svg';
 import { connect } from 'react-redux';
-import { logoutAction } from 'actions/actions';
+import { logoutAction } from 'actions/logout';
 import routes from 'routes/routes';
 
 const Wrapper = styled.ul`
