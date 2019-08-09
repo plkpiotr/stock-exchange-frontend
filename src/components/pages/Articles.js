@@ -49,7 +49,7 @@ class Articles extends Component {
       <Online>
         <Wrapper>
           <Header>
-            Your articles
+            Articles
           </Header>
           <Input search placeholder="Find by title…" />
           <Board>

@@ -9,7 +9,7 @@ import Main from 'components/templates/Main';
 import routes from 'routes/routes';
 import store from 'store/store';
 import Dashboard from 'components/pages/Dashboard';
-import Quotes from 'components/pages/Quotes';
+import Quotations from 'components/pages/Quotations';
 import Indicators from 'components/pages/Indicators';
 import Transactions from 'components/pages/Transactions';
 import Articles from 'components/pages/Articles';
@@ -29,7 +29,7 @@ const App = () => (
           <Route exact path={routes.login} component={Login} />
           <Route exact path={routes.register} component={Register} />
           <Route exact path={routes.dashboard} component={Authenticator(Dashboard)} />
-          <Route exact path={routes.quotes} component={Authenticator(Quotes)} />
+          <Route exact path={routes.quotes} component={Authenticator(Quotations)} />
           <Route exact path={routes.indicators} component={Authenticator(Indicators)} />
           <Route exact path={routes.transactions} component={Authenticator(Transactions)} />
           <Route exact path={routes.articles} component={Authenticator(Articles)} />

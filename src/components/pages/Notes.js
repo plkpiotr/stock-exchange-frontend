@@ -49,7 +49,7 @@ class Notes extends Component {
       <Online>
         <Wrapper>
           <Header>
-            Your notes
+            Notes
           </Header>
           <Input search placeholder="Find by title…" />
           <Board>

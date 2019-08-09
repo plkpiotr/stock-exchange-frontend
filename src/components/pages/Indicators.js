@@ -1,6 +1,7 @@
 import React from 'react';
 import Online from 'components/templates/Online';
 import styled from 'styled-components';
+import Header from 'components/atoms/Header/Header';
 
 const Wrapper = styled.div`
   margin-left: 125px;
@@ -10,7 +11,7 @@ const Wrapper = styled.div`
 const Indicators = () => (
   <Online>
     <Wrapper>
-      <h1>Indicators - template</h1>
+      <Header>Indicators</Header>
     </Wrapper>
   </Online>
 );
