@@ -1,5 +1,5 @@
 import axios from 'axios';
-import url from 'routes/url';
+import URLs from 'routes/URLs';
 import { toast } from 'react-toastify';
 
 export const DELETE_ITEM_REQUEST = 'DELETE_ITEM_REQUEST';
@@ -10,7 +10,8 @@ export const deleteItemAction = (itemType, id) => (dispatch) => {
   dispatch({
     type: DELETE_ITEM_REQUEST,
   });
-  axios.delete(`${url}/${itemType}/${id}`)
+  const url = `${URLs.stockExchange}/${itemType}/${id}`;
+  axios.delete(url)
     .then(() => {
       toast('Item has been removed successfully');
       dispatch({

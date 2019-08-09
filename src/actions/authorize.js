@@ -1,7 +1,7 @@
 import axios from 'axios';
 import jwt from 'jsonwebtoken';
 import { setAuthorization } from 'utils/token';
-import url from 'routes/url';
+import URLs from 'routes/URLs';
 import { toast } from 'react-toastify';
 
 export const AUTHORIZE_REQUEST = 'AUTHORIZE_REQUEST';
@@ -12,7 +12,8 @@ export const authorizeAction = (email, password) => (dispatch) => {
   dispatch({
     type: AUTHORIZE_REQUEST,
   });
-  return axios.post(`${url}/users/login`, {
+  const url = `${URLs.stockExchange}/users/login`;
+  return axios.post(url, {
     email,
     password,
   })

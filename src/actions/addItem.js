@@ -1,5 +1,5 @@
 import axios from 'axios';
-import url from 'routes/url';
+import URLs from 'routes/URLs';
 import { toast } from 'react-toastify';
 
 export const ADD_ITEM_REQUEST = 'ADD_ITEM_REQUEST';
@@ -10,7 +10,8 @@ export const addItemAction = (itemType, itemContent) => (dispatch) => {
   dispatch({
     type: ADD_ITEM_REQUEST,
   });
-  return axios.post(`${url}/${itemType}`, {
+  const url = `${URLs.stockExchange}/${itemType}`;
+  return axios.post(url, {
     ...itemContent,
   })
     .then(({ data }) => {

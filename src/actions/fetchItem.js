@@ -1,5 +1,5 @@
 import axios from 'axios';
-import url from 'routes/url';
+import URLs from 'routes/URLs';
 import { toast } from 'react-toastify';
 
 export const FETCH_ITEM_REQUEST = 'FETCH_ITEM_REQUEST';
@@ -10,7 +10,8 @@ export const fetchItemAction = (itemType, id) => (dispatch) => {
   dispatch({
     type: FETCH_ITEM_REQUEST,
   });
-  return axios.get(`${url}/${itemType}/${id}`)
+  const url = `${URLs.stockExchange}/${itemType}/${id}`;
+  return axios.get(url)
     .then(({ data }) => {
       dispatch({
         type: FETCH_ITEM_SUCCESS,

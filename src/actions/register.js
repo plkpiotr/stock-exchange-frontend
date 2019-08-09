@@ -1,5 +1,5 @@
 import axios from 'axios';
-import url from 'routes/url';
+import URLs from 'routes/URLs';
 import { toast } from 'react-toastify';
 
 export const REGISTER_REQUEST = 'REGISTER_REQUEST';
@@ -10,7 +10,8 @@ export const registerAction = (email, password) => (dispatch) => {
   dispatch({
     type: REGISTER_REQUEST,
   });
-  return axios.post(`${url}/users/register`, {
+  const url = `${URLs.stockExchange}/users/register`;
+  return axios.post(url, {
     email,
     password,
   })

@@ -4,6 +4,7 @@ import { EDIT_ITEM_SUCCESS } from 'actions/editItem';
 import { DELETE_ITEM_SUCCESS } from 'actions/deleteItem';
 import { FETCH_ITEMS_REQUEST, FETCH_ITEMS_SUCCESS } from 'actions/fetchItems';
 import { FETCH_ITEM_REQUEST, FETCH_ITEM_SUCCESS } from 'actions/fetchItem';
+import { FETCH_QUOTATION_REQUEST, FETCH_QUOTATION_SUCCESS } from 'actions/fetchQuotation';
 import { LOGOUT } from 'actions/logout';
 
 const initialState = {
@@ -43,6 +44,17 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         item: action.data,
+        isLoading: false,
+      };
+    case FETCH_QUOTATION_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case FETCH_QUOTATION_SUCCESS:
+      return {
+        ...state,
+        quotation: action.data,
         isLoading: false,
       };
     case ADD_ITEM_SUCCESS:

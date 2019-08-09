@@ -1,5 +1,5 @@
 import axios from 'axios';
-import url from 'routes/url';
+import URLs from 'routes/URLs';
 import { toast } from 'react-toastify';
 
 export const EDIT_ITEM_REQUEST = 'EDIT_ITEM_REQUEST';
@@ -10,7 +10,8 @@ export const editItemAction = (itemType, itemContent, id) => (dispatch) => {
   dispatch({
     type: EDIT_ITEM_REQUEST,
   });
-  return axios.put(`${url}/${itemType}/${id}`, {
+  const url = `${URLs.stockExchange}/${itemType}/${id}`;
+  return axios.put(url, {
     itemType,
     ...itemContent,
   })
