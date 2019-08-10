@@ -1,10 +1,11 @@
 import { ADD_ITEM_SUCCESS } from 'actions/addItem';
 import { AUTHORIZE_SUCCESS } from 'actions/authorize';
+import { CHANGE_QUOTE_SUCCESS } from 'actions/changeQuote';
 import { EDIT_ITEM_SUCCESS } from 'actions/editItem';
 import { DELETE_ITEM_SUCCESS } from 'actions/deleteItem';
 import { FETCH_ITEMS_REQUEST, FETCH_ITEMS_SUCCESS } from 'actions/fetchItems';
 import { FETCH_ITEM_REQUEST, FETCH_ITEM_SUCCESS } from 'actions/fetchItem';
-import { FETCH_QUOTATION_REQUEST, FETCH_QUOTATION_SUCCESS } from 'actions/fetchQuotation';
+import { FETCH_QUOTE_REQUEST, FETCH_QUOTE_SUCCESS } from 'actions/fetchQuote';
 import { LOGOUT } from 'actions/logout';
 
 const initialState = {
@@ -46,15 +47,15 @@ const reducer = (state = initialState, action) => {
         item: action.data,
         isLoading: false,
       };
-    case FETCH_QUOTATION_REQUEST:
+    case FETCH_QUOTE_REQUEST:
       return {
         ...state,
         isLoading: true,
       };
-    case FETCH_QUOTATION_SUCCESS:
+    case FETCH_QUOTE_SUCCESS:
       return {
         ...state,
-        quotation: action.data,
+        quote: action.data,
         isLoading: false,
       };
     case ADD_ITEM_SUCCESS:
@@ -66,6 +67,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         [action.itemType]: [...state[action.itemType].filter(item => item._id !== action.id)],
+      };
+    case CHANGE_QUOTE_SUCCESS:
+      return {
+        ...state,
+        quote: action.data,
       };
     case EDIT_ITEM_SUCCESS:
       return {

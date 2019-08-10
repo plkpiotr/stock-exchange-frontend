@@ -33,7 +33,7 @@ const Sidebar = ({ logout }) => (
       <Icon as={NavLink} to={routes.dashboard} icon={dashboard} activeclass="active">Dashboard</Icon>
     </li>
     <li>
-      <Icon as={NavLink} to={routes.quotes} icon={quotes} activeclass="active">Quotations</Icon>
+      <Icon as={NavLink} to={routes.quotes} icon={quotes} activeclass="active">Quotes</Icon>
     </li>
     <li>
       <Icon as={NavLink} to={routes.indicators} icon={indicators} activeclass="active">Indicators</Icon>
