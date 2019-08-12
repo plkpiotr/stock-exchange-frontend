@@ -15,16 +15,17 @@ const Rotate = keyframes`
 `;
 
 const Logo = styled.img`
-@media only screen and (max-height: 950px) {
-display: none;
-  }
-    width: 50px;
+  width: 50px;
   height: 50px;
   animation: ${Rotate} 1s both infinite;
   position: fixed;
   top: 38px;
   left: 32px;
   z-index: 2;
+  
+  @media only screen and (max-height: 900px) {
+    display: none;
+  }
 `;
 
 const Loader = () => (
