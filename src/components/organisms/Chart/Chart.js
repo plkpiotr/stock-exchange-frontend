@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   min-width: 0;
 `;
 
-const Chart = ({ data, labels }) => (
+const Chart = ({ data, labels, symbol }) => (
   <Wrapper>
     <Line
       redraw
@@ -74,7 +74,7 @@ const Chart = ({ data, labels }) => (
       options={{
         title: {
           display: true,
-          text: 'Stock quotes from Warsaw Stock Exchange [PLN]',
+          text: `${symbol}: ${((data[0][5]) > 0) ? '+' : ''}${data[0][5]}% (${data[0][1].toFixed(2)} PLN)`,
         },
         tooltips: {
           mode: 'index',
@@ -128,8 +128,10 @@ const Chart = ({ data, labels }) => (
 );
 
 Chart.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
   data: PropTypes.array.isRequired,
-  labels: PropTypes.array.isRequired,
+  labels: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number, PropTypes.string])).isRequired,
+  symbol: PropTypes.string.isRequired,
 };
 
 export default Chart;

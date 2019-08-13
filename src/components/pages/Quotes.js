@@ -5,8 +5,7 @@ import Online from 'components/templates/Online';
 import styled from 'styled-components';
 import Header from 'components/atoms/Header/Header';
 import Loader from 'components/atoms/Loader/Loader';
-import Button from 'components/atoms/Button/Button';
-import Chart from 'components/molecules/Chart/Chart';
+import Chart from 'components/organisms/Chart/Chart';
 import List from 'components/molecules/List/List';
 import { fetchQuoteAction } from 'actions/fetchQuote';
 
@@ -43,13 +42,12 @@ class Quotes extends Component {
       <Online>
         <Wrapper>
           <Header>Quotes</Header>
-          <Button fixed>Details</Button>
           <Board>
-            {quote && (
+            {quote.dataset.data.length > 0 && (
             <Chart
               data={quote.dataset.data}
               labels={quote.dataset.column_names}
-              date={quote.dataset.endDate}
+              symbol={quote.dataset.dataset_code}
             />
             )}
             <List />

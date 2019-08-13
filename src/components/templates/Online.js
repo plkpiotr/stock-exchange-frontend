@@ -6,6 +6,7 @@ const Wrapper = styled.div`
   display: flex;
 `;
 
+// eslint-disable-next-line react/prop-types
 const Online = ({ children }) => (
   <Wrapper>
     <Sidebar />
