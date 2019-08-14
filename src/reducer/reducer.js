@@ -6,6 +6,7 @@ import { DELETE_ITEM_SUCCESS } from 'actions/deleteItem';
 import { FETCH_ITEMS_REQUEST, FETCH_ITEMS_SUCCESS } from 'actions/fetchItems';
 import { FETCH_ITEM_REQUEST, FETCH_ITEM_SUCCESS } from 'actions/fetchItem';
 import { FETCH_QUOTE_REQUEST, FETCH_QUOTE_SUCCESS } from 'actions/fetchQuote';
+import { FETCH_TRANSACTIONS_REQUEST, FETCH_TRANSACTIONS_SUCCESS } from 'actions/fetchTransactions';
 import { LOGOUT } from 'actions/logout';
 
 const initialState = {
@@ -34,6 +35,17 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         [action.itemType]: [...action.data],
+        isLoading: false,
+      };
+    case FETCH_TRANSACTIONS_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case FETCH_TRANSACTIONS_SUCCESS:
+      return {
+        ...state,
+        transactions: action.data,
         isLoading: false,
       };
     case FETCH_ITEM_REQUEST:

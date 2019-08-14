@@ -43,13 +43,11 @@ class Quotes extends Component {
         <Wrapper>
           <Header>Quotes</Header>
           <Board>
-            {quote.dataset.data.length > 0 && (
             <Chart
               data={quote.dataset.data}
               labels={quote.dataset.column_names}
               symbol={quote.dataset.dataset_code}
             />
-            )}
             <List />
           </Board>
         </Wrapper>

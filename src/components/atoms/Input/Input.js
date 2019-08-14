@@ -34,6 +34,7 @@ const Input = styled.input`
   
   &[type="date"]::-webkit-inner-spin-button,
   &[type="date"]::-webkit-calendar-picker-indicator,
+  &[type="date"]::-webkit-clear-button,
   &[type=number]::-webkit-inner-spin-button, 
   &[type=number]::-webkit-outer-spin-button {
     display: none;
