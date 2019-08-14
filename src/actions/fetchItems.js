@@ -19,8 +19,8 @@ export const fetchItemsAction = itemType => (dispatch) => {
         data,
       });
     })
-    .catch((error) => {
-      toast(`An error occurred trying to fetch items\n${error}`);
+    .catch(() => {
+      toast(`Not found any ${itemType}`);
       dispatch({
         type: FETCH_ITEMS_FAILURE,
       });

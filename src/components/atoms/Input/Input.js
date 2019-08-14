@@ -31,6 +31,14 @@ const Input = styled.input`
       background-position: 10px 50%;
     `
   )}
+  
+  &[type="date"]::-webkit-inner-spin-button,
+  &[type="date"]::-webkit-calendar-picker-indicator,
+  &[type=number]::-webkit-inner-spin-button, 
+  &[type=number]::-webkit-outer-spin-button {
+    display: none;
+    -webkit-appearance: none;
+  }
 `;
 
 export default Input;

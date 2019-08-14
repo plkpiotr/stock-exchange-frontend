@@ -27,7 +27,7 @@ const Button = styled.button`
     fixed && css`
       position: fixed;
       top: 20px;
-      right: 3vw;
+      right: 57px;
       z-index: 2;
     `
   )}

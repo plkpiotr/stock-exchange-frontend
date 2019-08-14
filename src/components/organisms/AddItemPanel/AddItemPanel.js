@@ -40,7 +40,7 @@ const AddItemPanel = ({
   itemType, isVisible, addItem, handleClose,
 }) => (
   <Wrapper isVisible={isVisible}>
-    <Title>
+    <Title panel>
       Add new
       {' '}
       {itemType.slice(0, -1)}

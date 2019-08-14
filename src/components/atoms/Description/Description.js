@@ -17,6 +17,13 @@ const Description = styled.p`
       }
     `
   )}
+  
+  ${({ panel }) => (
+    panel && css`
+      color: ${({ theme }) => (theme.primary)};
+      margin: 0;
+    `
+  )}
 `;
 
 export default Description;
