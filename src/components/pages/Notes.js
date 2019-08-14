@@ -69,7 +69,11 @@ class Notes extends Component {
           <Button fixed onClick={this.toggleButtonPanel}>
             {isPanelVisible ? 'Close' : 'New note'}
           </Button>
-          <AddItemPanel itemType="notes" isVisible={isPanelVisible} handleClose={this.toggleButtonPanel} />
+          <AddItemPanel
+            itemType="notes"
+            isVisible={isPanelVisible}
+            handleClose={this.toggleButtonPanel}
+          />
         </Wrapper>
       </Online>
     );

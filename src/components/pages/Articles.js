@@ -70,7 +70,11 @@ class Articles extends Component {
           <Button fixed onClick={this.toggleButtonPanel}>
             {isPanelVisible ? 'Close' : 'New article'}
           </Button>
-          <AddItemPanel itemType="articles" isVisible={isPanelVisible} handleClose={this.toggleButtonPanel} />
+          <AddItemPanel
+            itemType="articles"
+            isVisible={isPanelVisible}
+            handleClose={this.toggleButtonPanel}
+          />
         </Wrapper>
       </Online>
     );
