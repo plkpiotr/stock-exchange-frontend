@@ -13,7 +13,6 @@ export const fetchTransactionsAction = () => (dispatch) => {
   const url = `${URLs.stockExchange}/transactions`;
   return axios.get(url)
     .then(({ data }) => {
-      console.log(data);
       dispatch({
         type: FETCH_TRANSACTIONS_SUCCESS,
         data,

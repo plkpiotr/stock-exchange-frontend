@@ -1,8 +1,10 @@
 import { ADD_ITEM_SUCCESS } from 'actions/addItem';
+import { ADD_TRANSACTION_SUCCESS } from 'actions/addTransaction';
 import { AUTHORIZE_SUCCESS } from 'actions/authorize';
 import { CHANGE_QUOTE_SUCCESS } from 'actions/changeQuote';
 import { EDIT_ITEM_SUCCESS } from 'actions/editItem';
 import { DELETE_ITEM_SUCCESS } from 'actions/deleteItem';
+import { DELETE_TRANSACTION_SUCCESS } from 'actions/deleteTransaction';
 import { FETCH_ITEMS_REQUEST, FETCH_ITEMS_SUCCESS } from 'actions/fetchItems';
 import { FETCH_ITEM_REQUEST, FETCH_ITEM_SUCCESS } from 'actions/fetchItem';
 import { FETCH_QUOTE_REQUEST, FETCH_QUOTE_SUCCESS } from 'actions/fetchQuote';
@@ -74,6 +76,16 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         [action.itemType]: [...state[action.itemType], action.data],
+      };
+    case ADD_TRANSACTION_SUCCESS:
+      return {
+        ...state,
+        transactions: [...state.transactions, action.data],
+      };
+    case DELETE_TRANSACTION_SUCCESS:
+      return {
+        ...state,
+        transactions: [...state.transactions.filter(item => item._id !== action.id)],
       };
     case DELETE_ITEM_SUCCESS:
       return {

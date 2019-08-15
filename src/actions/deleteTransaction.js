@@ -6,14 +6,14 @@ export const DELETE_TRANSACTION_REQUEST = 'DELETE_TRANSACTION_REQUEST';
 export const DELETE_TRANSACTION_SUCCESS = 'DELETE_TRANSACTION_SUCCESS';
 export const DELETE_TRANSACTION_FAILURE = 'DELETE_TRANSACTION_FAILURE';
 
-export const deleteItemAction = id => (dispatch) => {
+export const deleteTransactionAction = id => (dispatch) => {
   dispatch({
     type: DELETE_TRANSACTION_REQUEST,
   });
   const url = `${URLs.stockExchange}/transactions/${id}`;
   axios.delete(url)
     .then(() => {
-      toast('Item has been removed successfully');
+      toast('Transaction has been removed successfully');
       dispatch({
         type: DELETE_TRANSACTION_SUCCESS,
         id,

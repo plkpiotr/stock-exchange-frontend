@@ -4,4 +4,8 @@ Frontend:
 To do:
 - Add validation in `Formik`
 - Rename `toggle` methods
-- `<option value="ALIOR" label="ALIOR" />`
+- Implement `findByTitle` in transactions and notes/articles
+- Labels and values in `AddTransactionPanel.js`
+- Listed companies in `List.js` in one file
+- `Unicodes` icons and `showSign` in utils
+- Sort date in table

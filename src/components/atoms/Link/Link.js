@@ -28,6 +28,14 @@ const Link = styled.a`
     `
   )}
   
+  ${({ column }) => (
+    column && css`
+      text-align: center;
+      margin: 0;
+      padding: 5px 0;
+    `
+  )}
+  
   &:focus {
     outline: none;
   }
