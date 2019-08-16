@@ -6,7 +6,7 @@ import {
 import React from 'react';
 import { Provider } from 'react-redux';
 import Main from 'components/templates/Main';
-import routes from 'routes/routes';
+import routes from 'constants/routes';
 import store from 'store/store';
 import Dashboard from 'components/pages/Dashboard';
 import Quotes from 'components/pages/Quotes';

@@ -1,5 +1,5 @@
 import moment from 'moment';
-import URLs from 'routes/URLs';
+import URLs from 'constants/URLs';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 

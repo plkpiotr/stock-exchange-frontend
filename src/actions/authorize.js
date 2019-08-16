@@ -1,7 +1,7 @@
 import axios from 'axios';
 import jwt from 'jsonwebtoken';
 import { setAuthorization } from 'utils/token';
-import URLs from 'routes/URLs';
+import URLs from 'constants/URLs';
 import { toast } from 'react-toastify';
 
 export const AUTHORIZE_REQUEST = 'AUTHORIZE_REQUEST';

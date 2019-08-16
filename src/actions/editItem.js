@@ -1,5 +1,5 @@
 import axios from 'axios';
-import URLs from 'routes/URLs';
+import URLs from 'constants/URLs';
 import { toast } from 'react-toastify';
 
 export const EDIT_ITEM_REQUEST = 'EDIT_ITEM_REQUEST';

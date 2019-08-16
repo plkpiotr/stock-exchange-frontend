@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import routes from 'routes/routes';
+import routes from 'constants/routes';
 
 export default (WrappedComponent) => {
   class Authenticator extends React.Component {

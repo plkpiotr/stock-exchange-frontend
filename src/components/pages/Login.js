@@ -5,7 +5,7 @@ import Input from 'components/atoms/Input/Input';
 import Button from 'components/atoms/Button/Button';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import routes from 'routes/routes';
+import routes from 'constants/routes';
 import { authorizeAction } from 'actions/authorize';
 import Link from 'components/atoms/Link/Link';
 import Description from 'components/atoms/Description/Description';

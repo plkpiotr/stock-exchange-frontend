@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { connect } from 'react-redux';
 import { changeQuoteAction } from 'actions/changeQuote';
+import symbols from 'constants/symbols';
 
 const UnorderedList = styled.ul`
   background-color: ${({ theme }) => (theme.tertiary)};
@@ -51,28 +52,7 @@ const ListItem = styled.li`
 
 class List extends Component {
   state = {
-    symbols: [
-      'ALIOR',
-      'CCC',
-      'CDPROJEKT',
-      'CYFRPLSAT',
-      'DINOPL',
-      'JSW',
-      'KGHM',
-      'LOTOS',
-      'LPP',
-      'MBANK',
-      'ORANGEPL',
-      'PEKAO',
-      'PGE',
-      'PGNIG',
-      'PKNORLEN',
-      'PKOBP',
-      'PLAY',
-      'PZU',
-      'SANPL',
-      'TAURONPE',
-    ],
+    shortcuts: symbols,
     active: 'ALIOR',
   };
 
@@ -82,11 +62,10 @@ class List extends Component {
 
   render() {
     const { changeQuote } = this.props;
-    const { symbols, active } = this.state;
-
+    const { shortcuts, active } = this.state;
     return (
       <UnorderedList>
-        {symbols.map(symbol => (
+        {shortcuts.map(symbol => (
           <ListItem
             key={symbol}
             onClick={() => {
