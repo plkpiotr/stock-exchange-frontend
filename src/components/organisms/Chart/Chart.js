@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Line, defaults } from 'react-chartjs-2';
 import moment from 'moment';
+import stylizeNumber from 'utils/number';
 // eslint-disable-next-line no-unused-vars
 import zoom from 'chartjs-plugin-zoom';
 
@@ -74,7 +75,7 @@ const Chart = ({ data, labels, symbol }) => (
       options={{
         title: {
           display: true,
-          text: `${symbol}: ${((data[0][5]) > 0) ? '+' : ''}${data[0][5]}% (${data[0][1].toFixed(2)} PLN)`,
+          text: `${symbol}: ${stylizeNumber(data[0][5], '%')}`,
         },
         tooltips: {
           mode: 'index',
