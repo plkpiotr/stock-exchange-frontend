@@ -48,7 +48,7 @@ class Transactions extends Component {
           <Button fixed onClick={this.toggleButtonPanel}>
             {isPanelVisible ? 'Close' : 'New'}
           </Button>
-          <Accordion />
+          <Accordion transactions={transactions} />
           <AddTransactionPanel
             itemType="articles"
             isVisible={isPanelVisible}

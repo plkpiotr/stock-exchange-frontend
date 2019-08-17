@@ -7,6 +7,8 @@ import Title from 'components/atoms/Title/Title';
 import Description from 'components/atoms/Description/Description';
 import Link from 'components/atoms/Link/Link';
 import moment from 'moment';
+import unicodes from 'constants/unicodes';
+import { shortenLine } from 'utils/format';
 import { deleteItemAction } from 'actions/deleteItem';
 
 const Wrapper = styled.div`
@@ -23,11 +25,6 @@ const Date = styled.div`
   float: right;
   display: flex;
 `;
-
-const linkIcon = '\u25b6';
-const deleteIcon = '\u2716';
-
-const shortenLine = (str, max) => (str.length > max ? str.substring(0, max).concat('…') : str);
 
 class Card extends Component {
   state = {
@@ -52,8 +49,8 @@ class Card extends Component {
         <Title>{shortenLine(title, 27)}</Title>
         <Description>{shortenLine(description.split('\n')[0], 40)}</Description>
         <Link onClick={this.toggleButtonDetails}>See details</Link>
-        <Link light onClick={() => deleteItem(itemType, _id)}>{deleteIcon}</Link>
-        {itemType === 'articles' ? <Link light href={link}>{linkIcon}</Link> : null}
+        <Link light onClick={() => deleteItem(itemType, _id)}>{unicodes.link}</Link>
+        {itemType === 'articles' ? <Link light href={link}>{unicodes.cross}</Link> : null}
         <Date>
           {moment(created).format('L')}
         </Date>

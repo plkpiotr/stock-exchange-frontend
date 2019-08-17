@@ -7,6 +7,7 @@ import Select from 'components/atoms/Select/Select';
 import Button from 'components/atoms/Button/Button';
 import Title from 'components/atoms/Title/Title';
 import Description from 'components/atoms/Description/Description';
+import symbols from 'constants/symbols';
 import { addTransactionAction } from 'actions/addTransaction';
 import {
   Formik,
@@ -81,26 +82,9 @@ const AddTransactionPanel = ({
             onBlur={handleBlur}
             value={values.symbol}
           >
-            <option value="ALIOR" label="ALIOR" />
-            <option value="CCC" label="CCC" />
-            <option value="CDPROJEKT" label="CDPROJEKT" />
-            <option value="CYFRPLSAT" label="CYFRPLSAT" />
-            <option value="DINOPL" label="DINOPL" />
-            <option value="JSW" label="JSW" />
-            <option value="KGHM" label="KGHM" />
-            <option value="LOTOS" label="LOTOS" />
-            <option value="LPP" label="LPP" />
-            <option value="MBANK" label="MBANK" />
-            <option value="ORANGEPL" label="ORANGEPL" />
-            <option value="PEKAO" label="PEKAO" />
-            <option value="PGE" label="PGE" />
-            <option value="PGNIG" label="PGNIG" />
-            <option value="PKNORLEN" label="PKNORLEN" />
-            <option value="PKOBP" label="PKOBP" />
-            <option value="PLAY" label="PLAY" />
-            <option value="PZU" label="PZU" />
-            <option value="SANPL" label="SANPL" />
-            <option value="TAURONPE" label="TAURONPE" />
+            {symbols.map(symbol => (
+              <option value={symbol} label={symbol} key={symbol} />
+            ))}
           </Select>
           <Description panel>Date of purchase:</Description>
           <Input
