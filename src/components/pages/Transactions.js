@@ -27,7 +27,7 @@ class Transactions extends Component {
     fetchTransactions();
   }
 
-  toggleButtonPanel = () => this.setState(prevState => ({
+  togglePanel = () => this.setState(prevState => ({
     isPanelVisible: !prevState.isPanelVisible,
   }));
 
@@ -60,16 +60,16 @@ class Transactions extends Component {
             search
             value={searchPrice}
             onChange={this.handleChange}
-            placeholder="Find by above the purchase price…"
+            placeholder="Find above the purchase price…"
           />
-          <Button fixed onClick={this.toggleButtonPanel}>
+          <Button fixed onClick={this.togglePanel}>
             {isPanelVisible ? 'Close' : 'New'}
           </Button>
           <Accordion transactions={items} />
           <AddTransactionPanel
             itemType="articles"
             isVisible={isPanelVisible}
-            handleClose={this.toggleButtonPanel}
+            handleClose={this.togglePanel}
           />
         </Wrapper>
       </Online>

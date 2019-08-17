@@ -32,7 +32,7 @@ class Articles extends Component {
     fetchArticles();
   }
 
-  toggleButtonPanel = () => this.setState(prevState => ({
+  togglePanel = () => this.setState(prevState => ({
     isPanelVisible: !prevState.isPanelVisible,
   }));
 
@@ -84,13 +84,13 @@ class Articles extends Component {
               />
             ))}
           </Board>
-          <Button fixed onClick={this.toggleButtonPanel}>
+          <Button fixed onClick={this.togglePanel}>
             {isPanelVisible ? 'Close' : 'New article'}
           </Button>
           <AddItemPanel
             itemType="articles"
             isVisible={isPanelVisible}
-            handleClose={this.toggleButtonPanel}
+            handleClose={this.togglePanel}
           />
         </Wrapper>
       </Online>

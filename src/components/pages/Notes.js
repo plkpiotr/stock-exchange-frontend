@@ -32,7 +32,7 @@ class Notes extends Component {
     fetchNotes();
   }
 
-  toggleButtonPanel = () => this.setState(prevState => ({
+  togglePanel = () => this.setState(prevState => ({
     isPanelVisible: !prevState.isPanelVisible,
   }));
 
@@ -83,13 +83,13 @@ class Notes extends Component {
               />
             ))}
           </Board>
-          <Button fixed onClick={this.toggleButtonPanel}>
+          <Button fixed onClick={this.togglePanel}>
             {isPanelVisible ? 'Close' : 'New note'}
           </Button>
           <AddItemPanel
             itemType="notes"
             isVisible={isPanelVisible}
-            handleClose={this.toggleButtonPanel}
+            handleClose={this.togglePanel}
           />
         </Wrapper>
       </Online>

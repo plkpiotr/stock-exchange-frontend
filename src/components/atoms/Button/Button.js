@@ -31,6 +31,25 @@ const Button = styled.button`
       z-index: 2;
     `
   )}
+  
+  ${({ column }) => (
+    column && css`
+    width: auto;
+    text-align: center;
+    margin: 0;
+    padding: 5px 0;
+    font-weight: ${({ theme }) => (theme.normal)};
+  `
+  )}
+  
+  ${({ line }) => (
+    line && css`
+    width: auto;
+    padding: 6px 13px;                             
+    margin: -4px 10px 0 0;
+    font-weight: ${({ theme }) => (theme.normal)};
+    `
+  )}
 `;
 
 export default Button;

@@ -13,26 +13,12 @@ const Link = styled.a`
   transition: .3s ease;
   background-color: ${({ theme }) => (theme.primary)};
   
-  ${({ light }) => (
-    light && css`
-      font-weight: ${({ theme }) => (theme.normal)};                      
-    `
-  )}
-  
   ${({ center }) => (
     center && css`
       margin-left: 15px;
       margin-right: 15px;
       display: inline-block;
       width: 120px;
-    `
-  )}
-  
-  ${({ column }) => (
-    column && css`
-      text-align: center;
-      margin: 0;
-      padding: 5px 0;
     `
   )}
   

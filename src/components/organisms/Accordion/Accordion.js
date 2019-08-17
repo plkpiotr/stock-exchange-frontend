@@ -19,7 +19,7 @@ const DescriptionList = styled.dl`
 class Accordion extends Component {
   state = Object.assign(...symbols.map(symbol => ({ [symbol]: false })));
 
-  toggle = symbol => () => {
+  toggleDescriptionDetails = symbol => () => {
     const { state: expanded } = this;
     this.setState({ [`${symbol}`]: !expanded[`${symbol}`] });
   };
@@ -36,7 +36,7 @@ class Accordion extends Component {
             <Row
               title={symbol}
               transactions={transactions.filter(transaction => transaction.symbol === symbol)}
-              onClick={this.toggle(symbol)}
+              onClick={this.toggleDescriptionDetails(symbol)}
               expanded={expand[`${symbol}`]}
               key={symbol}
             />

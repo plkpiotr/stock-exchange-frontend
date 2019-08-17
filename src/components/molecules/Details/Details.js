@@ -30,7 +30,7 @@ class Details extends Component {
     fetchItem();
   }
 
-  toggleButtonPanel = () => this.setState(prevState => ({
+  togglePanel = () => this.setState(prevState => ({
     isPanelVisible: !prevState.isPanelVisible,
   }));
 
@@ -57,14 +57,14 @@ class Details extends Component {
         </Description>
         )}
         {type === 'articles' ? <Link href={item.link}>Link</Link> : null}
-        <Button fixed onClick={this.toggleButtonPanel}>
+        <Button fixed onClick={this.togglePanel}>
           {isPanelVisible ? 'Close' : 'Edit'}
         </Button>
         <EditItemPanel
           item={item}
           itemType={type}
           isVisible={isPanelVisible}
-          handleClose={this.toggleButtonPanel}
+          handleClose={this.togglePanel}
         />
       </Wrapper>
     );

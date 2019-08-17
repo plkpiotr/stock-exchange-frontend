@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Span from 'components/atoms/Span/Span';
-import Link from 'components/atoms/Link/Link';
+import Button from 'components/atoms/Button/Button';
 import moment from 'moment';
 import unicodes from 'constants/unicodes';
 import { stylizeNumber } from 'utils/format';
@@ -70,7 +70,9 @@ function Row(props) {
               {stylizeNumber((transaction.priceSale - transaction.pricePurchase), 'PLN')}
             </Span>
             <Span />
-            <Link column onClick={() => deleteTransaction(transaction._id)}>{unicodes.cross}</Link>
+            <Button column onClick={() => deleteTransaction(transaction._id)}>
+              {unicodes.cross}
+            </Button>
             <Span />
           </DescriptionDetails>
         ))}

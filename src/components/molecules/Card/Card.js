@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import Title from 'components/atoms/Title/Title';
 import Description from 'components/atoms/Description/Description';
 import Link from 'components/atoms/Link/Link';
+import Button from 'components/atoms/Button/Button';
 import moment from 'moment';
 import unicodes from 'constants/unicodes';
 import { shortenLine } from 'utils/format';
@@ -31,7 +32,7 @@ class Card extends Component {
     redirect: false,
   };
 
-  toggleButtonDetails = () => this.setState({ redirect: true });
+  redirectToDetails = () => this.setState({ redirect: true });
 
   render() {
     const {
@@ -48,9 +49,9 @@ class Card extends Component {
       <Wrapper>
         <Title>{shortenLine(title, 27)}</Title>
         <Description>{shortenLine(description.split('\n')[0], 40)}</Description>
-        <Link onClick={this.toggleButtonDetails}>See details</Link>
-        <Link light onClick={() => deleteItem(itemType, _id)}>{unicodes.link}</Link>
-        {itemType === 'articles' ? <Link light href={link}>{unicodes.cross}</Link> : null}
+        <Link onClick={this.redirectToDetails}>See details</Link>
+        <Button line onClick={() => deleteItem(itemType, _id)}>{unicodes.cross}</Button>
+        {itemType === 'articles' ? <Link line href={link}>{unicodes.link}</Link> : null}
         <Date>
           {moment(created).format('L')}
         </Date>
