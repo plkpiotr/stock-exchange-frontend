@@ -24,6 +24,7 @@ const Board = styled.div`
 class Notes extends Component {
   state = {
     isPanelVisible: false,
+    searchString: '',
   };
 
   componentDidMount() {
@@ -35,9 +36,20 @@ class Notes extends Component {
     isPanelVisible: !prevState.isPanelVisible,
   }));
 
+  handleChange = (event) => {
+    this.setState({ searchString: event.target.value });
+  };
+
   render() {
     const { notes, isLoading } = this.props;
-    const { isPanelVisible } = this.state;
+    const { isPanelVisible, searchString } = this.state;
+
+    let items = notes;
+    const string = searchString.trim().toLowerCase();
+    if (string.length > 0) {
+      items = items.filter(note => note.title.toLowerCase().match(string));
+    }
+
     if (isLoading) {
       return (
         <Online>
@@ -51,9 +63,14 @@ class Notes extends Component {
           <Header>
             Notes
           </Header>
-          <Input search placeholder="Find by title…" />
+          <Input
+            search
+            value={searchString}
+            onChange={this.handleChange}
+            placeholder="Find by note title…"
+          />
           <Board>
-            {notes.map(({
+            {items.map(({
               _id, title, description, created,
             }) => (
               <Card

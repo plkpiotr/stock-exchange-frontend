@@ -19,6 +19,7 @@ const Wrapper = styled.div`
 class Transactions extends Component {
   state = {
     isPanelVisible: false,
+    searchPrice: '',
   };
 
   componentDidMount() {
@@ -30,9 +31,20 @@ class Transactions extends Component {
     isPanelVisible: !prevState.isPanelVisible,
   }));
 
+  handleChange = (event) => {
+    this.setState({ searchPrice: event.target.value });
+  };
+
   render() {
     const { transactions, isLoading } = this.props;
-    const { isPanelVisible } = this.state;
+    const { isPanelVisible, searchPrice } = this.state;
+
+    let items = transactions;
+    const price = searchPrice;
+    if (price > 0) {
+      items = items.filter(transaction => transaction.pricePurchase > price);
+    }
+
     if (isLoading) {
       return (
         <Online>
@@ -44,11 +56,16 @@ class Transactions extends Component {
       <Online>
         <Wrapper>
           <Header>Transactions</Header>
-          <Input search placeholder="Find by title…" />
+          <Input
+            search
+            value={searchPrice}
+            onChange={this.handleChange}
+            placeholder="Find by above the purchase price…"
+          />
           <Button fixed onClick={this.toggleButtonPanel}>
             {isPanelVisible ? 'Close' : 'New'}
           </Button>
-          <Accordion transactions={transactions} />
+          <Accordion transactions={items} />
           <AddTransactionPanel
             itemType="articles"
             isVisible={isPanelVisible}

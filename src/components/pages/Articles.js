@@ -24,6 +24,7 @@ const Board = styled.div`
 class Articles extends Component {
   state = {
     isPanelVisible: false,
+    searchString: '',
   };
 
   componentDidMount() {
@@ -35,9 +36,20 @@ class Articles extends Component {
     isPanelVisible: !prevState.isPanelVisible,
   }));
 
+  handleChange = (event) => {
+    this.setState({ searchString: event.target.value });
+  };
+
   render() {
     const { articles, isLoading } = this.props;
-    const { isPanelVisible } = this.state;
+    const { isPanelVisible, searchString } = this.state;
+
+    let items = articles;
+    const string = searchString.trim().toLowerCase();
+    if (string.length > 0) {
+      items = items.filter(article => article.title.toLowerCase().match(string));
+    }
+
     if (isLoading) {
       return (
         <Online>
@@ -51,9 +63,14 @@ class Articles extends Component {
           <Header>
             Articles
           </Header>
-          <Input search placeholder="Find by title…" />
+          <Input
+            search
+            value={searchString}
+            onChange={this.handleChange}
+            placeholder="Find by article title…"
+          />
           <Board>
-            {articles.map(({
+            {items.map(({
               _id, title, description, created, link,
             }) => (
               <Card

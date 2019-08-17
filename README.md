@@ -4,5 +4,4 @@ Frontend:
 To do:
 - Add validation in `Formik`
 - Rename `toggle` methods
-- Implement `findByTitle` in transactions and notes/articles
 - Change `Link` to `Button`
