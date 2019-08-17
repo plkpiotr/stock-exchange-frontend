@@ -23,7 +23,7 @@ const Wrapper = styled.div`
   right: 0;
   height: 100vh;
   width: 420px;
-  background-color: ${({ theme }) => (theme.tertiary)};
+  background-color: ${({ theme }) => (theme.quaternary)};
   transform: translateX(${({ isVisible }) => (isVisible ? '0' : '100%')});
   transition: .3s ease;
 `;

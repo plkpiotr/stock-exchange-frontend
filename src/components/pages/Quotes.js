@@ -44,9 +44,9 @@ class Quotes extends Component {
           <Header>Quotes</Header>
           <Board>
             <Chart
-              data={quote.dataset.data}
-              labels={quote.dataset.column_names}
               symbol={quote.dataset.dataset_code}
+              labels={quote.dataset.column_names}
+              data={quote.dataset.data}
             />
             <List />
           </Board>

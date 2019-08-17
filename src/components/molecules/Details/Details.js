@@ -12,7 +12,7 @@ import { fetchItemAction } from 'actions/fetchItem';
 import Loader from 'components/atoms/Loader/Loader';
 
 const Wrapper = styled.div` {
-  background-color: ${({ theme }) => (theme.tertiary)};
+  background-color: ${({ theme }) => (theme.quaternary)};
   padding: 4vh 2vw;
   margin-top: 3vh;
   margin-right: 55px;

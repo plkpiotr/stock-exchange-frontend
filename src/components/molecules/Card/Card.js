@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   min-height: 168px;
   margin : 2vh 2vw 3vh 0;
   padding: 25px;
-  background-color: ${({ theme }) => (theme.tertiary)};
+  background-color: ${({ theme }) => (theme.quaternary)};
 `;
 
 const Date = styled.div`

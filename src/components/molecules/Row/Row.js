@@ -10,17 +10,16 @@ import { stylizeNumber } from 'utils/format';
 import { deleteTransactionAction } from 'actions/deleteTransaction';
 
 const DescriptionTerm = styled.dt`
-  color: ${({ theme }) => (theme.gray)};
-  background-color: ${({ theme }) => (theme.tertiary)};
+  background-color: ${({ theme }) => (theme.quaternary)};
   cursor: pointer;
   font-weight: ${({ theme }) => (theme.bold)};
   transition: .7s ease;
   display: grid;
-  padding: 4px 0;
+  padding: 5px 0;
   grid-template-columns: 1fr 3fr 16fr repeat(3, 1fr);
   
   &:hover {
-    background-color: ${({ theme }) => (theme.secondary)};
+    background-color: ${({ theme }) => (theme.tertiary)};
     transition: .3s ease;
   }
 `;
@@ -31,7 +30,7 @@ const DescriptionDetails = styled.dd`
   margin: 0;
   padding: 0;
   transition: max-height .7s;
-  background-color: ${({ theme }) => (theme.tertiary)};
+  background-color: ${({ theme }) => (theme.quaternary)};
   display: grid;
   grid-template-columns: 1fr 3fr 4fr 1fr 3fr 4fr 1fr 3fr repeat(3, 1fr);
   

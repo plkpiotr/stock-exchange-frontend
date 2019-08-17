@@ -15,7 +15,7 @@ import { logoutAction } from 'actions/logout';
 import routes from 'constants/routes';
 
 const Wrapper = styled.ul`
-  background-color: ${({ theme }) => (theme.tertiary)};
+  background-color: ${({ theme }) => (theme.quaternary)};
   position: fixed;
   height: 100%;
   list-style-type: none;

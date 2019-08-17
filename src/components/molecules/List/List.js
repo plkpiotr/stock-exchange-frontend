@@ -6,7 +6,7 @@ import { changeQuoteAction } from 'actions/changeQuote';
 import symbols from 'constants/symbols';
 
 const UnorderedList = styled.ul`
-  background-color: ${({ theme }) => (theme.tertiary)};
+  background-color: ${({ theme }) => (theme.quaternary)};
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -19,7 +19,7 @@ const ListItem = styled.li`
   font-weight: ${({ theme }) => (theme.bold)};
   font-size: 16px;
   width: 115px;
-  border: 0 solid ${({ theme }) => (theme.tertiary)};
+  border: 0 solid ${({ theme }) => (theme.quaternary)};
   transition: .3s ease;
   margin-bottom: 1.9px;
   

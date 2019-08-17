@@ -12,11 +12,11 @@ defaults.global.defaultFontStyle = 'bold';
 defaults.global.defaultFontSize = 16;
 
 const Wrapper = styled.div`
-  background-color: ${({ theme }) => (theme.tertiary)};
+  background-color: ${({ theme }) => (theme.quaternary)};
   min-width: 0;
 `;
 
-const Chart = ({ data, labels, symbol }) => (
+const Chart = ({ symbol, labels, data }) => (
   <Wrapper>
     <Line
       redraw

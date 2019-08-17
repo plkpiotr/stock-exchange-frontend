@@ -21,7 +21,7 @@ const Logo = styled.img`
 `;
 
 const Frame = styled.div`
-  background-color: ${({ theme }) => (theme.tertiary)};
+  background-color: ${({ theme }) => (theme.quaternary)};
   min-width: 400px;
   min-height: 500px;
   display: flex;
