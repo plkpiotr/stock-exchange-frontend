@@ -23,7 +23,7 @@ const Logo = styled.img`
 const Frame = styled.div`
   background-color: ${({ theme }) => (theme.quaternary)};
   min-width: 400px;
-  min-height: 500px;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;

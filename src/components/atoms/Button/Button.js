@@ -10,8 +10,6 @@ const Button = styled.button`
   font-weight: ${({ theme }) => (theme.bold)};
   transition: .3s ease;
   background-color: ${({ theme }) => (theme.primary)};
-  margin-top: 10px;
-  margin-bottom: 60px;
   
   &:focus {
     outline: none;

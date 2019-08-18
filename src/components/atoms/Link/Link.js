@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 const Link = styled.a`
-  padding: 6px 13px;
+  padding: 6px 14px;
   font-size: 14px;
   border: none;
   color: white;
@@ -13,24 +13,29 @@ const Link = styled.a`
   transition: .3s ease;
   background-color: ${({ theme }) => (theme.primary)};
   
-  ${({ center }) => (
-    center && css`
-      margin-left: 15px;
-      margin-right: 15px;
-      display: inline-block;
-      width: 120px;
-    `
-  )}
-  
-  &:focus {
-    outline: none;
-  }
-  
   &:hover {
     cursor: pointer; 
     transition: .3s ease;
     background-color: ${({ theme }) => (theme.secondary)};
   }
+  
+  &:focus {
+    outline: none;
+  }
+  
+  ${({ small }) => (
+    small && css`
+      margin-left: 8px;
+      margin-right: 8px;
+      color: ${({ theme }) => (theme.primary)};
+      background-color: inherit;
+      
+      &:hover {
+        color: ${({ theme }) => (theme.secondary)};
+        background-color: inherit;
+      }
+    `
+  )}
 `;
 
 export default Link;

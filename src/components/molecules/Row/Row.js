@@ -17,6 +17,7 @@ const DescriptionTerm = styled.dt`
   display: grid;
   padding: 5px 0;
   grid-template-columns: 1fr 3fr 16fr repeat(3, 1fr);
+  color: ${({ theme }) => (theme.gray)};
   
   &:hover {
     background-color: ${({ theme }) => (theme.tertiary)};
