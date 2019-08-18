@@ -21,6 +21,10 @@ const Input = styled.input`
     border-right: 5px solid ${({ theme }) => (theme.primary)};
   }
   
+  &.invalid {
+    border-right: 5px solid ${({ theme }) => (theme.red)};
+  }
+  
   ${({ search }) => (
     search && css`
       padding-left: 32px;

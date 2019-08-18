@@ -21,7 +21,7 @@ const Board = styled.div`
 `;
 
 class Quotes extends Component {
-  componentWillMount() {
+  componentDidMount() {
     const { fetchQuote } = this.props;
     fetchQuote();
   }
