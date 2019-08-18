@@ -25,11 +25,13 @@ const Link = styled.a`
   
   ${({ small }) => (
     small && css`
-      margin-left: 8px;
-      margin-right: 8px;
+      display: inline-block;
+      width: 90px;
+      margin-left: 3px;
+      margin-right: 3px;
       color: ${({ theme }) => (theme.primary)};
       background-color: inherit;
-      
+
       &:hover {
         color: ${({ theme }) => (theme.secondary)};
         background-color: inherit;

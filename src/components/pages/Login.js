@@ -9,7 +9,9 @@ import routes from 'constants/routes';
 import { authorizeAction } from 'actions/authorize';
 import Link from 'components/atoms/Link/Link';
 import Description from 'components/atoms/Description/Description';
+import Error from 'components/atoms/Error/Error';
 import Offline from 'components/templates/Offline';
+import { string, object } from 'yup';
 import {
   Formik,
   Form,
@@ -22,8 +24,13 @@ const StyledForm = styled(Form)`
   align-items: center;
 `;
 
+const Container = styled.div`
+  padding-top: 15px;
+`;
+
 const Footer = styled.div`
-  display: inline;
+  padding-top: 30px;
+  font-size: 12px;
 `;
 
 const Login = ({ isAuthenticated, login }) => (
@@ -36,9 +43,18 @@ const Login = ({ isAuthenticated, login }) => (
       onSubmit={({ email, password }) => {
         login(email, password);
       }}
+      validationSchema={object()
+        .shape({
+          email: string()
+            .required('Email is required')
+            .email('Invalid email address'),
+          password: string()
+            .required('Password is required')
+            .max(35, 'Password is too long'),
+        })}
     >
       {({
-        values, handleChange, handleBlur,
+        values, handleChange, handleBlur, errors, touched,
       }) => {
         if (isAuthenticated) {
           return <Redirect push to={routes.dashboard} />;
@@ -47,12 +63,14 @@ const Login = ({ isAuthenticated, login }) => (
           <StyledForm>
             <Input
               name="email"
-              type="email"
+              type="text"
               placeholder="Email"
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.email}
+              className={`${errors.email && touched.email && 'invalid'}`}
             />
+            {errors.email && touched.email && (<Error>{errors.email}</Error>)}
             <Input
               name="password"
               type="password"
@@ -60,32 +78,36 @@ const Login = ({ isAuthenticated, login }) => (
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.password}
+              className={`${errors.password && touched.password && 'invalid'}`}
             />
-            <Button type="submit">Sign in</Button>
-            <Description secondary>
-              Icons made by
-              {' '}
-              <a
-                href="https://www.flaticon.com/authors/freepik"
-                title="Freepik"
-              >
-                Freepik
-              </a>
-              {' '}
-              from
-              {' '}
-              <a
-                href="https://www.flaticon.com/"
-                title="Flaticon"
-              >
-                flaticon.com
-              </a>
-            </Description>
-            <Footer>
-              <Link center href={routes.register}>Register</Link>
-              <Link center href="https://github.com/plkpiotr/stock-exchange-frontend">
-                Source code
+            {errors.password && touched.password && (<Error>{errors.password}</Error>)}
+            <Container>
+              <Link small href={routes.register}>Register</Link>
+              <Button type="submit">Sign in</Button>
+              <Link small href="https://github.com/plkpiotr/stock-exchange-frontend">
+                GitHub
               </Link>
+            </Container>
+            <Footer>
+              <Description secondary>
+                Icons made by
+                {' '}
+                <a
+                  href="https://www.flaticon.com/authors/freepik"
+                  title="Freepik"
+                >
+                  Freepik
+                </a>
+                {' '}
+                from
+                {' '}
+                <a
+                  href="https://www.flaticon.com/"
+                  title="Flaticon"
+                >
+                  www.flaticon.com
+                </a>
+              </Description>
             </Footer>
           </StyledForm>
         );
