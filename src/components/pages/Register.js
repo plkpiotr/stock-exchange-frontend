@@ -29,7 +29,7 @@ const Container = styled.div`
 `;
 
 const Footer = styled.div`
-  padding-top: 15px;
+  padding-top: 5px;
 `;
 
 class Register extends Component {

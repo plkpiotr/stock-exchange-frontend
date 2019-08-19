@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Input from 'components/atoms/Input/Input';
 import Button from 'components/atoms/Button/Button';
-import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 import routes from 'constants/routes';
-import { authorizeAction } from 'actions/authorize';
 import Link from 'components/atoms/Link/Link';
 import Description from 'components/atoms/Description/Description';
 import Error from 'components/atoms/Error/Error';
 import Offline from 'components/templates/Offline';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+import { authorizeAction } from 'actions/authorize';
 import { string, object } from 'yup';
 import {
   Formik,
@@ -25,7 +25,7 @@ const StyledForm = styled(Form)`
 `;
 
 const Container = styled.div`
-  padding-top: 15px;
+  padding-top: 5px;
 `;
 
 const Footer = styled.div`

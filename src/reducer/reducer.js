@@ -5,11 +5,15 @@ import { CHANGE_QUOTE_SUCCESS } from 'actions/changeQuote';
 import { EDIT_ITEM_SUCCESS } from 'actions/editItem';
 import { DELETE_ITEM_SUCCESS } from 'actions/deleteItem';
 import { DELETE_TRANSACTION_SUCCESS } from 'actions/deleteTransaction';
-import { FETCH_ITEMS_REQUEST, FETCH_ITEMS_SUCCESS } from 'actions/fetchItems';
-import { FETCH_ITEM_REQUEST, FETCH_ITEM_SUCCESS } from 'actions/fetchItem';
-import { FETCH_QUOTE_REQUEST, FETCH_QUOTE_SUCCESS } from 'actions/fetchQuote';
-import { FETCH_TRANSACTIONS_REQUEST, FETCH_TRANSACTIONS_SUCCESS } from 'actions/fetchTransactions';
 import { LOGOUT } from 'actions/logout';
+import { FETCH_ITEMS_REQUEST, FETCH_ITEMS_SUCCESS, FETCH_ITEMS_FAILURE } from 'actions/fetchItems';
+import { FETCH_ITEM_REQUEST, FETCH_ITEM_SUCCESS, FETCH_ITEM_FAILURE } from 'actions/fetchItem';
+import { FETCH_QUOTE_REQUEST, FETCH_QUOTE_SUCCESS, FETCH_QUOTE_FAILURE } from 'actions/fetchQuote';
+import {
+  FETCH_TRANSACTIONS_REQUEST,
+  FETCH_TRANSACTIONS_SUCCESS,
+  FETCH_TRANSACTIONS_FAILURE,
+} from 'actions/fetchTransactions';
 
 const initialState = {
   isAuthenticated: false,
@@ -28,21 +32,11 @@ const reducer = (state = initialState, action) => {
         isAuthenticated: false,
         user: {},
       };
-    case FETCH_ITEMS_REQUEST:
-      return {
-        ...state,
-        isLoading: true,
-      };
     case FETCH_ITEMS_SUCCESS:
       return {
         ...state,
         [action.itemType]: [...action.data],
         isLoading: false,
-      };
-    case FETCH_TRANSACTIONS_REQUEST:
-      return {
-        ...state,
-        isLoading: true,
       };
     case FETCH_TRANSACTIONS_SUCCESS:
       return {
@@ -50,21 +44,11 @@ const reducer = (state = initialState, action) => {
         transactions: action.data,
         isLoading: false,
       };
-    case FETCH_ITEM_REQUEST:
-      return {
-        ...state,
-        isLoading: true,
-      };
     case FETCH_ITEM_SUCCESS:
       return {
         ...state,
         item: action.data,
         isLoading: false,
-      };
-    case FETCH_QUOTE_REQUEST:
-      return {
-        ...state,
-        isLoading: true,
       };
     case FETCH_QUOTE_SUCCESS:
       return {
@@ -101,6 +85,22 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         item: action.data,
+      };
+    case FETCH_ITEMS_REQUEST:
+    case FETCH_ITEM_REQUEST:
+    case FETCH_QUOTE_REQUEST:
+    case FETCH_TRANSACTIONS_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case FETCH_ITEMS_FAILURE:
+    case FETCH_ITEM_FAILURE:
+    case FETCH_QUOTE_FAILURE:
+    case FETCH_TRANSACTIONS_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
       };
     default:
       return state;
