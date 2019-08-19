@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { connect } from 'react-redux';
 import Input from 'components/atoms/Input/Input';
 import Button from 'components/atoms/Button/Button';
 import Title from 'components/atoms/Title/Title';
+import { connect } from 'react-redux';
+import { editItemAction } from 'actions/editItem';
+import { object, string } from 'yup';
 import {
   Formik,
   Form,
 } from 'formik';
-import { editItemAction } from 'actions/editItem';
 
 const Wrapper = styled.div`
   display: flex;
@@ -25,22 +26,22 @@ const Wrapper = styled.div`
   transition: .3s ease;
 `;
 
+const StyledForm = styled(Form)`
+  display: flex;
+  flex-direction: column;
+`;
+
 const TextArea = styled(Input)`
   resize: none;
   height: 40vh;
   min-height: 250px;
 `;
 
-const StyledForm = styled(Form)`
-  display: flex;
-  flex-direction: column;
-`;
-
 const EditItemPanel = ({
   item, itemType, isVisible, editItem, handleClose,
 }) => (
   <Wrapper isVisible={isVisible}>
-    <Title>
+    <Title panel>
       Edit this
       {' '}
       {itemType.slice(0, -1)}
@@ -55,9 +56,21 @@ const EditItemPanel = ({
         editItem(itemType, values, item._id);
         handleClose();
       }}
+      validationSchema={((itemType === 'articles') ? (
+        object()
+          .shape({
+            title: string().required(),
+            description: string().required(),
+            link: string().required(),
+          })) : (
+        object()
+          .shape({
+            title: string().required(),
+            description: string().required(),
+          })))}
     >
       {({
-        values, handleChange, handleBlur,
+        values, handleChange, handleBlur, errors, touched,
       }) => (
         <StyledForm>
           <Input
@@ -67,6 +80,7 @@ const EditItemPanel = ({
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.title}
+            className={`${errors.title && touched.title && 'invalid'}`}
           />
           <TextArea
             name="description"
@@ -75,6 +89,7 @@ const EditItemPanel = ({
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.description}
+            className={`${errors.description && touched.description && 'invalid'}`}
           />
           {itemType === 'articles'
           && (
@@ -85,6 +100,7 @@ const EditItemPanel = ({
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.link}
+              className={`${errors.link && touched.link && 'invalid'}`}
             />
           )}
           <Button type="submit">Edit</Button>

@@ -6,6 +6,7 @@ import Button from 'components/atoms/Button/Button';
 import Title from 'components/atoms/Title/Title';
 import { connect } from 'react-redux';
 import { addItemAction } from 'actions/addItem';
+import { object, string } from 'yup';
 import {
   Formik,
   Form,
@@ -55,9 +56,21 @@ const AddItemPanel = ({
         addItem(itemType, values);
         handleClose();
       }}
+      validationSchema={((itemType === 'articles') ? (
+        object()
+          .shape({
+            title: string().required(),
+            description: string().required(),
+            link: string().required(),
+          })) : (
+        object()
+          .shape({
+            title: string().required(),
+            description: string().required(),
+          })))}
     >
       {({
-        values, handleChange, handleBlur,
+        values, handleChange, handleBlur, errors, touched,
       }) => (
         <StyledForm>
           <Input
@@ -67,6 +80,7 @@ const AddItemPanel = ({
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.title}
+            className={`${errors.title && touched.title && 'invalid'}`}
           />
           <TextArea
             name="description"
@@ -75,6 +89,7 @@ const AddItemPanel = ({
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.description}
+            className={`${errors.description && touched.description && 'invalid'}`}
           />
           {itemType === 'articles'
           && (
@@ -85,6 +100,7 @@ const AddItemPanel = ({
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.link}
+              className={`${errors.link && touched.link && 'invalid'}`}
             />
           )}
           <Button type="submit">Add</Button>

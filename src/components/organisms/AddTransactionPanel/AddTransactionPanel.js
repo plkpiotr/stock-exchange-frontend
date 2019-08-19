@@ -10,6 +10,12 @@ import Description from 'components/atoms/Description/Description';
 import symbols from 'constants/symbols';
 import { addTransactionAction } from 'actions/addTransaction';
 import {
+  date,
+  object,
+  ref,
+  string,
+} from 'yup';
+import {
   Formik,
   Form,
 } from 'formik';
@@ -40,40 +46,57 @@ const AddTransactionPanel = ({
     <Title panel>Add new transaction</Title>
     <Formik
       initialValues={{
-        symbol: '',
-        datePurchase: '',
         pricePurchase: 0.01,
-        dateSale: '',
         priceSale: 0.01,
+        symbol: 'ALIOR',
+        datePurchase: '',
+        dateSale: '',
       }}
       onSubmit={(values) => {
         addTransaction(values);
         handleClose();
       }}
+      validationSchema={object()
+        .shape({
+          pricePurchase: string()
+            .matches(/^\d+(?:\.\d{2})$/)
+            .required(),
+          priceSale: string()
+            .matches(/^\d+(?:\.\d{2})$/)
+            .required(),
+          datePurchase: date()
+            .min(new Date('04-12-1991'))
+            .max(new Date())
+            .required(),
+          dateSale: date()
+            .min(ref('datePurchase'))
+            .max(new Date())
+            .required(),
+        })}
     >
       {({
-        values, handleChange, handleBlur,
+        values, handleChange, handleBlur, errors, touched,
       }) => (
         <StyledForm>
           <Description panel>Purchase price:</Description>
           <Input
             name="pricePurchase"
             type="number"
+            step="0.01"
             onChange={handleChange}
             onBlur={handleBlur}
-            value={values.pricePurchase.toFixed(2)}
-            min="0.01"
-            step="0.01"
+            value={values.pricePurchase}
+            className={`${errors.pricePurchase && touched.pricePurchase && 'invalid'}`}
           />
           <Description panel>Sale price:</Description>
           <Input
             name="priceSale"
             type="number"
+            step="0.01"
             onChange={handleChange}
             onBlur={handleBlur}
-            value={values.priceSale.toFixed(2)}
-            min="0.01"
-            step="0.01"
+            value={values.priceSale}
+            className={`${errors.priceSale && touched.priceSale && 'invalid'}`}
           />
           <Description panel>Select symbol:</Description>
           <Select
@@ -93,6 +116,7 @@ const AddTransactionPanel = ({
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.datePurchase}
+            className={`${errors.datePurchase && touched.datePurchase && 'invalid'}`}
           />
           <Description panel>Date of sale:</Description>
           <Input
@@ -101,6 +125,7 @@ const AddTransactionPanel = ({
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.dateSale}
+            className={`${errors.dateSale && touched.dateSale && 'invalid'}`}
           />
           <Button type="submit">Add</Button>
         </StyledForm>
