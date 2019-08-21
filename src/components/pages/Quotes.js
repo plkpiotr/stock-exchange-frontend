@@ -43,11 +43,13 @@ class Quotes extends Component {
         <Wrapper>
           <Header>Quotes</Header>
           <Board>
+            {quote.dataset && (
             <Chart
               symbol={quote.dataset.dataset_code}
               labels={quote.dataset.column_names}
               data={quote.dataset.data}
             />
+            )}
             <List />
           </Board>
         </Wrapper>
