@@ -51,10 +51,9 @@ Accordion.propTypes = {
   transactions: PropTypes.arrayOf(PropTypes.shape({
     _id: PropTypes.string.isRequired,
     symbol: PropTypes.string.isRequired,
-    datePurchase: PropTypes.string.isRequired,
-    pricePurchase: PropTypes.number.isRequired,
-    dateSale: PropTypes.string.isRequired,
-    priceSale: PropTypes.number.isRequired,
+    date: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    comment: PropTypes.string.isRequired,
   })).isRequired,
 };
 

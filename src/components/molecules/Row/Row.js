@@ -15,8 +15,8 @@ const DescriptionTerm = styled.dt`
   font-weight: ${({ theme }) => (theme.bold)};
   transition: .7s ease;
   display: grid;
-  padding: 5px 0;
-  grid-template-columns: 1fr 3fr 16fr repeat(3, 1fr);
+  padding: 4px 0;
+  grid-template-columns: 1fr 3fr 12fr repeat(3, 1fr);
   color: ${({ theme }) => (theme.gray)};
   
   &:hover {
@@ -33,7 +33,9 @@ const DescriptionDetails = styled.dd`
   transition: max-height .7s;
   background-color: ${({ theme }) => (theme.quaternary)};
   display: grid;
-  grid-template-columns: 1fr 3fr 4fr 1fr 3fr 4fr 1fr 3fr repeat(3, 1fr);
+  grid-template-columns: 1fr 3fr 8fr 4fr repeat(3, 1fr);
+  justify-content: center;
+  align-items: center;
   
   &.expanded {
      max-height: 31px;
@@ -51,25 +53,19 @@ function Row(props) {
         <Span />
         <Span>{title}</Span>
         <Span right primary>
-          {stylizeNumber(transactions.reduce((sum, t) => (t.priceSale - t.pricePurchase) + sum, 0), 'PLN')}
+          {stylizeNumber(transactions.reduce((sum, t) => (t.price) + sum, 0), 'PLN')}
         </Span>
         <Span />
         <Span center>{transactions.length}</Span>
         <Span />
       </DescriptionTerm>
-      {transactions.sort((a, b) => new Date(a.datePurchase) - new Date(b.datePurchase))
+      {transactions.sort((a, b) => new Date(a.date) - new Date(b.date))
         .map(transaction => (
           <DescriptionDetails className={expanded ? 'expanded' : ''} key={transaction._id}>
             <Span />
-            <Span right primary>{stylizeNumber((transaction.pricePurchase * (-1)), 'PLN')}</Span>
-            <Span center>{moment(transaction.datePurchase).format('L')}</Span>
-            <Span />
-            <Span right primary>{stylizeNumber(transaction.priceSale, 'PLN')}</Span>
-            <Span center>{moment(transaction.dateSale).format('L')}</Span>
-            <Span />
-            <Span right primary>
-              {stylizeNumber((transaction.priceSale - transaction.pricePurchase), 'PLN')}
-            </Span>
+            <Span primary>{moment(transaction.date).format('L')}</Span>
+            <Span>{transaction.comment}</Span>
+            <Span right primary>{stylizeNumber(transaction.price, 'PLN')}</Span>
             <Span />
             <Button column onClick={() => deleteTransaction(transaction._id)}>
               {unicodes.cross}
@@ -89,10 +85,9 @@ Row.propTypes = {
   transactions: PropTypes.arrayOf(PropTypes.shape({
     _id: PropTypes.string.isRequired,
     symbol: PropTypes.string.isRequired,
-    datePurchase: PropTypes.string.isRequired,
-    pricePurchase: PropTypes.number.isRequired,
-    dateSale: PropTypes.string.isRequired,
-    priceSale: PropTypes.number.isRequired,
+    date: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    comment: PropTypes.string.isRequired,
   })).isRequired,
 };
 

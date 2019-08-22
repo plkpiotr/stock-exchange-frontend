@@ -82,7 +82,7 @@ const Login = ({ isAuthenticated, login }) => (
             />
             {errors.password && touched.password && (<Error>{errors.password}</Error>)}
             <Container>
-              <Link small href={routes.register}>Register</Link>
+              <Link small href={routes.register}>Sign up</Link>
               <Button type="submit">Sign in</Button>
               <Link small href="https://github.com/plkpiotr/stock-exchange-frontend">
                 GitHub

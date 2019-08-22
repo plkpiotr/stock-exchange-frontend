@@ -12,7 +12,6 @@ import { addTransactionAction } from 'actions/addTransaction';
 import {
   date,
   object,
-  ref,
   string,
 } from 'yup';
 import {
@@ -46,11 +45,10 @@ const AddTransactionPanel = ({
     <Title panel>Add new transaction</Title>
     <Formik
       initialValues={{
-        pricePurchase: 0.01,
-        priceSale: 0.01,
         symbol: 'ALIOR',
-        datePurchase: '',
-        dateSale: '',
+        date: '',
+        price: 0.01,
+        comment: '',
       }}
       onSubmit={(values) => {
         addTransaction(values);
@@ -58,19 +56,15 @@ const AddTransactionPanel = ({
       }}
       validationSchema={object()
         .shape({
-          pricePurchase: string()
-            .matches(/^\d+(?:\.\d{2})$/)
-            .required(),
-          priceSale: string()
-            .matches(/^\d+(?:\.\d{2})$/)
-            .required(),
-          datePurchase: date()
+          date: date()
             .min(new Date('04-12-1991'))
             .max(new Date())
             .required(),
-          dateSale: date()
-            .min(ref('datePurchase'))
-            .max(new Date())
+          price: string()
+            .matches(/^[-]?[0-9]+(\.[0-9]{2})?$/)
+            .required(),
+          comment: string()
+            .max(40)
             .required(),
         })}
     >
@@ -78,26 +72,6 @@ const AddTransactionPanel = ({
         values, handleChange, handleBlur, errors, touched,
       }) => (
         <StyledForm>
-          <Description panel>Purchase price:</Description>
-          <Input
-            name="pricePurchase"
-            type="number"
-            step="0.01"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.pricePurchase}
-            className={`${errors.pricePurchase && touched.pricePurchase && 'invalid'}`}
-          />
-          <Description panel>Sale price:</Description>
-          <Input
-            name="priceSale"
-            type="number"
-            step="0.01"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.priceSale}
-            className={`${errors.priceSale && touched.priceSale && 'invalid'}`}
-          />
           <Description panel>Select symbol:</Description>
           <Select
             name="symbol"
@@ -109,23 +83,33 @@ const AddTransactionPanel = ({
               <option value={symbol} label={symbol} key={symbol} />
             ))}
           </Select>
-          <Description panel>Date of purchase:</Description>
+          <Description panel>Transaction date:</Description>
           <Input
-            name="datePurchase"
+            name="date"
             type="date"
             onChange={handleChange}
             onBlur={handleBlur}
-            value={values.datePurchase}
-            className={`${errors.datePurchase && touched.datePurchase && 'invalid'}`}
+            value={values.date}
+            className={`${errors.date && touched.date && 'invalid'}`}
           />
-          <Description panel>Date of sale:</Description>
+          <Description panel>Purchase price:</Description>
           <Input
-            name="dateSale"
-            type="date"
+            name="price"
+            type="number"
+            step="0.01"
             onChange={handleChange}
             onBlur={handleBlur}
-            value={values.dateSale}
-            className={`${errors.dateSale && touched.dateSale && 'invalid'}`}
+            value={values.price}
+            className={`${errors.price && touched.price && 'invalid'}`}
+          />
+          <Description panel>Comment:</Description>
+          <Input
+            name="comment"
+            type="text"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.comment}
+            className={`${errors.comment && touched.comment && 'invalid'}`}
           />
           <Button type="submit">Add</Button>
         </StyledForm>

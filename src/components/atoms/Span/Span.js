@@ -3,7 +3,8 @@ import styled, { css } from 'styled-components';
 const Span = styled.div`
   ${({ center }) => (
     center && css`
-      text-align: center;                             
+      text-align: center;
+      vertical-align: center;
     `
   )}
   

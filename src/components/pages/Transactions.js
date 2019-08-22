@@ -19,7 +19,7 @@ const Wrapper = styled.div`
 class Transactions extends Component {
   state = {
     isPanelVisible: false,
-    searchPrice: '',
+    searchYear: '',
   };
 
   componentDidMount() {
@@ -32,17 +32,17 @@ class Transactions extends Component {
   }));
 
   handleChange = (event) => {
-    this.setState({ searchPrice: event.target.value });
+    this.setState({ searchYear: event.target.value });
   };
 
   render() {
     const { transactions, isLoading } = this.props;
-    const { isPanelVisible, searchPrice } = this.state;
+    const { isPanelVisible, searchYear } = this.state;
 
     let items = transactions;
-    const price = searchPrice;
-    if (price > 0) {
-      items = items.filter(transaction => transaction.pricePurchase > price);
+    const year = searchYear;
+    if (year !== '') {
+      items = items.filter(item => new Date(item.date).getFullYear().toString() === year);
     }
 
     if (isLoading) {
@@ -58,9 +58,9 @@ class Transactions extends Component {
           <Header>Transactions</Header>
           <Input
             search
-            value={searchPrice}
+            value={searchYear}
             onChange={this.handleChange}
-            placeholder="Find above the purchase price…"
+            placeholder="Find by year…"
           />
           <Button fixed onClick={this.togglePanel}>
             {isPanelVisible ? 'Close' : 'New'}
@@ -83,10 +83,9 @@ Transactions.propTypes = {
   transactions: PropTypes.arrayOf(PropTypes.shape({
     _id: PropTypes.string.isRequired,
     symbol: PropTypes.string.isRequired,
-    datePurchase: PropTypes.string.isRequired,
-    pricePurchase: PropTypes.number.isRequired,
-    dateSale: PropTypes.string.isRequired,
-    priceSale: PropTypes.number.isRequired,
+    date: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    comment: PropTypes.string.isRequired,
   })),
 };
 

@@ -109,7 +109,7 @@ class Register extends Component {
                 {errors.recaptcha && touched.recaptcha && (<Error>{errors.recaptcha}</Error>)}
                 <Footer>
                   <Link small href={routes.login}>Sign in</Link>
-                  <Button type="submit">Register</Button>
+                  <Button type="submit">Sign up</Button>
                   <Link small href="https://github.com/plkpiotr/stock-exchange-frontend">
                     GitHub
                   </Link>
