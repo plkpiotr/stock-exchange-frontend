@@ -5,9 +5,10 @@ import Online from 'components/templates/Online';
 import styled from 'styled-components';
 import Header from 'components/atoms/Header/Header';
 import Loader from 'components/atoms/Loader/Loader';
-import Chart from 'components/organisms/Chart/Chart';
+import Graph from 'components/organisms/Graph/Graph';
 import List from 'components/molecules/List/List';
 import { fetchQuoteAction } from 'actions/fetchQuote';
+import moment from 'moment';
 
 const Wrapper = styled.div`
   margin-left: 125px;
@@ -44,11 +45,11 @@ class Quotes extends Component {
           <Header>Quotes</Header>
           <Board>
             {quote.dataset && (
-            <Chart
-              symbol={quote.dataset.dataset_code}
-              labels={quote.dataset.column_names}
-              data={quote.dataset.data}
-            />
+              <Graph
+                symbol={quote.dataset.dataset_code}
+                labels={quote.dataset.column_names}
+                data={quote.dataset.data}
+              />
             )}
             <List />
           </Board>
@@ -69,13 +70,13 @@ Quotes.defaultProps = {
   isLoading: true,
 };
 
-const mapStateToProps = ({ quote, isLoading }) => ({
-  quote,
-  isLoading,
-});
+const mapStateToProps = ({ quote, isLoading }) => ({ quote, isLoading });
 
 const mapDispatchToProps = dispatch => ({
-  fetchQuote: () => dispatch(fetchQuoteAction('ALIOR')),
+  fetchQuote: () => dispatch(fetchQuoteAction('ALIOR', moment()
+    .subtract('1', 'years')
+    .format()
+    .substring(0, 10))),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Quotes);
