@@ -10,6 +10,9 @@ import { connect } from 'react-redux';
 import { countAwesomeOscillators } from 'indicators/awesomeOscillator';
 import { fetchQuoteAction } from 'actions/fetchQuote';
 
+export const NUMBER_OF_QUOTES = 30;
+const NUMBER_OF_DAYS = '131';
+
 const Wrapper = styled.div`
   margin-left: 125px;
   padding: 0 0 1vh 3vw;
@@ -46,7 +49,9 @@ class Indicators extends Component {
               <Chart
                 name="Awesome Oscillator"
                 abbreviation="AO"
-                labels={quote.dataset.data.map(column => column[0]).reverse().slice(-30)}
+                labels={quote.dataset.data.map(column => column[0])
+                  .reverse()
+                  .slice(-(NUMBER_OF_QUOTES))}
                 data={countAwesomeOscillators(quote.dataset.data)}
               />
             </Board>
@@ -75,7 +80,7 @@ const mapStateToProps = ({ quote, isLoading }) => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchQuote: () => dispatch(fetchQuoteAction('ALIOR', moment()
-    .subtract('131', 'days')
+    .subtract(NUMBER_OF_DAYS, 'days')
     .format()
     .substring(0, 10))),
 });
