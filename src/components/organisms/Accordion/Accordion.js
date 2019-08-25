@@ -17,7 +17,7 @@ const DescriptionList = styled.dl`
 `;
 
 class Accordion extends Component {
-  state = Object.assign(...symbols.map(symbol => ({ [symbol]: false })));
+  state = { ...symbols.map(symbol => ({ [symbol]: false })) };
 
   toggleDescriptionDetails = symbol => () => {
     const { state: expanded } = this;

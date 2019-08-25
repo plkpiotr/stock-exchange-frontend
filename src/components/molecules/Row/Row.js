@@ -79,7 +79,7 @@ function Row(props) {
 
 Row.propTypes = {
   title: PropTypes.string.isRequired,
-  expanded: PropTypes.bool.isRequired,
+  expanded: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
   deleteTransaction: PropTypes.func.isRequired,
   transactions: PropTypes.arrayOf(PropTypes.shape({
@@ -89,6 +89,10 @@ Row.propTypes = {
     price: PropTypes.number.isRequired,
     comment: PropTypes.string.isRequired,
   })).isRequired,
+};
+
+Row.defaultProps = {
+  expanded: false,
 };
 
 const mapDispatchToProps = dispatch => ({

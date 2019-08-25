@@ -70,7 +70,10 @@ Quotes.defaultProps = {
   isLoading: true,
 };
 
-const mapStateToProps = ({ quote, isLoading }) => ({ quote, isLoading });
+const mapStateToProps = ({ quote, isLoading }) => ({
+  quote,
+  isLoading,
+});
 
 const mapDispatchToProps = dispatch => ({
   fetchQuote: () => dispatch(fetchQuoteAction('ALIOR', moment()
