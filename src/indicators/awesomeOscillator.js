@@ -1,34 +1,35 @@
+const SHORT_PERIOD = 5;
+const LONG_PERIOD = 34;
+const NUMBER_OF_DAYS = 30;
+
 const countAverage = array => array.reduce((a, b) => a + b, 0) / array.length;
 
-function countFirstAverage(highPrices, lowPrices, i, period) {
-  const longPeriodHighPricesAverage = countAverage(highPrices.slice(i - period, i));
-  const longPeriodLowPricesAverage = countAverage(lowPrices.slice(i - period, i));
+const countAverages = (highPrices, lowPrices, period, iteration) => {
+  const highPricesAverage = countAverage(highPrices.slice(iteration - period, iteration));
+  const lowPricesAverage = countAverage(lowPrices.slice(iteration - period, iteration));
+  return (highPricesAverage + lowPricesAverage) / 2;
+};
 
-  return (longPeriodHighPricesAverage + longPeriodLowPricesAverage) / 2;
-}
+export const countAwesomeOscillators = (quotes) => {
+  const highPrices = quotes.map(column => column[2])
+    .reverse()
+    .slice(-(LONG_PERIOD + NUMBER_OF_DAYS));
+  const lowPrices = quotes.map(column => column[3])
+    .reverse()
+    .slice(-(LONG_PERIOD + NUMBER_OF_DAYS));
 
-export const countAwesomeOscillator = (quotes) => {
-  const highPrices = quotes.map(e => e[2]).reverse().slice(-64);
-  const lowPrices = quotes.map(e => e[3]).reverse().slice(-64);
+  const longPeriodAverage = new Array(NUMBER_OF_DAYS);
+  const shortPeriodAverage = new Array(NUMBER_OF_DAYS);
+  const awesomeOscillators = new Array(NUMBER_OF_DAYS);
 
-  const awesomeOscillators = new Array(30);
-  const longPeriodPricesAverage = new Array(30);
-  const shortPeriodPricesAverage = new Array(30);
-
-  for (let i = 34; i < 64; i++) {
-    longPeriodPricesAverage[i - 34] = countFirstAverage(highPrices, lowPrices, i, 34);
-    shortPeriodPricesAverage[i - 34] = countFirstAverage(highPrices, lowPrices, i, 5);
-    awesomeOscillators[i - 34] = shortPeriodPricesAverage[i - 34] - longPeriodPricesAverage[i - 34];
-    awesomeOscillators[i - 34] = awesomeOscillators[i - 34].toFixed(2);
-  }
-
-  console.log(lowPrices.length);
-  console.log(awesomeOscillators.length);
-  for (let i = 0; i < 30; i++) {
-    console.log(awesomeOscillators[i]);
+  for (let i = LONG_PERIOD; i < (LONG_PERIOD + NUMBER_OF_DAYS); i += 1) {
+    longPeriodAverage[i - LONG_PERIOD] = countAverages(highPrices, lowPrices, LONG_PERIOD, i);
+    shortPeriodAverage[i - LONG_PERIOD] = countAverages(highPrices, lowPrices, SHORT_PERIOD, i);
+    awesomeOscillators[i - LONG_PERIOD] = shortPeriodAverage[i - LONG_PERIOD] - longPeriodAverage[i - LONG_PERIOD];
+    awesomeOscillators[i - LONG_PERIOD] = awesomeOscillators[i - LONG_PERIOD].toFixed(2);
   }
 
   return awesomeOscillators;
 };
 
-export default countAwesomeOscillator;
+export default countAwesomeOscillators;
