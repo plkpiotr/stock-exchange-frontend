@@ -10,6 +10,7 @@ import Bar from 'components/molecules/Bar/Bar';
 import { connect } from 'react-redux';
 import { countAwesomeOscillators } from 'indicators/awesomeOscillator';
 import { countCommodityChannelIndexes } from 'indicators/commodityChannel';
+import { countDetrendedPriceOscillators } from 'indicators/detrendedPrice';
 import { fetchQuoteAction } from 'actions/fetchQuote';
 
 export const QUOTES = 30;
@@ -64,6 +65,14 @@ class Indicators extends Component {
                   .reverse()
                   .slice(-(QUOTES))}
                 data={countCommodityChannelIndexes(quote.dataset.data)}
+              />
+              <Chart
+                name="Detrended Price Oscillator"
+                abbreviation="DPO"
+                labels={quote.dataset.data.map(column => column[0])
+                  .reverse()
+                  .slice(-(QUOTES))}
+                data={countDetrendedPriceOscillators(quote.dataset.data)}
               />
             </Board>
           )}
