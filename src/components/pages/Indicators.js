@@ -6,12 +6,14 @@ import styled from 'styled-components';
 import Header from 'components/atoms/Header/Header';
 import Loader from 'components/atoms/Loader/Loader';
 import Chart from 'components/organisms/Chart/Chart';
+import Bar from 'components/molecules/Bar/Bar';
 import { connect } from 'react-redux';
 import { countAwesomeOscillators } from 'indicators/awesomeOscillator';
+import { countCommodityChannelIndexes } from 'indicators/commodityChannel';
 import { fetchQuoteAction } from 'actions/fetchQuote';
 
-export const NUMBER_OF_QUOTES = 30;
-const NUMBER_OF_DAYS = '131';
+export const QUOTES = 30;
+const DAYS = '131';
 
 const Wrapper = styled.div`
   margin-left: 125px;
@@ -44,15 +46,24 @@ class Indicators extends Component {
       <Online>
         <Wrapper>
           <Header>Indicators</Header>
-          {quote.dataset.data && (
+          {quote.dataset && (
             <Board>
+              <Bar />
               <Chart
                 name="Awesome Oscillator"
                 abbreviation="AO"
                 labels={quote.dataset.data.map(column => column[0])
                   .reverse()
-                  .slice(-(NUMBER_OF_QUOTES))}
+                  .slice(-(QUOTES))}
                 data={countAwesomeOscillators(quote.dataset.data)}
+              />
+              <Chart
+                name="Commodity Channel Index"
+                abbreviation="CCI"
+                labels={quote.dataset.data.map(column => column[0])
+                  .reverse()
+                  .slice(-(QUOTES))}
+                data={countCommodityChannelIndexes(quote.dataset.data)}
               />
             </Board>
           )}
@@ -80,7 +91,7 @@ const mapStateToProps = ({ quote, isLoading }) => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchQuote: () => dispatch(fetchQuoteAction('ALIOR', moment()
-    .subtract(NUMBER_OF_DAYS, 'days')
+    .subtract(DAYS, 'days')
     .format()
     .substring(0, 10))),
 });

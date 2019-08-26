@@ -30,7 +30,7 @@ const Container = styled.div`
 
 const Footer = styled.div`
   padding-top: 30px;
-  font-size: 12px;
+  font-size: 13px;
 `;
 
 const Login = ({ isAuthenticated, login }) => (
