@@ -13,6 +13,7 @@ import { countCommodityChannelIndexes } from 'indicators/commodityChannel';
 import { countDetrendedPriceOscillators } from 'indicators/detrendedPrice';
 import { countEaseOfMovementIndicators } from 'indicators/easeMovement';
 import { countMoneyFlowIndexes } from 'indicators/moneyFlow';
+import { countRateOfChangesIndicators } from 'indicators/rateChange';
 import { fetchQuoteAction } from 'actions/fetchQuote';
 
 export const QUOTES = 30;
@@ -91,6 +92,14 @@ class Indicators extends Component {
                   .reverse()
                   .slice(-QUOTES)}
                 data={countMoneyFlowIndexes(quote.dataset.data)}
+              />
+              <Chart
+                name="Rate of Change"
+                abbreviation="ROC"
+                labels={quote.dataset.data.map(column => column[0])
+                  .reverse()
+                  .slice(-QUOTES)}
+                data={countRateOfChangesIndicators(quote.dataset.data)}
               />
             </Board>
           )}
