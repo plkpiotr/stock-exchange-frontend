@@ -4,3 +4,6 @@ Frontend:
 
 To do:
 - Stylize `Bar.js`
+- Consider rename `DAYS` to `PERIOD`
+- Consider variable for `DAYS + QUOTES`
+- Rename `Chart` to `BarChart` and `Graph` to `LineChart` or something like that
