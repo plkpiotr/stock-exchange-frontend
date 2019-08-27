@@ -8,11 +8,11 @@ const Wrapper = styled.div`
   background-color: ${({ theme }) => (theme.quaternary)};
   min-width: 0;
   display: inline-block;
-  width: 400px;
+  width: 370px;
 `;
 
 const Chart = ({
-  name, abbreviation, labels, data,
+  name, abbreviation, data, labels,
 }) => (
   <Wrapper>
     <Bar
@@ -52,11 +52,15 @@ const Chart = ({
 );
 
 Chart.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  data: PropTypes.array.isRequired,
-  abbreviation: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  abbreviation: PropTypes.string.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  data: PropTypes.array,
   labels: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
+
+Chart.defaultProps = {
+  data: [],
 };
 
 export default Chart;

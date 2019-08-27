@@ -14,6 +14,7 @@ import { countDetrendedPriceOscillators } from 'indicators/detrendedPrice';
 import { countEaseOfMovementIndicators } from 'indicators/easeMovement';
 import { countMoneyFlowIndexes } from 'indicators/moneyFlow';
 import { countRateOfChangesIndicators } from 'indicators/rateChange';
+import { countRelativeStrengthIndexes } from 'indicators/relativeStrength';
 import { fetchQuoteAction } from 'actions/fetchQuote';
 
 export const QUOTES = 30;
@@ -56,50 +57,58 @@ class Indicators extends Component {
               <Chart
                 name="Awesome Oscillator"
                 abbreviation="AO"
+                data={countAwesomeOscillators(quote.dataset.data)}
                 labels={quote.dataset.data.map(column => column[0])
                   .reverse()
                   .slice(-(QUOTES))}
-                data={countAwesomeOscillators(quote.dataset.data)}
               />
               <Chart
                 name="Commodity Channel Index"
                 abbreviation="CCI"
+                data={countCommodityChannelIndexes(quote.dataset.data)}
                 labels={quote.dataset.data.map(column => column[0])
                   .reverse()
                   .slice(-(QUOTES))}
-                data={countCommodityChannelIndexes(quote.dataset.data)}
               />
               <Chart
                 name="Detrended Price Oscillator"
                 abbreviation="DPO"
+                data={countDetrendedPriceOscillators(quote.dataset.data)}
                 labels={quote.dataset.data.map(column => column[0])
                   .reverse()
                   .slice(-(QUOTES))}
-                data={countDetrendedPriceOscillators(quote.dataset.data)}
               />
               <Chart
                 name="Ease of Movement"
                 abbreviation="EMV"
+                data={countEaseOfMovementIndicators(quote.dataset.data)}
                 labels={quote.dataset.data.map(column => column[0])
                   .reverse()
                   .slice(-QUOTES)}
-                data={countEaseOfMovementIndicators(quote.dataset.data)}
               />
               <Chart
                 name="Money Flow"
                 abbreviation="MFI"
+                data={countMoneyFlowIndexes(quote.dataset.data)}
                 labels={quote.dataset.data.map(column => column[0])
                   .reverse()
                   .slice(-QUOTES)}
-                data={countMoneyFlowIndexes(quote.dataset.data)}
               />
               <Chart
                 name="Rate of Change"
                 abbreviation="ROC"
+                data={countRateOfChangesIndicators(quote.dataset.data)}
                 labels={quote.dataset.data.map(column => column[0])
                   .reverse()
                   .slice(-QUOTES)}
-                data={countRateOfChangesIndicators(quote.dataset.data)}
+              />
+              <Chart
+                name="Relative Strength Index"
+                abbreviation="RSI"
+                data={countRelativeStrengthIndexes(quote.dataset.data)}
+                labels={quote.dataset.data.map(column => column[0])
+                  .reverse()
+                  .slice(-QUOTES)}
               />
             </Board>
           )}

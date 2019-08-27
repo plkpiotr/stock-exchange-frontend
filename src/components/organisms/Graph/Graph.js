@@ -9,7 +9,7 @@ import zoom from 'chartjs-plugin-zoom';
 
 defaults.global.defaultFontFamily = 'Titillium Web';
 defaults.global.defaultFontStyle = 'bold';
-defaults.global.defaultFontSize = 15;
+defaults.global.defaultFontSize = 14;
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => (theme.quaternary)};

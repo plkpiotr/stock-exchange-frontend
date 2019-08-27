@@ -1,6 +1,7 @@
 import { QUOTES } from 'components/pages/Indicators';
 import { countSum } from 'utils/calculation';
 
+const PREVIOUS = 1;
 const DAYS = 14;
 
 export const countMoneyFlowIndexes = (quotes) => {
@@ -25,16 +26,16 @@ export const countMoneyFlowIndexes = (quotes) => {
     moneyFlows[i] = typicalPrices[i] * volumes[i];
   }
 
-  const positiveFlows = [];
-  const negativeFlows = [];
+  const positiveFlows = new Array(DAYS + QUOTES - PREVIOUS);
+  const negativeFlows = new Array(DAYS + QUOTES - PREVIOUS);
 
-  for (let i = 1; i < (DAYS + QUOTES); i += 1) {
-    if (typicalPrices[i] > typicalPrices[i - 1]) {
-      positiveFlows.push(moneyFlows[i]);
-      negativeFlows.push(0);
+  for (let i = PREVIOUS; i < (DAYS + QUOTES); i += 1) {
+    if (typicalPrices[i - PREVIOUS] - typicalPrices[i] < 0) {
+      positiveFlows[i - PREVIOUS] = moneyFlows[i];
+      negativeFlows[i - PREVIOUS] = 0;
     } else {
-      negativeFlows.push(moneyFlows[i]);
-      positiveFlows.push(0);
+      positiveFlows[i - PREVIOUS] = 0;
+      negativeFlows[i - PREVIOUS] = moneyFlows[i];
     }
   }
 
