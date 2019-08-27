@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   background-color: ${({ theme }) => (theme.quaternary)};
   min-width: 0;
   display: inline-block;
-  width: 500px;
+  width: 400px;
 `;
 
 const Chart = ({

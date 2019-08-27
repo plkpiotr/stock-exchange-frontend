@@ -13,6 +13,7 @@ export const countDetrendedPriceOscillators = (quotes) => {
   for (let i = DAYS; i < (DAYS + QUOTES); i += 1) {
     oscillators[i - DAYS] = closePrices[i - (DAYS / 2 + 1)];
     oscillators[i - DAYS] -= countAverage(closePrices.slice(i - DAYS, i));
+    oscillators[i - DAYS] = oscillators[i - DAYS].toFixed(3);
   }
 
   return oscillators;

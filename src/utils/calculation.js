@@ -1,3 +1,5 @@
+export const findMaximumValue = array => Math.max(...array);
+
 export const countAverage = array => array.reduce((a, b) => a + b, 0) / array.length;
 
 export const countMedianDeviation = (set, average) => {

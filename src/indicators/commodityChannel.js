@@ -22,8 +22,8 @@ export const countCommodityChannelIndexes = (quotes) => {
     .reverse()
     .slice(-(DAYS + QUOTES));
 
-  const averages = new Array(QUOTES);
   const typicalPrices = new Array(DAYS + QUOTES);
+  const averages = new Array(QUOTES);
   const indexes = new Array(QUOTES);
 
   for (let i = 0; i < (DAYS + QUOTES); i += 1) {
@@ -34,6 +34,7 @@ export const countCommodityChannelIndexes = (quotes) => {
     averages[i - DAYS] = countAverages(highPrices, lowPrices, closePrices, i);
     indexes[i - DAYS] = (typicalPrices[i] - averages[i - DAYS]) / (0.015);
     indexes[i - DAYS] /= countMedianDeviation(typicalPrices.slice(i - DAYS, i), averages[i - DAYS]);
+    indexes[i - DAYS] = indexes[i - DAYS].toFixed(2);
   }
 
   return indexes;

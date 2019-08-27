@@ -11,6 +11,7 @@ import { connect } from 'react-redux';
 import { countAwesomeOscillators } from 'indicators/awesomeOscillator';
 import { countCommodityChannelIndexes } from 'indicators/commodityChannel';
 import { countDetrendedPriceOscillators } from 'indicators/detrendedPrice';
+import { countEaseOfMovementIndicators } from 'indicators/easeMovement';
 import { fetchQuoteAction } from 'actions/fetchQuote';
 
 export const QUOTES = 30;
@@ -73,6 +74,14 @@ class Indicators extends Component {
                   .reverse()
                   .slice(-(QUOTES))}
                 data={countDetrendedPriceOscillators(quote.dataset.data)}
+              />
+              <Chart
+                name="Ease of Movement"
+                abbreviation="EMV"
+                labels={quote.dataset.data.map(column => column[0])
+                  .reverse()
+                  .slice(-QUOTES)}
+                data={countEaseOfMovementIndicators(quote.dataset.data)}
               />
             </Board>
           )}
