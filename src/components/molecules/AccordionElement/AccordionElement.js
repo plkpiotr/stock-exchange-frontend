@@ -42,7 +42,7 @@ const DescriptionDetails = styled.dd`
   }
 `;
 
-function Row(props) {
+function AccordionElement(props) {
   const {
     title, expanded, onClick, transactions, deleteTransaction,
   } = props;
@@ -77,7 +77,7 @@ function Row(props) {
   );
 }
 
-Row.propTypes = {
+AccordionElement.propTypes = {
   title: PropTypes.string.isRequired,
   expanded: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
@@ -91,7 +91,7 @@ Row.propTypes = {
   })).isRequired,
 };
 
-Row.defaultProps = {
+AccordionElement.defaultProps = {
   expanded: false,
 };
 
@@ -99,4 +99,4 @@ const mapDispatchToProps = dispatch => ({
   deleteTransaction: id => dispatch(deleteTransactionAction(id)),
 });
 
-export default connect(null, mapDispatchToProps)(Row);
+export default connect(null, mapDispatchToProps)(AccordionElement);

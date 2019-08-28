@@ -5,7 +5,7 @@ import Online from 'components/templates/Online';
 import styled from 'styled-components';
 import Header from 'components/atoms/Header/Header';
 import Loader from 'components/atoms/Loader/Loader';
-import Graph from 'components/organisms/Graph/Graph';
+import LineChart from 'components/molecules/LineChart/LineChart';
 import List from 'components/molecules/List/List';
 import { fetchQuoteAction } from 'actions/fetchQuote';
 import moment from 'moment';
@@ -45,7 +45,7 @@ class Quotes extends Component {
           <Header>Quotes</Header>
           <Board>
             {quote.dataset && (
-              <Graph
+              <LineChart
                 symbol={quote.dataset.dataset_code}
                 labels={quote.dataset.column_names}
                 data={quote.dataset.data}

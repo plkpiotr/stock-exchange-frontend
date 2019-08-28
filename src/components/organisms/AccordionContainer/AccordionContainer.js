@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Row from 'components/molecules/Row/Row';
+import AccordionElement from 'components/molecules/AccordionElement/AccordionElement';
 import symbols from 'constants/symbols';
 
 const DescriptionList = styled.dl`
@@ -16,7 +16,7 @@ const DescriptionList = styled.dl`
   }
 `;
 
-class Accordion extends Component {
+class AccordionContainer extends Component {
   state = { ...symbols.map(symbol => ({ [symbol]: false })) };
 
   toggleDescriptionDetails = symbol => () => {
@@ -33,7 +33,7 @@ class Accordion extends Component {
       <DescriptionList>
         {
           shortcuts.map(symbol => (
-            <Row
+            <AccordionElement
               title={symbol}
               transactions={transactions.filter(transaction => transaction.symbol === symbol)}
               onClick={this.toggleDescriptionDetails(symbol)}
@@ -47,7 +47,7 @@ class Accordion extends Component {
   }
 }
 
-Accordion.propTypes = {
+AccordionContainer.propTypes = {
   transactions: PropTypes.arrayOf(PropTypes.shape({
     _id: PropTypes.string.isRequired,
     symbol: PropTypes.string.isRequired,
@@ -57,4 +57,4 @@ Accordion.propTypes = {
   })).isRequired,
 };
 
-export default Accordion;
+export default AccordionContainer;

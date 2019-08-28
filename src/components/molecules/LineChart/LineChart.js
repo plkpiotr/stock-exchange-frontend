@@ -17,7 +17,7 @@ const Wrapper = styled.div`
 
 const FONT_SIZE = 15;
 
-const Graph = ({ symbol, labels, data }) => (
+const LineChart = ({ symbol, labels, data }) => (
   <Wrapper>
     <Line
       redraw
@@ -139,11 +139,11 @@ const Graph = ({ symbol, labels, data }) => (
   </Wrapper>
 );
 
-Graph.propTypes = {
+LineChart.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
   data: PropTypes.array.isRequired,
   labels: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number, PropTypes.string])).isRequired,
   symbol: PropTypes.string.isRequired,
 };
 
-export default Graph;
+export default LineChart;

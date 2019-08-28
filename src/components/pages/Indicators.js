@@ -5,7 +5,7 @@ import Online from 'components/templates/Online';
 import styled from 'styled-components';
 import Header from 'components/atoms/Header/Header';
 import Loader from 'components/atoms/Loader/Loader';
-import Chart from 'components/organisms/Chart/Chart';
+import BarChart from 'components/molecules/BarChart/BarChart';
 import Button from 'components/atoms/Button/Button';
 import { connect } from 'react-redux';
 import { countAwesomeOscillators } from 'indicators/awesomeOscillator';
@@ -55,7 +55,7 @@ class Indicators extends Component {
           <Header>Indicators</Header>
           {quote.dataset && (
             <Board>
-              <Chart
+              <BarChart
                 name="Awesome Oscillator"
                 abbreviation="AO"
                 data={countAwesomeOscillators(quote.dataset.data)}
@@ -63,7 +63,7 @@ class Indicators extends Component {
                   .reverse()
                   .slice(-(QUOTES))}
               />
-              <Chart
+              <BarChart
                 name="Commodity Channel Index"
                 abbreviation="CCI"
                 data={countCommodityChannelIndexes(quote.dataset.data)}
@@ -71,7 +71,7 @@ class Indicators extends Component {
                   .reverse()
                   .slice(-(QUOTES))}
               />
-              <Chart
+              <BarChart
                 name="Detrended Price Oscillator"
                 abbreviation="DPO"
                 data={countDetrendedPriceOscillators(quote.dataset.data)}
@@ -79,7 +79,7 @@ class Indicators extends Component {
                   .reverse()
                   .slice(-(QUOTES))}
               />
-              <Chart
+              <BarChart
                 name="Ease of Movement"
                 abbreviation="EMV"
                 data={countEaseOfMovementIndicators(quote.dataset.data)}
@@ -87,7 +87,7 @@ class Indicators extends Component {
                   .reverse()
                   .slice(-QUOTES)}
               />
-              <Chart
+              <BarChart
                 name="Money Flow"
                 abbreviation="MFI"
                 data={countMoneyFlowIndexes(quote.dataset.data)}
@@ -95,7 +95,7 @@ class Indicators extends Component {
                   .reverse()
                   .slice(-QUOTES)}
               />
-              <Chart
+              <BarChart
                 name="Rate of Change"
                 abbreviation="ROC"
                 data={countRateOfChangesIndicators(quote.dataset.data)}
@@ -103,7 +103,7 @@ class Indicators extends Component {
                   .reverse()
                   .slice(-QUOTES)}
               />
-              <Chart
+              <BarChart
                 name="Relative Strength Index"
                 abbreviation="RSI"
                 data={countRelativeStrengthIndexes(quote.dataset.data)}
@@ -111,7 +111,7 @@ class Indicators extends Component {
                   .reverse()
                   .slice(-QUOTES)}
               />
-              <Chart
+              <BarChart
                 name="Ultimate Oscillator"
                 abbreviation="UO"
                 data={countUltimateOscillators(quote.dataset.data)}
@@ -119,7 +119,7 @@ class Indicators extends Component {
                   .reverse()
                   .slice(-QUOTES)}
               />
-              <Chart
+              <BarChart
                 name="Williams %R"
                 abbreviation="%R"
                 data={countWilliamsPercentRanges(quote.dataset.data)}

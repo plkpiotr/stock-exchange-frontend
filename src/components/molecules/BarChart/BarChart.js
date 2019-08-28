@@ -18,7 +18,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Chart = ({
+const BarChart = ({
   name, abbreviation, data, labels,
 }) => (
   <Wrapper>
@@ -65,7 +65,7 @@ const Chart = ({
   </Wrapper>
 );
 
-Chart.propTypes = {
+BarChart.propTypes = {
   name: PropTypes.string.isRequired,
   abbreviation: PropTypes.string.isRequired,
   // eslint-disable-next-line react/forbid-prop-types
@@ -73,8 +73,8 @@ Chart.propTypes = {
   labels: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
-Chart.defaultProps = {
+BarChart.defaultProps = {
   data: [],
 };
 
-export default Chart;
+export default BarChart;

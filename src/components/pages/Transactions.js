@@ -7,7 +7,7 @@ import Header from 'components/atoms/Header/Header';
 import Input from 'components/atoms/Input/Input';
 import Button from 'components/atoms/Button/Button';
 import Loader from 'components/atoms/Loader/Loader';
-import Accordion from 'components/organisms/Accordion/Accordion';
+import AccordionContainer from 'components/organisms/AccordionContainer/AccordionContainer';
 import { fetchTransactionsAction } from 'actions/fetchTransactions';
 import AddTransactionPanel from 'components/organisms/AddTransactionPanel/AddTransactionPanel';
 
@@ -65,7 +65,7 @@ class Transactions extends Component {
           <Button fixed onClick={this.togglePanel}>
             {isPanelVisible ? 'Close' : 'New'}
           </Button>
-          <Accordion transactions={items} />
+          <AccordionContainer transactions={items} />
           <AddTransactionPanel
             itemType="articles"
             isVisible={isPanelVisible}
