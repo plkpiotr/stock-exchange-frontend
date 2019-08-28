@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Online from 'components/templates/Online';
 import styled from 'styled-components';
-import { connect } from 'react-redux';
 import Header from 'components/atoms/Header/Header';
 import Input from 'components/atoms/Input/Input';
 import Button from 'components/atoms/Button/Button';
 import Loader from 'components/atoms/Loader/Loader';
 import AccordionContainer from 'components/organisms/AccordionContainer/AccordionContainer';
-import { fetchTransactionsAction } from 'actions/fetchTransactions';
 import AddTransactionPanel from 'components/organisms/AddTransactionPanel/AddTransactionPanel';
+import { connect } from 'react-redux';
+import { fetchTransactionsAction } from 'actions/fetchTransactions';
 
 const Wrapper = styled.div`
   margin-left: 125px;

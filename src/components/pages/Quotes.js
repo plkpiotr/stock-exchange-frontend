@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import Online from 'components/templates/Online';
 import styled from 'styled-components';
 import Header from 'components/atoms/Header/Header';
 import Loader from 'components/atoms/Loader/Loader';
 import LineChart from 'components/molecules/LineChart/LineChart';
 import List from 'components/molecules/List/List';
-import { fetchQuoteAction } from 'actions/fetchQuote';
 import moment from 'moment';
+import { connect } from 'react-redux';
+import { fetchQuoteAction } from 'actions/fetchQuote';
 
 const Wrapper = styled.div`
   margin-left: 125px;

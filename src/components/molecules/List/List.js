@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import symbols from 'constants/symbols';
 import styled, { css } from 'styled-components';
 import { connect } from 'react-redux';
 import { changeQuoteAction } from 'actions/changeQuote';
-import symbols from 'constants/symbols';
 
 const UnorderedList = styled.ul`
   background-color: ${({ theme }) => (theme.quaternary)};

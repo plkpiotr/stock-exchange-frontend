@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
 import styled from 'styled-components';
 import Title from 'components/atoms/Title/Title';
 import Description from 'components/atoms/Description/Description';
@@ -9,6 +7,8 @@ import Link from 'components/atoms/Link/Link';
 import Button from 'components/atoms/Button/Button';
 import moment from 'moment';
 import unicodes from 'constants/unicodes';
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { shortenLine } from 'utils/format';
 import { deleteItemAction } from 'actions/deleteItem';
 

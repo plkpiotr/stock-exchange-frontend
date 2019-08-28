@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import Icon from 'components/atoms/Icon/Icon';
 import dashboard from 'icons/dashboard.svg';
@@ -10,9 +9,10 @@ import transactions from 'icons/transactions.svg';
 import articles from 'icons/articles.svg';
 import notes from 'icons/notes.svg';
 import exit from 'icons/exit.svg';
+import routes from 'constants/routes';
+import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logoutAction } from 'actions/logout';
-import routes from 'constants/routes';
 
 const Wrapper = styled.ul`
   background-color: ${({ theme }) => (theme.quaternary)};
@@ -30,25 +30,72 @@ const Wrapper = styled.ul`
 const Sidebar = ({ logout }) => (
   <Wrapper>
     <li>
-      <Icon as={NavLink} to={routes.dashboard} icon={dashboard} activeclass="active">Dashboard</Icon>
+      <Icon
+        as={NavLink}
+        to={routes.dashboard}
+        icon={dashboard}
+        activeclass="active"
+      >
+        Dashboard
+      </Icon>
     </li>
     <li>
-      <Icon as={NavLink} to={routes.quotes} icon={quotes} activeclass="active">Quotes</Icon>
+      <Icon
+        as={NavLink}
+        to={routes.quotes}
+        icon={quotes}
+        activeclass="active"
+      >
+        Quotes
+      </Icon>
     </li>
     <li>
-      <Icon as={NavLink} to={routes.indicators} icon={indicators} activeclass="active">Indicators</Icon>
+      <Icon
+        as={NavLink}
+        to={routes.indicators}
+        icon={indicators}
+        activeclass="active"
+      >
+        Indicators
+      </Icon>
     </li>
     <li>
-      <Icon as={NavLink} to={routes.transactions} icon={transactions} activeclass="active">Transactions</Icon>
+      <Icon
+        as={NavLink}
+        to={routes.transactions}
+        icon={transactions}
+        activeclass="active"
+      >
+        Transactions
+      </Icon>
     </li>
     <li>
-      <Icon as={NavLink} to={routes.articles} icon={articles} activeclass="active">Articles</Icon>
+      <Icon
+        as={NavLink}
+        to={routes.articles}
+        icon={articles}
+        activeclass="active"
+      >
+        Articles
+      </Icon>
     </li>
     <li>
-      <Icon as={NavLink} to={routes.notes} icon={notes} activeclass="active">Notes</Icon>
+      <Icon
+        as={NavLink}
+        to={routes.notes}
+        icon={notes}
+        activeclass="active"
+      >
+        Notes
+      </Icon>
     </li>
     <li>
-      <Icon icon={exit} onClick={logout}>Log out</Icon>
+      <Icon
+        icon={exit}
+        onClick={logout}
+      >
+        Log out
+      </Icon>
     </li>
   </Wrapper>
 );

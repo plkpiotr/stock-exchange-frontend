@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import Title from 'components/atoms/Title/Title';
 import Description from 'components/atoms/Description/Description';
 import Button from 'components/atoms/Button/Button';
@@ -8,8 +7,9 @@ import Link from 'components/atoms/Link/Link';
 import moment from 'moment';
 import EditItemPanel from 'components/organisms/EditItemPanel/EditItemPanel';
 import styled from 'styled-components';
-import { fetchItemAction } from 'actions/fetchItem';
 import Loader from 'components/atoms/Loader/Loader';
+import { connect } from 'react-redux';
+import { fetchItemAction } from 'actions/fetchItem';
 
 const Wrapper = styled.div` {
   background-color: ${({ theme }) => (theme.quaternary)};

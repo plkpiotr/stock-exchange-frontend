@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { connect } from 'react-redux';
 import Input from 'components/atoms/Input/Input';
 import Select from 'components/atoms/Select/Select';
 import Button from 'components/atoms/Button/Button';
 import Title from 'components/atoms/Title/Title';
 import Description from 'components/atoms/Description/Description';
 import symbols from 'constants/symbols';
+import { connect } from 'react-redux';
 import { addTransactionAction } from 'actions/addTransaction';
 import {
   date,

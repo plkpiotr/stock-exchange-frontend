@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Input from 'components/atoms/Input/Input';
 import Button from 'components/atoms/Button/Button';
-import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 import routes from 'constants/routes';
-import { registerAction } from 'actions/register';
 import Link from 'components/atoms/Link/Link';
 import Error from 'components/atoms/Error/Error';
 import Offline from 'components/templates/Offline';
-import { string, object } from 'yup';
 import Recaptcha from 'react-recaptcha';
+import { string, object } from 'yup';
+import { registerAction } from 'actions/register';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import {
   Formik,
   Form,

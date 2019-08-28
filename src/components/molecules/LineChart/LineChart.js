@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Line, defaults } from 'react-chartjs-2';
 import moment from 'moment';
 import { stylizeNumber } from 'utils/format';
+import { Line, defaults } from 'react-chartjs-2';
 // eslint-disable-next-line no-unused-vars
 import zoom from 'chartjs-plugin-zoom';
 

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import styled from 'styled-components';
 import Online from 'components/templates/Online';
 import Header from 'components/atoms/Header/Header';
@@ -8,8 +7,9 @@ import Input from 'components/atoms/Input/Input';
 import Card from 'components/molecules/Card/Card';
 import Button from 'components/atoms/Button/Button';
 import AddItemPanel from 'components/organisms/AddItemPanel/AddItemPanel';
-import { fetchItemsAction } from 'actions/fetchItems';
 import Loader from 'components/atoms/Loader/Loader';
+import { connect } from 'react-redux';
+import { fetchItemsAction } from 'actions/fetchItems';
 
 const Wrapper = styled.div`
   margin-left: 125px;
