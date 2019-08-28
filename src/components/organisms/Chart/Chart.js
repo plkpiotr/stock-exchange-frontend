@@ -31,6 +31,7 @@ const Chart = ({
         title: {
           display: true,
           text: `${name}`,
+          fontSize: 13,
         },
         legend: {
           display: false,
@@ -42,9 +43,15 @@ const Chart = ({
                 callback(label) {
                   return moment(label).format('L').substring(0, 5);
                 },
+                fontSize: 12,
               },
             },
           ],
+          yAxes: [{
+            ticks: {
+              fontSize: 13,
+            },
+          }],
         },
       }}
     />

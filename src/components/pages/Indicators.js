@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import Header from 'components/atoms/Header/Header';
 import Loader from 'components/atoms/Loader/Loader';
 import Chart from 'components/organisms/Chart/Chart';
-import Bar from 'components/molecules/Bar/Bar';
+import Button from 'components/atoms/Button/Button';
 import { connect } from 'react-redux';
 import { countAwesomeOscillators } from 'indicators/awesomeOscillator';
 import { countCommodityChannelIndexes } from 'indicators/commodityChannel';
@@ -54,7 +54,6 @@ class Indicators extends Component {
           <Header>Indicators</Header>
           {quote.dataset && (
             <Board>
-              <Bar />
               <Chart
                 name="Awesome Oscillator"
                 abbreviation="AO"
@@ -129,6 +128,7 @@ class Indicators extends Component {
               />
             </Board>
           )}
+          <Button fixed>ALIOR</Button>
         </Wrapper>
       </Online>
     );

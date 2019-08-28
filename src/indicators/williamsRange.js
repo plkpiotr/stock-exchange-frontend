@@ -14,7 +14,7 @@ export const countWilliamsPercentRanges = (quotes) => {
     .reverse()
     .slice(-(DAYS - 1 + QUOTES));
 
-  const ranges = new Array(DAYS + QUOTES);
+  const ranges = new Array(DAYS - 1 + QUOTES);
 
   for (let i = DAYS - 1; i < (DAYS - 1 + QUOTES); i += 1) {
     const currentHighestPrice = findMaxValue(highPrices.slice(i - DAYS + 1, i + 1));

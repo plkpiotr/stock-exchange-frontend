@@ -9,7 +9,6 @@ import zoom from 'chartjs-plugin-zoom';
 
 defaults.global.defaultFontFamily = 'Titillium Web';
 defaults.global.defaultFontStyle = 'bold';
-defaults.global.defaultFontSize = 14;
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => (theme.quaternary)};
@@ -25,6 +24,12 @@ const Graph = ({ symbol, labels, data }) => (
         datasets: [{
           data: data.map(column => column[1]).reverse(),
           label: labels[1],
+          borderColor: 'hsl(215, 100%, 60%)',
+          backgroundColor: 'rgb(51, 136, 255, 0.2)',
+          hidden: true,
+        }, {
+          data: data.map(column => column[4]).reverse(),
+          label: labels[4],
           borderColor: 'hsl(35, 100%, 60%)',
           backgroundColor: 'rgba(255, 170 , 51, 0.2)',
         }, {
@@ -38,12 +43,6 @@ const Graph = ({ symbol, labels, data }) => (
           label: labels[3],
           borderColor: 'hsl(350, 100%, 60%)',
           backgroundColor: 'rgb(255, 51, 85, 0.2)',
-          hidden: true,
-        }, {
-          data: data.map(column => column[4]).reverse(),
-          label: labels[4],
-          borderColor: 'hsl(215, 100%, 60%)',
-          backgroundColor: 'rgb(51, 136, 255, 0.2)',
           hidden: true,
         }, {
           data: data.map(column => column[5]).reverse(),
@@ -76,6 +75,12 @@ const Graph = ({ symbol, labels, data }) => (
         title: {
           display: true,
           text: `${symbol}: ${stylizeNumber(data[0][5], '%')}`,
+          fontSize: 15,
+        },
+        legend: {
+          labels: {
+            fontSize: 15,
+          },
         },
         tooltips: {
           mode: 'index',
@@ -90,6 +95,9 @@ const Graph = ({ symbol, labels, data }) => (
           xAxes: [
             {
               type: 'time',
+              ticks: {
+                fontSize: 15,
+              },
             },
           ],
           yAxes: [
@@ -98,6 +106,7 @@ const Graph = ({ symbol, labels, data }) => (
                 callback(label) {
                   return label.toFixed(2);
                 },
+                fontSize: 15,
               },
             },
           ],

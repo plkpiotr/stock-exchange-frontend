@@ -15,9 +15,9 @@ export const countEaseOfMovementIndicators = (quotes) => {
     .reverse()
     .slice(-(DAYS - 1 + QUOTES));
 
-  const distanceRatios = new Array(DAYS - 1 + QUOTES);
-  const boxRatios = new Array(DAYS - 1 + QUOTES);
-  const oneDayIndicators = new Array(DAYS - 1 + QUOTES);
+  const distanceRatios = new Array(DAYS - 1 + QUOTES - PREVIOUS);
+  const boxRatios = new Array(DAYS - 1 + QUOTES - PREVIOUS);
+  const oneDayIndicators = new Array(DAYS - 1 + QUOTES - PREVIOUS);
 
   for (let i = PREVIOUS; i < (DAYS - 1 + QUOTES); i += 1) {
     distanceRatios[i - PREVIOUS] = (highPrices[i] + lowPrices[i]) / 2;
