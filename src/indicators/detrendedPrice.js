@@ -6,14 +6,14 @@ const DAYS = 20;
 export const countDetrendedPriceOscillators = (quotes) => {
   const closePrices = quotes.map(column => column[4])
     .reverse()
-    .slice(-(DAYS + QUOTES));
+    .slice(-(DAYS - 1 + QUOTES));
 
   const oscillators = new Array(QUOTES);
 
-  for (let i = DAYS; i < (DAYS + QUOTES); i += 1) {
-    oscillators[i - DAYS] = closePrices[i - (DAYS / 2 + 1)];
-    oscillators[i - DAYS] -= countAverage(closePrices.slice(i - DAYS, i));
-    oscillators[i - DAYS] = oscillators[i - DAYS].toFixed(3);
+  for (let i = DAYS - 1; i < (DAYS - 1 + QUOTES); i += 1) {
+    oscillators[i - DAYS + 1] = closePrices[i - (DAYS / 2 - 1) + 1];
+    oscillators[i - DAYS + 1] -= countAverage(closePrices.slice(i - DAYS + 1, i + 1));
+    oscillators[i - DAYS + 1] = oscillators[i - DAYS + 1].toFixed(3);
   }
 
   return oscillators;

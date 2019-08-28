@@ -7,19 +7,19 @@ const DAYS = 14;
 export const countEaseOfMovementIndicators = (quotes) => {
   const highPrices = quotes.map(column => column[2])
     .reverse()
-    .slice(-(PREVIOUS + DAYS + QUOTES));
+    .slice(-(DAYS + QUOTES));
   const lowPrices = quotes.map(column => column[3])
     .reverse()
-    .slice(-(PREVIOUS + DAYS + QUOTES));
+    .slice(-(DAYS + QUOTES));
   const volumes = quotes.map(column => column[6])
     .reverse()
-    .slice(-(DAYS + QUOTES));
+    .slice(-(DAYS - 1 + QUOTES));
 
-  const distanceRatios = new Array(QUOTES + DAYS);
-  const boxRatios = new Array(QUOTES + DAYS);
-  const oneDayIndicators = new Array(QUOTES + DAYS);
+  const distanceRatios = new Array(DAYS - 1 + QUOTES);
+  const boxRatios = new Array(DAYS - 1 + QUOTES);
+  const oneDayIndicators = new Array(DAYS - 1 + QUOTES);
 
-  for (let i = PREVIOUS; i < (DAYS + QUOTES + PREVIOUS); i += 1) {
+  for (let i = PREVIOUS; i < (DAYS - 1 + QUOTES); i += 1) {
     distanceRatios[i - PREVIOUS] = (highPrices[i] + lowPrices[i]) / 2;
     distanceRatios[i - PREVIOUS] -= (highPrices[i - PREVIOUS] + lowPrices[i - PREVIOUS]) / 2;
 
@@ -31,9 +31,9 @@ export const countEaseOfMovementIndicators = (quotes) => {
 
   const twoWeeksIndicators = new Array(QUOTES);
 
-  for (let i = DAYS; i < (DAYS + QUOTES); i += 1) {
-    twoWeeksIndicators[i - DAYS] = countAverage(oneDayIndicators.slice(i - DAYS, i));
-    twoWeeksIndicators[i - DAYS] = twoWeeksIndicators[i - DAYS].toFixed(3);
+  for (let i = DAYS - 1; i < (DAYS - 1 + QUOTES); i += 1) {
+    twoWeeksIndicators[i - DAYS + 1] = countAverage(oneDayIndicators.slice(i - DAYS + 1, i + 1));
+    twoWeeksIndicators[i - DAYS + 1] = twoWeeksIndicators[i - DAYS + 1].toFixed(3);
   }
 
   return twoWeeksIndicators;
