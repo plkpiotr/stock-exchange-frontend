@@ -15,6 +15,7 @@ import { countEaseOfMovementIndicators } from 'indicators/easeMovement';
 import { countMoneyFlowIndexes } from 'indicators/moneyFlow';
 import { countRateOfChangesIndicators } from 'indicators/rateChange';
 import { countRelativeStrengthIndexes } from 'indicators/relativeStrength';
+import { countWilliamsPercentRanges } from 'indicators/williamsRange';
 import { fetchQuoteAction } from 'actions/fetchQuote';
 
 export const QUOTES = 30;
@@ -106,6 +107,22 @@ class Indicators extends Component {
                 name="Relative Strength Index"
                 abbreviation="RSI"
                 data={countRelativeStrengthIndexes(quote.dataset.data)}
+                labels={quote.dataset.data.map(column => column[0])
+                  .reverse()
+                  .slice(-QUOTES)}
+              />
+              <Chart
+                name="Ultimate Oscillator"
+                abbreviation="UO"
+                data={new Array(30)}
+                labels={quote.dataset.data.map(column => column[0])
+                  .reverse()
+                  .slice(-QUOTES)}
+              />
+              <Chart
+                name="Williams %R"
+                abbreviation="%R"
+                data={countWilliamsPercentRanges(quote.dataset.data)}
                 labels={quote.dataset.data.map(column => column[0])
                   .reverse()
                   .slice(-QUOTES)}

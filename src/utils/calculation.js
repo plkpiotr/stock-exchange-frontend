@@ -11,4 +11,6 @@ export const countMedianDeviation = (set, average) => {
   return sum;
 };
 
-export const findMaximumValue = array => Math.max(...array);
+export const findMaxValue = array => Math.max(...array);
+
+export const findMinValue = array => Math.min(...array);

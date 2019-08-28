@@ -8,4 +8,4 @@ To do:
 - Consider variable for `DAYS + QUOTES`
 - Rename `Chart` to `BarChart` and `Graph` to `LineChart` or something like that
 - Remove unused `Wrapper`s
-- Division by zero in `EMV` and `RSI`
+- Division by zero in `EMV` and `RSI`, `%R`

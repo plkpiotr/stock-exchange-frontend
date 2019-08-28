@@ -22,7 +22,7 @@ const Chart = ({
         datasets: [{
           data,
           label: abbreviation,
-          backgroundColor: 'rgba(255, 170 , 51, 0.7)',
+          backgroundColor: 'rgba(255, 170 , 51, 0.8)',
           hoverBackgroundColor: 'hsl(35, 100%, 60%)',
           borderWidth: 0,
         }],

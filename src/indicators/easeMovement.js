@@ -1,5 +1,5 @@
 import { QUOTES } from 'components/pages/Indicators';
-import { countAverage, findMaximumValue } from 'utils/calculation';
+import { countAverage, findMaxValue } from 'utils/calculation';
 
 const PREVIOUS = 1;
 const DAYS = 14;
@@ -24,7 +24,7 @@ export const countEaseOfMovementIndicators = (quotes) => {
     distanceRatios[i - PREVIOUS] -= (highPrices[i - PREVIOUS] + lowPrices[i - PREVIOUS]) / 2;
 
     boxRatios[i - PREVIOUS] = volumes[i - PREVIOUS] / (highPrices[i] - lowPrices[i]);
-    boxRatios[i - PREVIOUS] /= (findMaximumValue(volumes));
+    boxRatios[i - PREVIOUS] /= (findMaxValue(volumes));
 
     oneDayIndicators[i - PREVIOUS] = distanceRatios[i - PREVIOUS] / boxRatios[i - PREVIOUS];
   }
