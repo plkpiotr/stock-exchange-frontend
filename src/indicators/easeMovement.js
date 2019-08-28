@@ -6,14 +6,14 @@ const DAYS = 14;
 
 export const countEaseOfMovementIndicators = (quotes) => {
   const highPrices = quotes.map(column => column[2])
-    .reverse()
-    .slice(-(DAYS + QUOTES));
+    .slice(0, DAYS + QUOTES)
+    .reverse();
   const lowPrices = quotes.map(column => column[3])
-    .reverse()
-    .slice(-(DAYS + QUOTES));
+    .slice(0, DAYS + QUOTES)
+    .reverse();
   const volumes = quotes.map(column => column[6])
-    .reverse()
-    .slice(-(DAYS - 1 + QUOTES));
+    .slice(0, DAYS - 1 + QUOTES)
+    .reverse();
 
   const distanceRatios = new Array(DAYS - 1 + QUOTES - PREVIOUS);
   const boxRatios = new Array(DAYS - 1 + QUOTES - PREVIOUS);

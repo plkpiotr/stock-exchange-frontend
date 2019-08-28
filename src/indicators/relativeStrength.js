@@ -6,8 +6,8 @@ const DAYS = 14;
 
 export const countRelativeStrengthIndexes = (quotes) => {
   const closePrices = quotes.map(column => column[4])
-    .reverse()
-    .slice(-(DAYS - 1 + QUOTES));
+    .slice(0, DAYS - 1 + QUOTES)
+    .reverse();
 
   const gains = new Array(DAYS - 1 + QUOTES - PREVIOUS);
   const losses = new Array(DAYS - 1 + QUOTES - PREVIOUS);

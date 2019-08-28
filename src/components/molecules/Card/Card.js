@@ -27,6 +27,9 @@ const Date = styled.div`
   display: flex;
 `;
 
+const TITLE_LIMIT = 25;
+const DESCRIPTION_LIMIT = 35;
+
 class Card extends Component {
   state = {
     redirect: false,
@@ -47,8 +50,8 @@ class Card extends Component {
 
     return (
       <Wrapper>
-        <Title>{shortenLine(title, 27)}</Title>
-        <Description>{shortenLine(description.split('\n')[0], 40)}</Description>
+        <Title>{shortenLine(title, TITLE_LIMIT)}</Title>
+        <Description>{shortenLine(description.split('\n')[0], DESCRIPTION_LIMIT)}</Description>
         <Link onClick={this.redirectToDetails}>See details</Link>
         <Button line onClick={() => deleteItem(itemType, _id)}>{unicodes.cross}</Button>
         {itemType === 'articles' ? <Link line href={link}>{unicodes.link}</Link> : null}

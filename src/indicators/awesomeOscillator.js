@@ -13,11 +13,11 @@ const countAverages = (highPrices, lowPrices, period, iteration) => {
 
 export const countAwesomeOscillators = (quotes) => {
   const highPrices = quotes.map(column => column[2])
-    .reverse()
-    .slice(-(LONG_PERIOD - 1 + QUOTES));
+    .slice(0, LONG_PERIOD - 1 + QUOTES)
+    .reverse();
   const lowPrices = quotes.map(column => column[3])
-    .reverse()
-    .slice(-(LONG_PERIOD - 1 + QUOTES));
+    .slice(0, LONG_PERIOD - 1 + QUOTES)
+    .reverse();
 
   const longAverages = new Array(QUOTES);
   const shortAverages = new Array(QUOTES);

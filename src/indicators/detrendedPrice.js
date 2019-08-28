@@ -5,8 +5,8 @@ const DAYS = 20;
 
 export const countDetrendedPriceOscillators = (quotes) => {
   const closePrices = quotes.map(column => column[4])
-    .reverse()
-    .slice(-(DAYS - 1 + QUOTES));
+    .slice(0, DAYS - 1 + QUOTES)
+    .reverse();
 
   const oscillators = new Array(QUOTES);
 

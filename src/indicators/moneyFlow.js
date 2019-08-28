@@ -6,17 +6,17 @@ const DAYS = 14;
 
 export const countMoneyFlowIndexes = (quotes) => {
   const highPrices = quotes.map(column => column[2])
-    .reverse()
-    .slice(-(DAYS - 1 + QUOTES));
+    .slice(0, DAYS - 1 + QUOTES)
+    .reverse();
   const lowPrices = quotes.map(column => column[3])
-    .reverse()
-    .slice(-(DAYS - 1 + QUOTES));
+    .slice(0, DAYS - 1 + QUOTES)
+    .reverse();
   const closePrices = quotes.map(column => column[4])
-    .reverse()
-    .slice(-(DAYS - 1 + QUOTES));
+    .slice(0, DAYS - 1 + QUOTES)
+    .reverse();
   const volumes = quotes.map(column => column[6])
-    .reverse()
-    .slice(-(DAYS - 1 + QUOTES));
+    .slice(0, DAYS - 1 + QUOTES)
+    .reverse();
 
   const typicalPrices = new Array(DAYS + QUOTES);
   const moneyFlows = new Array(DAYS + QUOTES);

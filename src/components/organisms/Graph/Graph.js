@@ -15,6 +15,8 @@ const Wrapper = styled.div`
   min-width: 0;
 `;
 
+const FONT_SIZE = 15;
+
 const Graph = ({ symbol, labels, data }) => (
   <Wrapper>
     <Line
@@ -75,11 +77,11 @@ const Graph = ({ symbol, labels, data }) => (
         title: {
           display: true,
           text: `${symbol}: ${stylizeNumber(data[0][5], '%')}`,
-          fontSize: 15,
+          fontSize: FONT_SIZE,
         },
         legend: {
           labels: {
-            fontSize: 15,
+            fontSize: FONT_SIZE,
           },
         },
         tooltips: {
@@ -96,7 +98,7 @@ const Graph = ({ symbol, labels, data }) => (
             {
               type: 'time',
               ticks: {
-                fontSize: 15,
+                fontSize: FONT_SIZE,
               },
             },
           ],
@@ -106,7 +108,7 @@ const Graph = ({ symbol, labels, data }) => (
                 callback(label) {
                   return label.toFixed(2);
                 },
-                fontSize: 15,
+                fontSize: FONT_SIZE,
               },
             },
           ],

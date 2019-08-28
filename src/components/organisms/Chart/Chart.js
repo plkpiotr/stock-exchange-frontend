@@ -8,7 +8,14 @@ const Wrapper = styled.div`
   background-color: ${({ theme }) => (theme.quaternary)};
   min-width: 0;
   display: inline-block;
-  width: 380px;
+  width: 490px;
+  margin-right: 17px;
+  margin-bottom: 24px;
+  
+  @media (max-width: 1366px) {
+    width: 370px;
+    margin-bottom: 11px;
+  }
 `;
 
 const Chart = ({
@@ -31,7 +38,7 @@ const Chart = ({
         title: {
           display: true,
           text: `${name}`,
-          fontSize: 13,
+          fontSize: 14,
         },
         legend: {
           display: false,
@@ -43,13 +50,13 @@ const Chart = ({
                 callback(label) {
                   return moment(label).format('L').substring(0, 5);
                 },
-                fontSize: 12,
+                fontSize: 13,
               },
             },
           ],
           yAxes: [{
             ticks: {
-              fontSize: 13,
+              fontSize: 14,
             },
           }],
         },

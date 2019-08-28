@@ -5,14 +5,14 @@ const DAYS = 10;
 
 export const countWilliamsPercentRanges = (quotes) => {
   const highPrices = quotes.map(column => column[2])
-    .reverse()
-    .slice(-(DAYS - 1 + QUOTES));
+    .slice(0, DAYS - 1 + QUOTES)
+    .reverse();
   const lowPrices = quotes.map(column => column[3])
-    .reverse()
-    .slice(-(DAYS - 1 + QUOTES));
+    .slice(0, DAYS - 1 + QUOTES)
+    .reverse();
   const closePrices = quotes.map(column => column[4])
-    .reverse()
-    .slice(-(DAYS - 1 + QUOTES));
+    .slice(0, DAYS - 1 + QUOTES)
+    .reverse();
 
   const ranges = new Array(DAYS - 1 + QUOTES);
 
