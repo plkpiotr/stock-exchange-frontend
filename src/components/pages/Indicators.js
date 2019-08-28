@@ -15,6 +15,7 @@ import { countEaseOfMovementIndicators } from 'indicators/easeMovement';
 import { countMoneyFlowIndexes } from 'indicators/moneyFlow';
 import { countRateOfChangesIndicators } from 'indicators/rateChange';
 import { countRelativeStrengthIndexes } from 'indicators/relativeStrength';
+import { countUltimateOscillators } from 'indicators/ultimateOscillator';
 import { countWilliamsPercentRanges } from 'indicators/williamsRange';
 import { fetchQuoteAction } from 'actions/fetchQuote';
 
@@ -113,7 +114,7 @@ class Indicators extends Component {
               <Chart
                 name="Ultimate Oscillator"
                 abbreviation="UO"
-                data={new Array(30)}
+                data={countUltimateOscillators(quote.dataset.data)}
                 labels={quote.dataset.data.map(column => column[0])
                   .reverse()
                   .slice(-QUOTES)}
