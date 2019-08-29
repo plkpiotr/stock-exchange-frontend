@@ -5,8 +5,8 @@ import Online from 'components/templates/Online';
 import styled from 'styled-components';
 import Header from 'components/atoms/Header/Header';
 import Loader from 'components/atoms/Loader/Loader';
+import Tabs from 'components/molecules/Tabs/Tabs';
 import BarChart from 'components/molecules/BarChart/BarChart';
-import Button from 'components/atoms/Button/Button';
 import { connect } from 'react-redux';
 import { countAwesomeOscillators } from 'indicators/awesomeOscillator';
 import { countCommodityChannelIndexes } from 'indicators/commodityChannel';
@@ -28,7 +28,7 @@ const Wrapper = styled.div`
 `;
 
 const Board = styled.div`
-  margin-top: 5vh;
+  margin-top: 3vh;
 `;
 
 class Indicators extends Component {
@@ -53,6 +53,7 @@ class Indicators extends Component {
       <Online>
         <Wrapper>
           <Header>Indicators</Header>
+          <Tabs />
           {quote.dataset && (
             <Board>
               <BarChart
@@ -129,7 +130,6 @@ class Indicators extends Component {
               />
             </Board>
           )}
-          <Button fixed>ALIOR</Button>
         </Wrapper>
       </Online>
     );

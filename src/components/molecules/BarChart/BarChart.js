@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   background-color: ${({ theme }) => (theme.quaternary)};
   min-width: 0;
   display: inline-block;
-  width: 490px;
+  width: 550px;
   margin-right: 17px;
   margin-bottom: 24px;
   

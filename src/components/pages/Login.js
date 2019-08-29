@@ -12,10 +12,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { authorizeAction } from 'actions/authorize';
 import { string, object } from 'yup';
-import {
-  Formik,
-  Form,
-} from 'formik';
+import { Formik, Form } from 'formik';
 
 const StyledForm = styled(Form)`
   display: flex;

@@ -7,10 +7,7 @@ import Title from 'components/atoms/Title/Title';
 import { connect } from 'react-redux';
 import { addItemAction } from 'actions/addItem';
 import { object, string } from 'yup';
-import {
-  Formik,
-  Form,
-} from 'formik';
+import { Formik, Form } from 'formik';
 
 const Wrapper = styled.div`
   display: flex;
