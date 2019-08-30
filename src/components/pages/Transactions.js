@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Online from 'components/templates/Online';
 import styled from 'styled-components';
-import Header from 'components/atoms/Header/Header';
-import Input from 'components/atoms/Input/Input';
-import Button from 'components/atoms/Button/Button';
-import Loader from 'components/atoms/Loader/Loader';
-import AccordionContainer from 'components/organisms/AccordionContainer/AccordionContainer';
-import AddTransactionPanel from 'components/organisms/AddTransactionPanel/AddTransactionPanel';
+import Header from 'components/atoms/Header';
+import Input from 'components/atoms/Input';
+import Button from 'components/atoms/Button';
+import Loader from 'components/atoms/Loader';
+import AccordionContainer from 'components/organisms/AccordionContainer';
+import AddTransactionPanel from 'components/organisms/AddTransactionPanel';
 import { connect } from 'react-redux';
 import { fetchTransactionsAction } from 'actions/fetchTransactions';
 

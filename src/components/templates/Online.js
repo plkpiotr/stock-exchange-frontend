@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Sidebar from 'components/organisms/Sidebar/Sidebar';
+import Sidebar from 'components/organisms/Sidebar';
 
 const Wrapper = styled.div`
   display: flex;

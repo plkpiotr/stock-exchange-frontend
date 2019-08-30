@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import Online from 'components/templates/Online';
-import Header from 'components/atoms/Header/Header';
-import Details from 'components/molecules/Details/Details';
+import Header from 'components/atoms/Header';
+import Details from 'components/molecules/Details';
 
 const Wrapper = styled.div`
   margin-left: 125px;

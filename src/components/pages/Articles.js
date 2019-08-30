@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Online from 'components/templates/Online';
-import Header from 'components/atoms/Header/Header';
-import Input from 'components/atoms/Input/Input';
-import Card from 'components/molecules/Card/Card';
-import Button from 'components/atoms/Button/Button';
-import AddItemPanel from 'components/organisms/AddItemPanel/AddItemPanel';
-import Loader from 'components/atoms/Loader/Loader';
+import Header from 'components/atoms/Header';
+import Input from 'components/atoms/Input';
+import Card from 'components/molecules/Card';
+import Button from 'components/atoms/Button';
+import AddItemPanel from 'components/organisms/AddItemPanel';
+import Loader from 'components/atoms/Loader';
 import { connect } from 'react-redux';
 import { fetchItemsAction } from 'actions/fetchItems';
 

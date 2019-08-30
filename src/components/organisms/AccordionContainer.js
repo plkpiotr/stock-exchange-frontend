@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import symbols from 'constants/symbols';
-import AccordionElement from 'components/molecules/AccordionElement/AccordionElement';
+import AccordionElement from 'components/molecules/AccordionElement';
 
 const DescriptionList = styled.dl`
   width: 65vw;

@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Input from 'components/atoms/Input/Input';
-import Select from 'components/atoms/Select/Select';
-import Button from 'components/atoms/Button/Button';
-import Title from 'components/atoms/Title/Title';
-import Description from 'components/atoms/Description/Description';
+import Input from 'components/atoms/Input';
+import Select from 'components/atoms/Select';
+import Button from 'components/atoms/Button';
+import Title from 'components/atoms/Title';
+import Description from 'components/atoms/Description';
 import symbols from 'constants/symbols';
 import { connect } from 'react-redux';
 import { addTransactionAction } from 'actions/addTransaction';
@@ -45,7 +45,7 @@ const AddTransactionPanel = ({
         symbol: 'ALIOR',
         date: '',
         price: 0.01,
-        comment: 'Ordinary transaction',
+        comment: 'Normal transaction',
       }}
       onSubmit={(values) => {
         addTransaction(values);

@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Input from 'components/atoms/Input/Input';
-import Button from 'components/atoms/Button/Button';
-import Title from 'components/atoms/Title/Title';
+import Input from 'components/atoms/Input';
+import Button from 'components/atoms/Button';
+import Title from 'components/atoms/Title';
 import { connect } from 'react-redux';
 import { addItemAction } from 'actions/addItem';
 import { object, string } from 'yup';

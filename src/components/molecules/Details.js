@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Title from 'components/atoms/Title/Title';
-import Description from 'components/atoms/Description/Description';
-import Button from 'components/atoms/Button/Button';
-import Link from 'components/atoms/Link/Link';
-import moment from 'moment';
-import EditItemPanel from 'components/organisms/EditItemPanel/EditItemPanel';
 import styled from 'styled-components';
-import Loader from 'components/atoms/Loader/Loader';
+import moment from 'moment';
+import Title from 'components/atoms/Title';
+import Description from 'components/atoms/Description';
+import Button from 'components/atoms/Button';
+import Link from 'components/atoms/Link';
+import EditItemPanel from 'components/organisms/EditItemPanel';
+import Loader from 'components/atoms/Loader';
 import { connect } from 'react-redux';
 import { fetchItemAction } from 'actions/fetchItem';
 

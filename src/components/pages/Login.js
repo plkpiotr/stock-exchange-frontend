@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Input from 'components/atoms/Input/Input';
-import Button from 'components/atoms/Button/Button';
+import Input from 'components/atoms/Input';
+import Button from 'components/atoms/Button';
 import routes from 'constants/routes';
-import Link from 'components/atoms/Link/Link';
-import Description from 'components/atoms/Description/Description';
-import Error from 'components/atoms/Error/Error';
+import Link from 'components/atoms/Link';
+import Description from 'components/atoms/Description';
+import Error from 'components/atoms/Error';
 import Offline from 'components/templates/Offline';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';

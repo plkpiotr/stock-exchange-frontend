@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Title from 'components/atoms/Title/Title';
-import Description from 'components/atoms/Description/Description';
-import Link from 'components/atoms/Link/Link';
-import Button from 'components/atoms/Button/Button';
+import Title from 'components/atoms/Title';
+import Description from 'components/atoms/Description';
+import Link from 'components/atoms/Link';
+import Button from 'components/atoms/Button';
 import moment from 'moment';
 import unicodes from 'constants/unicodes';
 import { Redirect } from 'react-router-dom';

@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import Span from 'components/atoms/Span/Span';
-import Button from 'components/atoms/Button/Button';
+import Span from 'components/atoms/Span';
+import Button from 'components/atoms/Button';
 import moment from 'moment';
 import unicodes from 'constants/unicodes';
 import { connect } from 'react-redux';

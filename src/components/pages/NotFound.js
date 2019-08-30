@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Offline from 'components/templates/Offline';
-import Description from 'components/atoms/Description/Description';
+import Description from 'components/atoms/Description';
 
 const Section = styled.div`
   display: flex;
