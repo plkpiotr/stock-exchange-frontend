@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import symbols from 'constants/symbols';
+import moment from 'moment';
 import styled, { css } from 'styled-components';
 import { connect } from 'react-redux';
-import { changeQuoteAction } from 'actions/changeQuote';
+import { DAYS } from 'components/pages/Indicators';
+import { changeQuotesAction } from 'actions/changeQuotes';
 
 const UnorderedList = styled.ul`
   list-style-type: none;
@@ -58,7 +60,7 @@ class Tabs extends Component {
   };
 
   render() {
-    const { changeQuote } = this.props;
+    const { changeQuotes } = this.props;
     const { shortcuts, active } = this.state;
     return (
       <UnorderedList>
@@ -67,7 +69,7 @@ class Tabs extends Component {
             key={symbol}
             onClick={() => {
               this.handleClick(symbol);
-              changeQuote(symbol);
+              changeQuotes(symbol);
             }}
             active={symbol === active}
           >
@@ -80,11 +82,14 @@ class Tabs extends Component {
 }
 
 Tabs.propTypes = {
-  changeQuote: PropTypes.func.isRequired,
+  changeQuotes: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({
-  changeQuote: symbol => dispatch(changeQuoteAction(symbol)),
+  changeQuotes: () => dispatch(changeQuotesAction('ALIOR', moment()
+    .subtract(DAYS, 'days')
+    .format()
+    .substring(0, 10))),
 });
 
 export default connect(null, mapDispatchToProps)(Tabs);

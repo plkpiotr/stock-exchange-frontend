@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import symbols from 'constants/symbols';
+import moment from 'moment';
 import styled, { css } from 'styled-components';
 import { connect } from 'react-redux';
-import { changeQuoteAction } from 'actions/changeQuote';
+import { changeQuotesAction } from 'actions/changeQuotes';
 
 const UnorderedList = styled.ul`
   background-color: ${({ theme }) => (theme.quaternary)};
@@ -61,7 +62,7 @@ class List extends Component {
   };
 
   render() {
-    const { changeQuote } = this.props;
+    const { changeQuotes } = this.props;
     const { shortcuts, active } = this.state;
     return (
       <UnorderedList>
@@ -70,7 +71,7 @@ class List extends Component {
             key={symbol}
             onClick={() => {
               this.handleClick(symbol);
-              changeQuote(symbol);
+              changeQuotes(symbol);
             }}
             active={symbol === active}
           >
@@ -83,11 +84,14 @@ class List extends Component {
 }
 
 List.propTypes = {
-  changeQuote: PropTypes.func.isRequired,
+  changeQuotes: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({
-  changeQuote: symbol => dispatch(changeQuoteAction(symbol)),
+  changeQuotes: () => dispatch(changeQuotesAction('ALIOR', moment()
+    .subtract('1', 'years')
+    .format()
+    .substring(0, 10))),
 });
 
 export default connect(null, mapDispatchToProps)(List);

@@ -8,7 +8,7 @@ import LineChart from 'components/molecules/LineChart/LineChart';
 import List from 'components/molecules/List/List';
 import moment from 'moment';
 import { connect } from 'react-redux';
-import { fetchQuoteAction } from 'actions/fetchQuote';
+import { fetchQuotesAction } from 'actions/fetchQuotes';
 
 const Wrapper = styled.div`
   margin-left: 125px;
@@ -23,12 +23,12 @@ const Board = styled.div`
 
 class Quotes extends Component {
   componentDidMount() {
-    const { fetchQuote } = this.props;
-    fetchQuote();
+    const { fetchQuotes } = this.props;
+    fetchQuotes();
   }
 
   render() {
-    const { quote, isLoading } = this.props;
+    const { quotes, isLoading } = this.props;
     if (isLoading) {
       return (
         <Online>
@@ -44,11 +44,11 @@ class Quotes extends Component {
         <Wrapper>
           <Header>Quotes</Header>
           <Board>
-            {quote.dataset && (
+            {quotes.dataset && (
               <LineChart
-                symbol={quote.dataset.dataset_code}
-                labels={quote.dataset.column_names}
-                data={quote.dataset.data}
+                symbol={quotes.dataset.dataset_code}
+                labels={quotes.dataset.column_names}
+                data={quotes.dataset.data}
               />
             )}
             <List />
@@ -60,23 +60,23 @@ class Quotes extends Component {
 }
 
 Quotes.propTypes = {
-  fetchQuote: PropTypes.func.isRequired,
+  fetchQuotes: PropTypes.func.isRequired,
   isLoading: PropTypes.bool,
-  quote: PropTypes.shape(PropTypes.string.isRequired),
+  quotes: PropTypes.shape(PropTypes.string.isRequired),
 };
 
 Quotes.defaultProps = {
-  quote: {},
+  quotes: {},
   isLoading: true,
 };
 
-const mapStateToProps = ({ quote, isLoading }) => ({
-  quote,
+const mapStateToProps = ({ quotes, isLoading }) => ({
+  quotes,
   isLoading,
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchQuote: () => dispatch(fetchQuoteAction('ALIOR', moment()
+  fetchQuotes: () => dispatch(fetchQuotesAction('ALIOR', moment()
     .subtract('1', 'years')
     .format()
     .substring(0, 10))),

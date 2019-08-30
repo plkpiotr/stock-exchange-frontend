@@ -17,10 +17,10 @@ import { countRateOfChangesIndicators } from 'indicators/rateChange';
 import { countRelativeStrengthIndexes } from 'indicators/relativeStrength';
 import { countUltimateOscillators } from 'indicators/ultimateOscillator';
 import { countWilliamsPercentRanges } from 'indicators/williamsRange';
-import { fetchQuoteAction } from 'actions/fetchQuote';
+import { fetchQuotesAction } from 'actions/fetchQuotes';
 
 export const QUOTES = 30;
-const DAYS = '131';
+export const DAYS = '131';
 
 const Wrapper = styled.div`
   margin-left: 125px;
@@ -33,12 +33,12 @@ const Board = styled.div`
 
 class Indicators extends Component {
   componentDidMount() {
-    const { fetchQuote } = this.props;
-    fetchQuote();
+    const { fetchQuotes } = this.props;
+    fetchQuotes();
   }
 
   render() {
-    const { quote, isLoading } = this.props;
+    const { quotes, isLoading } = this.props;
     if (isLoading) {
       return (
         <Online>
@@ -54,77 +54,77 @@ class Indicators extends Component {
         <Wrapper>
           <Header>Indicators</Header>
           <Tabs />
-          {quote.dataset && (
+          {quotes.dataset && (
             <Board>
               <BarChart
                 name="Awesome Oscillator"
                 abbreviation="AO"
-                data={countAwesomeOscillators(quote.dataset.data)}
-                labels={quote.dataset.data.map(column => column[0])
+                data={countAwesomeOscillators(quotes.dataset.data)}
+                labels={quotes.dataset.data.map(column => column[0])
                   .reverse()
                   .slice(-(QUOTES))}
               />
               <BarChart
                 name="Commodity Channel Index"
                 abbreviation="CCI"
-                data={countCommodityChannelIndexes(quote.dataset.data)}
-                labels={quote.dataset.data.map(column => column[0])
+                data={countCommodityChannelIndexes(quotes.dataset.data)}
+                labels={quotes.dataset.data.map(column => column[0])
                   .reverse()
                   .slice(-(QUOTES))}
               />
               <BarChart
                 name="Detrended Price Oscillator"
                 abbreviation="DPO"
-                data={countDetrendedPriceOscillators(quote.dataset.data)}
-                labels={quote.dataset.data.map(column => column[0])
+                data={countDetrendedPriceOscillators(quotes.dataset.data)}
+                labels={quotes.dataset.data.map(column => column[0])
                   .reverse()
                   .slice(-(QUOTES))}
               />
               <BarChart
                 name="Ease of Movement"
                 abbreviation="EMV"
-                data={countEaseOfMovementIndicators(quote.dataset.data)}
-                labels={quote.dataset.data.map(column => column[0])
+                data={countEaseOfMovementIndicators(quotes.dataset.data)}
+                labels={quotes.dataset.data.map(column => column[0])
                   .reverse()
                   .slice(-QUOTES)}
               />
               <BarChart
                 name="Money Flow"
                 abbreviation="MFI"
-                data={countMoneyFlowIndexes(quote.dataset.data)}
-                labels={quote.dataset.data.map(column => column[0])
+                data={countMoneyFlowIndexes(quotes.dataset.data)}
+                labels={quotes.dataset.data.map(column => column[0])
                   .reverse()
                   .slice(-QUOTES)}
               />
               <BarChart
                 name="Rate of Change"
                 abbreviation="ROC"
-                data={countRateOfChangesIndicators(quote.dataset.data)}
-                labels={quote.dataset.data.map(column => column[0])
+                data={countRateOfChangesIndicators(quotes.dataset.data)}
+                labels={quotes.dataset.data.map(column => column[0])
                   .reverse()
                   .slice(-QUOTES)}
               />
               <BarChart
                 name="Relative Strength Index"
                 abbreviation="RSI"
-                data={countRelativeStrengthIndexes(quote.dataset.data)}
-                labels={quote.dataset.data.map(column => column[0])
+                data={countRelativeStrengthIndexes(quotes.dataset.data)}
+                labels={quotes.dataset.data.map(column => column[0])
                   .reverse()
                   .slice(-QUOTES)}
               />
               <BarChart
                 name="Ultimate Oscillator"
                 abbreviation="UO"
-                data={countUltimateOscillators(quote.dataset.data)}
-                labels={quote.dataset.data.map(column => column[0])
+                data={countUltimateOscillators(quotes.dataset.data)}
+                labels={quotes.dataset.data.map(column => column[0])
                   .reverse()
                   .slice(-QUOTES)}
               />
               <BarChart
                 name="Williams %R"
                 abbreviation="%R"
-                data={countWilliamsPercentRanges(quote.dataset.data)}
-                labels={quote.dataset.data.map(column => column[0])
+                data={countWilliamsPercentRanges(quotes.dataset.data)}
+                labels={quotes.dataset.data.map(column => column[0])
                   .reverse()
                   .slice(-QUOTES)}
               />
@@ -137,23 +137,23 @@ class Indicators extends Component {
 }
 
 Indicators.propTypes = {
-  fetchQuote: PropTypes.func.isRequired,
+  fetchQuotes: PropTypes.func.isRequired,
   isLoading: PropTypes.bool,
-  quote: PropTypes.shape(PropTypes.string.isRequired),
+  quotes: PropTypes.shape(PropTypes.string.isRequired),
 };
 
 Indicators.defaultProps = {
-  quote: {},
+  quotes: {},
   isLoading: true,
 };
 
-const mapStateToProps = ({ quote, isLoading }) => ({
-  quote,
+const mapStateToProps = ({ quotes, isLoading }) => ({
+  quotes,
   isLoading,
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchQuote: () => dispatch(fetchQuoteAction('ALIOR', moment()
+  fetchQuotes: () => dispatch(fetchQuotesAction('ALIOR', moment()
     .subtract(DAYS, 'days')
     .format()
     .substring(0, 10))),
