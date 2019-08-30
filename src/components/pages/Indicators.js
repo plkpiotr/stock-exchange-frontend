@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import moment from 'moment';
 import Online from 'components/templates/Online';
-import styled from 'styled-components';
 import Header from 'components/atoms/Header/Header';
 import Loader from 'components/atoms/Loader/Loader';
 import Tabs from 'components/molecules/Tabs/Tabs';
@@ -61,72 +61,72 @@ class Indicators extends Component {
                 abbreviation="AO"
                 data={countAwesomeOscillators(quotes.dataset.data)}
                 labels={quotes.dataset.data.map(column => column[0])
-                  .reverse()
-                  .slice(-(QUOTES))}
+                  .slice(0, QUOTES)
+                  .reverse()}
               />
               <BarChart
                 name="Commodity Channel Index"
                 abbreviation="CCI"
                 data={countCommodityChannelIndexes(quotes.dataset.data)}
                 labels={quotes.dataset.data.map(column => column[0])
-                  .reverse()
-                  .slice(-(QUOTES))}
+                  .slice(0, QUOTES)
+                  .reverse()}
               />
               <BarChart
                 name="Detrended Price Oscillator"
                 abbreviation="DPO"
                 data={countDetrendedPriceOscillators(quotes.dataset.data)}
                 labels={quotes.dataset.data.map(column => column[0])
-                  .reverse()
-                  .slice(-(QUOTES))}
+                  .slice(0, QUOTES)
+                  .reverse()}
               />
               <BarChart
                 name="Ease of Movement"
                 abbreviation="EMV"
                 data={countEaseOfMovementIndicators(quotes.dataset.data)}
                 labels={quotes.dataset.data.map(column => column[0])
-                  .reverse()
-                  .slice(-QUOTES)}
+                  .slice(0, QUOTES)
+                  .reverse()}
               />
               <BarChart
                 name="Money Flow"
                 abbreviation="MFI"
                 data={countMoneyFlowIndexes(quotes.dataset.data)}
                 labels={quotes.dataset.data.map(column => column[0])
-                  .reverse()
-                  .slice(-QUOTES)}
+                  .slice(0, QUOTES)
+                  .reverse()}
               />
               <BarChart
                 name="Rate of Change"
                 abbreviation="ROC"
                 data={countRateOfChangesIndicators(quotes.dataset.data)}
                 labels={quotes.dataset.data.map(column => column[0])
-                  .reverse()
-                  .slice(-QUOTES)}
+                  .slice(0, QUOTES)
+                  .reverse()}
               />
               <BarChart
                 name="Relative Strength Index"
                 abbreviation="RSI"
                 data={countRelativeStrengthIndexes(quotes.dataset.data)}
                 labels={quotes.dataset.data.map(column => column[0])
-                  .reverse()
-                  .slice(-QUOTES)}
+                  .slice(0, QUOTES)
+                  .reverse()}
               />
               <BarChart
                 name="Ultimate Oscillator"
                 abbreviation="UO"
                 data={countUltimateOscillators(quotes.dataset.data)}
                 labels={quotes.dataset.data.map(column => column[0])
-                  .reverse()
-                  .slice(-QUOTES)}
+                  .slice(0, QUOTES)
+                  .reverse()}
               />
               <BarChart
                 name="Williams %R"
                 abbreviation="%R"
                 data={countWilliamsPercentRanges(quotes.dataset.data)}
                 labels={quotes.dataset.data.map(column => column[0])
-                  .reverse()
-                  .slice(-QUOTES)}
+                  .slice(0, QUOTES)
+                  .reverse()}
               />
             </Board>
           )}

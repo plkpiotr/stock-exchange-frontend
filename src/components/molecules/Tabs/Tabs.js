@@ -86,7 +86,7 @@ Tabs.propTypes = {
 };
 
 const mapDispatchToProps = dispatch => ({
-  changeQuotes: () => dispatch(changeQuotesAction('ALIOR', moment()
+  changeQuotes: symbol => dispatch(changeQuotesAction(symbol, moment()
     .subtract(DAYS, 'days')
     .format()
     .substring(0, 10))),

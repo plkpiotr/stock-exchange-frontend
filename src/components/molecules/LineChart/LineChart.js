@@ -22,50 +22,50 @@ const LineChart = ({ symbol, labels, data }) => (
     <Line
       redraw
       data={{
-        labels: data.map(column => column[0]).reverse(),
+        labels: data.map(column => column[0]),
         datasets: [{
-          data: data.map(column => column[1]).reverse(),
+          data: data.map(column => column[1]),
           label: labels[1],
           borderColor: 'hsl(215, 100%, 60%)',
           backgroundColor: 'rgb(51, 136, 255, 0.2)',
           hidden: true,
         }, {
-          data: data.map(column => column[4]).reverse(),
+          data: data.map(column => column[4]),
           label: labels[4],
           borderColor: 'hsl(35, 100%, 60%)',
           backgroundColor: 'rgba(255, 170 , 51, 0.2)',
         }, {
-          data: data.map(column => column[2]).reverse(),
+          data: data.map(column => column[2]),
           label: labels[2],
           borderColor: 'hsl(125, 100%, 60%)',
           backgroundColor: 'rgba(51, 255, 68, 0.2)',
           hidden: true,
         }, {
-          data: data.map(column => column[3]).reverse(),
+          data: data.map(column => column[3]),
           label: labels[3],
           borderColor: 'hsl(350, 100%, 60%)',
           backgroundColor: 'rgb(255, 51, 85, 0.2)',
           hidden: true,
         }, {
-          data: data.map(column => column[5]).reverse(),
+          data: data.map(column => column[5]),
           label: labels[5],
           borderColor: 'hsl(260, 100%, 60%)',
           backgroundColor: 'rgb(119, 51, 255, 0.2)',
           hidden: true,
         }, {
-          data: data.map(column => column[6]).reverse(),
+          data: data.map(column => column[6]),
           label: labels[6],
           borderColor: 'hsl(170, 100%, 60%)',
           backgroundColor: 'rgb(51, 255, 221, 0.2)',
           hidden: true,
         }, {
-          data: data.map(column => column[7]).reverse(),
+          data: data.map(column => column[7]),
           label: labels[7],
           borderColor: 'hsl(305, 100%, 60%)',
           backgroundColor: 'rgb(255, 51, 238, 0.2)',
           hidden: true,
         }, {
-          data: data.map(column => column[8]).reverse(),
+          data: data.map(column => column[8]),
           label: labels[8],
           borderColor: 'hsl(80, 100%, 60%)',
           backgroundColor: 'rgb(187, 255, 51, 0.2)',
