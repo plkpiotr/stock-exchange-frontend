@@ -45,7 +45,7 @@ const AddTransactionPanel = ({
         symbol: 'ALIOR',
         date: '',
         price: 0.01,
-        comment: '',
+        comment: 'Ordinary transaction',
       }}
       onSubmit={(values) => {
         addTransaction(values);

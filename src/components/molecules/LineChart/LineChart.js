@@ -140,7 +140,6 @@ const LineChart = ({ symbol, labels, data }) => (
 );
 
 LineChart.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
   data: PropTypes.array.isRequired,
   labels: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number, PropTypes.string])).isRequired,
   symbol: PropTypes.string.isRequired,

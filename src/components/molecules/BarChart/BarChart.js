@@ -68,7 +68,6 @@ const BarChart = ({
 BarChart.propTypes = {
   name: PropTypes.string.isRequired,
   abbreviation: PropTypes.string.isRequired,
-  // eslint-disable-next-line react/forbid-prop-types
   data: PropTypes.array,
   labels: PropTypes.arrayOf(PropTypes.string).isRequired,
 };

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Icon from 'components/atoms/Icon/Icon';
-import dashboard from 'icons/dashboard.svg';
 import quotes from 'icons/quotes.svg';
 import indicators from 'icons/indicators.svg';
 import transactions from 'icons/transactions.svg';
@@ -29,16 +28,6 @@ const Wrapper = styled.ul`
 
 const Sidebar = ({ logout }) => (
   <Wrapper>
-    <li>
-      <Icon
-        as={NavLink}
-        to={routes.dashboard}
-        icon={dashboard}
-        activeclass="active"
-      >
-        Dashboard
-      </Icon>
-    </li>
     <li>
       <Icon
         as={NavLink}

@@ -54,7 +54,7 @@ const Login = ({ isAuthenticated, login }) => (
         values, handleChange, handleBlur, errors, touched,
       }) => {
         if (isAuthenticated) {
-          return <Redirect push to={routes.dashboard} />;
+          return <Redirect push to={routes.quotes} />;
         }
         return (
           <StyledForm>

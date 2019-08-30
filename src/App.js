@@ -8,7 +8,6 @@ import { Provider } from 'react-redux';
 import Main from 'components/templates/Main';
 import routes from 'constants/routes';
 import store from 'store/store';
-import Dashboard from 'components/pages/Dashboard';
 import Quotes from 'components/pages/Quotes';
 import Indicators from 'components/pages/Indicators';
 import Transactions from 'components/pages/Transactions';
@@ -28,7 +27,6 @@ const App = () => (
         <Switch>
           <Route exact path={routes.login} component={Login} />
           <Route exact path={routes.register} component={Register} />
-          <Route exact path={routes.dashboard} component={Authenticator(Dashboard)} />
           <Route exact path={routes.quotes} component={Authenticator(Quotes)} />
           <Route exact path={routes.indicators} component={Authenticator(Indicators)} />
           <Route exact path={routes.transactions} component={Authenticator(Transactions)} />
