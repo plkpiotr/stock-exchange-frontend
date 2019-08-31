@@ -7,7 +7,7 @@ import indicators from 'icons/indicators.svg';
 import transactions from 'icons/transactions.svg';
 import articles from 'icons/articles.svg';
 import notes from 'icons/notes.svg';
-import exit from 'icons/exit.svg';
+import signOut from 'icons/signOut.svg';
 import routes from 'constants/routes';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -80,10 +80,10 @@ const Sidebar = ({ logout }) => (
     </li>
     <li>
       <Icon
-        icon={exit}
+        icon={signOut}
         onClick={logout}
       >
-        Log out
+        Sign out
       </Icon>
     </li>
   </Wrapper>

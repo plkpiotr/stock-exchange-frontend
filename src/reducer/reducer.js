@@ -90,13 +90,24 @@ const reducer = (state = initialState, action) => {
         ...state,
         item: action.data,
       };
-    case FETCH_ITEMS_REQUEST:
     case FETCH_ITEM_REQUEST:
     case FETCH_QUOTES_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case FETCH_ITEMS_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+        notes: [],
+        articles: [],
+      };
     case FETCH_TRANSACTIONS_REQUEST:
       return {
         ...state,
         isLoading: true,
+        transactions: [],
       };
     case FETCH_ITEMS_FAILURE:
     case FETCH_ITEM_FAILURE:
