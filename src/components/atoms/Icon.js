@@ -28,6 +28,20 @@ const Icon = styled.a`
     outline: none;
     border-right: 5px solid ${({ theme }) => (theme.primary)};    
   }
+  
+  @media(max-height: 560px) {
+    width: 90px;
+    height: 60px;
+    padding-top: 40px;
+    font-size: 13px;
+    
+    &:hover {
+      width: 95px;
+    }
+  
+    &.active {
+      width: 95px;
+    }
 `;
 
 export default Icon;

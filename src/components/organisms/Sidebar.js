@@ -24,6 +24,10 @@ const Wrapper = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  
+  @media(max-height: 560px) {
+    width: 95px;
+  }
 `;
 
 const Sidebar = ({ logout }) => (

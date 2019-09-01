@@ -13,13 +13,13 @@ import { shortenLine } from 'utils/format';
 import { deleteItemAction } from 'actions/deleteItem';
 
 const Wrapper = styled.div`
-  width: 364px;
-  margin : 2vh 2vw 3vh 0;
+  width: 363px;
+  margin : 2vh 2vw 2vh 0;
   padding: 25px;
   background-color: ${({ theme }) => (theme.quaternary)};
   
   @media (min-width: 1920px) {
-    width: 391px;
+    width: 391.5px;
   }
 `;
 

@@ -5,14 +5,10 @@ import symbols from 'constants/symbols';
 import AccordionElement from 'components/molecules/AccordionElement';
 
 const DescriptionList = styled.dl`
-  width: 65vw;
-  
-  @media (max-width: 1366px) {
-    width: 75vw;
-  }
+  width: 54vw;
   
   @media (max-width: 1200px) {
-    width: 80vw;
+    width: 75vw;
   }
 `;
 
