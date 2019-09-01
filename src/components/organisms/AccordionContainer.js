@@ -52,7 +52,7 @@ AccordionContainer.propTypes = {
     _id: PropTypes.string.isRequired,
     symbol: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
+    amount: PropTypes.number.isRequired,
     comment: PropTypes.string.isRequired,
   })).isRequired,
 };

@@ -53,7 +53,7 @@ function AccordionElement(props) {
         <Span />
         <Span>{title}</Span>
         <Span right primary>
-          {stylizeNumber(transactions.reduce((sum, t) => (t.price) + sum, 0), 'PLN')}
+          {stylizeNumber(transactions.reduce((sum, t) => (t.amount) + sum, 0), 'PLN')}
         </Span>
         <Span />
         <Span center>{transactions.length}</Span>
@@ -65,7 +65,7 @@ function AccordionElement(props) {
             <Span />
             <Span primary>{moment(transaction.date).format('L')}</Span>
             <Span>{transaction.comment}</Span>
-            <Span right primary>{stylizeNumber(transaction.price, 'PLN')}</Span>
+            <Span right primary>{stylizeNumber(transaction.amount, 'PLN')}</Span>
             <Span />
             <Button column onClick={() => deleteTransaction(transaction._id)}>
               {unicodes.cross}
@@ -86,7 +86,7 @@ AccordionElement.propTypes = {
     _id: PropTypes.string.isRequired,
     symbol: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
+    amount: PropTypes.number.isRequired,
     comment: PropTypes.string.isRequired,
   })).isRequired,
 };

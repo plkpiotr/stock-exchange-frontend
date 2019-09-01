@@ -44,7 +44,7 @@ const AddTransactionPanel = ({
       initialValues={{
         symbol: 'ALIOR',
         date: '',
-        price: 0.01,
+        amount: 0.01,
         comment: 'Normal transaction',
       }}
       onSubmit={(values) => {
@@ -57,7 +57,7 @@ const AddTransactionPanel = ({
             .min(new Date('04-12-1991'))
             .max(new Date())
             .required(),
-          price: string()
+          amount: string()
             .matches(/^[-]?[0-9]+(\.[0-9]{2})?$/)
             .required(),
           comment: string()
@@ -89,15 +89,15 @@ const AddTransactionPanel = ({
             value={values.date}
             className={`${errors.date && touched.date && 'invalid'}`}
           />
-          <Description panel>Purchase price:</Description>
+          <Description panel>Amount:</Description>
           <Input
-            name="price"
+            name="amount"
             type="number"
             step="0.01"
             onChange={handleChange}
             onBlur={handleBlur}
-            value={values.price}
-            className={`${errors.price && touched.price && 'invalid'}`}
+            value={values.amount}
+            className={`${errors.amount && touched.amount && 'invalid'}`}
           />
           <Description panel>Comment:</Description>
           <Input

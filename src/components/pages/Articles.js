@@ -45,9 +45,11 @@ class Articles extends Component {
     const { isPanelVisible, searchString } = this.state;
 
     let items = articles;
-    const string = searchString.trim().toLowerCase();
+    const string = searchString.trim()
+      .toLowerCase();
     if (string.length > 0) {
-      items = items.filter(article => article.title.toLowerCase().match(string));
+      items = items.filter(article => article.title.toLowerCase()
+        .match(string));
     }
 
     if (isLoading) {
@@ -70,19 +72,20 @@ class Articles extends Component {
             placeholder="Find by article title…"
           />
           <Board>
-            {items.map(({
-              _id, title, description, created, link,
-            }) => (
-              <Card
-                itemType="articles"
-                _id={_id}
-                title={title}
-                description={description}
-                created={created}
-                link={link}
-                key={_id}
-              />
-            ))}
+            {items.sort((a, b) => new Date(a.created) - new Date(b.created))
+              .map(({
+                _id, title, description, created, link,
+              }) => (
+                <Card
+                  itemType="articles"
+                  _id={_id}
+                  title={title}
+                  description={description}
+                  created={created}
+                  link={link}
+                  key={_id}
+                />
+              ))}
           </Board>
           <Button fixed onClick={this.togglePanel}>
             {isPanelVisible ? 'Close' : 'New article'}
@@ -115,7 +118,10 @@ Articles.defaultProps = {
   isLoading: true,
 };
 
-const mapStateToProps = ({ articles, isLoading }) => ({ articles, isLoading });
+const mapStateToProps = ({ articles, isLoading }) => ({
+  articles,
+  isLoading,
+});
 
 const mapDispatchToProps = dispatch => ({
   fetchArticles: () => dispatch(fetchItemsAction('articles')),

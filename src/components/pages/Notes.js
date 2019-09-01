@@ -45,9 +45,11 @@ class Notes extends Component {
     const { isPanelVisible, searchString } = this.state;
 
     let items = notes;
-    const string = searchString.trim().toLowerCase();
+    const string = searchString.trim()
+      .toLowerCase();
     if (string.length > 0) {
-      items = items.filter(note => note.title.toLowerCase().match(string));
+      items = items.filter(note => note.title.toLowerCase()
+        .match(string));
     }
 
     if (isLoading) {
@@ -70,18 +72,19 @@ class Notes extends Component {
             placeholder="Find by note title…"
           />
           <Board>
-            {items.map(({
-              _id, title, description, created,
-            }) => (
-              <Card
-                itemType="notes"
-                _id={_id}
-                title={title}
-                description={description}
-                created={created}
-                key={_id}
-              />
-            ))}
+            {items.sort((a, b) => new Date(a.created) - new Date(b.created))
+              .map(({
+                _id, title, description, created,
+              }) => (
+                <Card
+                  itemType="notes"
+                  _id={_id}
+                  title={title}
+                  description={description}
+                  created={created}
+                  key={_id}
+                />
+              ))}
           </Board>
           <Button fixed onClick={this.togglePanel}>
             {isPanelVisible ? 'Close' : 'New note'}
@@ -113,7 +116,10 @@ Notes.defaultProps = {
   isLoading: true,
 };
 
-const mapStateToProps = ({ notes, isLoading }) => ({ notes, isLoading });
+const mapStateToProps = ({ notes, isLoading }) => ({
+  notes,
+  isLoading,
+});
 
 const mapDispatchToProps = dispatch => ({
   fetchNotes: () => dispatch(fetchItemsAction('notes')),

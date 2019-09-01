@@ -14,10 +14,13 @@ import { deleteItemAction } from 'actions/deleteItem';
 
 const Wrapper = styled.div`
   width: 364px;
-  min-height: 168px;
   margin : 2vh 2vw 3vh 0;
   padding: 25px;
   background-color: ${({ theme }) => (theme.quaternary)};
+  
+  @media (min-width: 1920px) {
+    width: 391px;
+  }
 `;
 
 const Date = styled.div`
@@ -27,8 +30,8 @@ const Date = styled.div`
   display: flex;
 `;
 
-const TITLE_LIMIT = 25;
-const DESCRIPTION_LIMIT = 35;
+const TITLE_LIMIT = 30;
+const DESCRIPTION_LIMIT = 40;
 
 class Card extends Component {
   state = {
