@@ -2,7 +2,7 @@
 
 ## Overview
 
-RESTFul Web Service designed for stock analysis on the basis of data from [Quandl](https://www.quandl.com/data/WARSAWSE-Warsaw-Stock-Exchange) platform - in
+RESTful Web Service designed for stock analysis on the basis of data from [Quandl](https://www.quandl.com/data/WARSAWSE-Warsaw-Stock-Exchange) platform - in
 this case WIG20 (a stock market index of the twenty largest companies on the Warsaw Stock Exchange).
 
 ## Technology stack
