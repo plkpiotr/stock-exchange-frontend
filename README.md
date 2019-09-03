@@ -24,7 +24,7 @@ this case WIG20 (a stock market index of the twenty largest companies on the War
 
 ## Live Preview
 
-The project was deployed on Heroku platform: [stock-exchange-frontend.herokuapp.com/](https://stock-exchange-frontend.herokuapp.com/)
+The project was deployed on Heroku platform: [stock-exchange-frontend.herokuapp.com](https://stock-exchange-frontend.herokuapp.com/)
 
 ## Quick start
 
