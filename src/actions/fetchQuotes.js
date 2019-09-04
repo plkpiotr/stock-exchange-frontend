@@ -21,7 +21,7 @@ export const fetchQuotesAction = (symbol, startDate) => (dispatch) => {
       });
     })
     .catch((error) => {
-      toast(`An error occurred trying to fetch the quote\n${error}`);
+      toast(`An error occurred when attempting to fetch quotes\n${error}`);
       dispatch({
         type: FETCH_QUOTES_FAILURE,
       });

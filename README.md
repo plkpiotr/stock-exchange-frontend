@@ -26,6 +26,14 @@ this case WIG20 (a stock market index of the twenty largest companies on the War
 
 The project was deployed on Heroku platform: [stock-exchange-frontend.herokuapp.com](https://stock-exchange-frontend.herokuapp.com/)
 
+Please wait a second and enter the following data:
+
+Email: `v@v.v`
+
+Password: `v`
+
+If you will see the error: `An error occurred when attempting to sign in. Error: Network Error`, try to sign in again - this means that a back-end part of application is not active yet.
+
 ## Quick start
 
 Install dependencies:

@@ -22,7 +22,7 @@ export const addTransactionAction = itemContent => (dispatch) => {
       });
     })
     .catch((error) => {
-      toast(`An error occurred trying to add the transaction\n${error}`);
+      toast(`An error occurred when attempting to change a transaction\n${error}`);
       dispatch({
         type: ADD_TRANSACTION_FAILURE,
       });

@@ -20,7 +20,7 @@ export const deleteTransactionAction = id => (dispatch) => {
       });
     })
     .catch((error) => {
-      toast(`An error occurred trying to delete the transaction\n${error}`);
+      toast(`An error occurred when attempting to delete a transaction\n${error}`);
       dispatch({
         type: DELETE_TRANSACTION_FAILURE,
       });

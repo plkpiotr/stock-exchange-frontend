@@ -23,7 +23,7 @@ export const addItemAction = (itemType, itemContent) => (dispatch) => {
       });
     })
     .catch((error) => {
-      toast(`An error occurred trying to add the item\n${error}`);
+      toast(`An error occurred when attempting to add an item\n${error}`);
       dispatch({
         type: ADD_ITEM_FAILURE,
       });
