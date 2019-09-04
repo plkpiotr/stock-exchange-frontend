@@ -28,7 +28,7 @@ export const authorizeAction = (email, password) => (dispatch) => {
       toast('Welcome to Stock Exchange Application');
     })
     .catch((error) => {
-      toast(`An error occurred trying to sign in\n${error}`);
+      toast(`An error occurred when attempting to sign in\n${error}`);
       dispatch({
         type: AUTHORIZE_FAILURE,
       });

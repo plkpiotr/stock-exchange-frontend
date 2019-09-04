@@ -21,7 +21,7 @@ export const deleteItemAction = (itemType, id) => (dispatch) => {
       });
     })
     .catch((error) => {
-      toast(`An error occurred trying to delete the item\n${error}`);
+      toast(`An error occurred when attempting to delete an item\n${error}`);
       dispatch({
         type: DELETE_ITEM_FAILURE,
       });

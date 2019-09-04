@@ -21,7 +21,7 @@ export const changeQuotesAction = (symbol, startDate) => (dispatch) => {
       });
     })
     .catch((error) => {
-      toast(`An error occurred trying to change the quote\n${error}`);
+      toast(`An error occurred when attempting to change quotes\n${error}`);
       dispatch({
         type: CHANGE_QUOTES_FAILURE,
       });

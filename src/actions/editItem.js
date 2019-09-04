@@ -24,7 +24,7 @@ export const editItemAction = (itemType, itemContent, id) => (dispatch) => {
       });
     })
     .catch((error) => {
-      toast(`An error occurred trying to edit the item\n${error}`);
+      toast(`An error occurred when attempting to edit an item\n${error}`);
       dispatch({
         type: EDIT_ITEM_FAILURE,
       });

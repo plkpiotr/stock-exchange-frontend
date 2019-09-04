@@ -22,7 +22,7 @@ export const registerAction = (email, password) => (dispatch) => {
       });
     })
     .catch((error) => {
-      toast(`An error occurred trying to register\n${error}`);
+      toast(`An error occurred when attempting to register\n${error}`);
       dispatch({
         type: REGISTER_FAILURE,
       });
