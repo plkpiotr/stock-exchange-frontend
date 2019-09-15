@@ -2,12 +2,12 @@ export const countSum = array => array.reduce((a, b) => a + b, 0);
 
 export const countAverage = array => array.reduce((a, b) => a + b, 0) / array.length;
 
-export const countMedianDeviation = (set, average) => {
+export const countMedianDeviation = (array, average) => {
   let sum = 0;
-  for (let i = 0; i < set.length; i += 1) {
-    sum += Math.abs(set[i] - average);
+  for (let i = 0; i < array.length; i += 1) {
+    sum += Math.abs(array[i] - average);
   }
-  sum /= 20;
+  sum /= array.length;
   return sum;
 };
 
