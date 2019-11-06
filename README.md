@@ -1,4 +1,4 @@
-# Stock Exchange Application (Frontend) - Deploy branch
+# Stock Exchange Application (Frontend)
 
 ## Overview
 
