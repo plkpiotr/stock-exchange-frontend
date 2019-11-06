@@ -42,7 +42,7 @@ const DescriptionDetails = styled.dd`
   }
 `;
 
-function AccordionElement(props) {
+const AccordionElement = (props) => {
   const {
     title, expanded, onClick, transactions, deleteTransaction,
   } = props;
@@ -75,7 +75,7 @@ function AccordionElement(props) {
         ))}
     </>
   );
-}
+};
 
 AccordionElement.propTypes = {
   title: PropTypes.string.isRequired,
